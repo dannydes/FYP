@@ -11,5 +11,5 @@ class Token(lexeme: String, row: Integer, col: Integer) {
   val keywords = Array("find", "if", "road", "is", "closed", "open", "when", "density")
 
   def isKeyword = keywords.contains(lexeme)
-  def isDoubleLit = ! lexeme.contains("a-z")
+  def isDoubleLit = ! lexeme.contains("a-z".r)
 }
