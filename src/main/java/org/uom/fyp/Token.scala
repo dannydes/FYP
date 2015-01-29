@@ -3,10 +3,10 @@ package org.uom.fyp
 /**
  * Created by Desira Daniel on 12/6/2014.
  */
-class Token(lexeme: String, row: Integer, col: Integer) {
-  def getLexeme = lexeme
-  def getRow = row
-  def getCol = col
+class Token(lex: String, r: Integer, c: Integer) {
+  def lexeme = lex
+  def row = r
+  def column = c
 
   val keywords = Array("find", "if", "road", "is", "closed", "open", "when", "density")
 
