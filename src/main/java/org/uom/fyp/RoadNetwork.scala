@@ -6,4 +6,6 @@ package org.uom.fyp
 trait RoadNetwork {
   def applyDiversion() : Any
   def findAverageTime() : Double
+
+  private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
 }
