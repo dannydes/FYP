@@ -7,7 +7,7 @@ import org.jgrapht.util.VertexPair
  */
 trait RoadNetwork {
   def applyDiversion() : Any
-  def findAverageTime(nodes : VertexPair) : Double
+  def findAverageTime(nodes : VertexPair[Node]) : Double
 
   private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
 }
