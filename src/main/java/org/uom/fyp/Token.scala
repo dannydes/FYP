@@ -3,7 +3,7 @@ package org.uom.fyp
 /**
  * Created by Desira Daniel on 12/6/2014.
  */
-class Token(lex: String, r: Integer, c: Integer) {
+class Token(lex: String, r: Int, c: Int) {
   def lexeme = lex
   def row = r
   def column = c
