@@ -7,14 +7,9 @@ class TwoWayLane(l: Double, w: Double) extends Lane(l, w) {
   var lSide: Boolean = true
 
   def leftSide = lSide
-  def leftSide_=(lSide: Boolean) {
-    this.lSide = lSide
+
+  def changeSide: Unit = {
+    lSide = ! lSide
+    super.reverse
   }
-
-  def serve =
-    if (leftSide) {
-
-    } else {
-
-    }
 }
