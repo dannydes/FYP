@@ -10,5 +10,7 @@ class Vehicle(l: Double, w: Double) {
   def width: Double = w
 
   def speed = s
-  def speed_(s: Int): Unit = {}
+  def speed_=(s: Int) {
+    this.s = s
+  }
 }
