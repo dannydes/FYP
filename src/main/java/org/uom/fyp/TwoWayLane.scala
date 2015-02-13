@@ -8,7 +8,7 @@ class TwoWayLane(l: Double, w: Double) extends Lane(l, w) {
 
   def leftSide = lSide
 
-  def changeSide: Unit = {
+  def changeSide(): Unit = {
     lSide = ! lSide
     super.reverse
   }
