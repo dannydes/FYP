@@ -9,7 +9,7 @@ import org.jgrapht.util.VertexPair
 trait RoadNetwork {
   var graph : DirectedGraph[Node, Lane]
 
-  def applyDiversion() : Any
+  def applyDiversion() : Unit
   def findAverageTime(nodes : VertexPair[Node]) : Double
 
   private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
