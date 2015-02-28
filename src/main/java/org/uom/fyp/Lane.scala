@@ -8,4 +8,8 @@ import scala.collection.mutable.Queue
 class Lane(l: Double, w: Double) extends Queue[Vehicle] {
   def lLen: Double = l
   def width: Double = w
+
+  def attachLane(properties: AnyRef): Lane = {
+    NetworkUtils.createLane()
+  }
 }

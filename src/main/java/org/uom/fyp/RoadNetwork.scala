@@ -13,4 +13,8 @@ trait RoadNetwork {
   def findAverageTime(nodes : VertexPair[Node]) : Double
 
   private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
+
+  def createLane(properties: AnyRef): Lane = {
+    NetworkUtils.createLane()
+  }
 }
