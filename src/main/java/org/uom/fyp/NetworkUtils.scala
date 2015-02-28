@@ -16,6 +16,8 @@ object NetworkUtils {
     }
     val v2: Node = vertexFactory.createVertex()
     val edgeFactor: ClassBasedEdgeFactory[Node, Lane] = new ClassBasedEdgeFactory("Lane".getClass)
-    edgeFactor.createEdge(v1, v2)
+    val lane: Lane = edgeFactor.createEdge(v1, v2)
+
+    lane
   }
 }
