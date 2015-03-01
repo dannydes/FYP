@@ -7,7 +7,7 @@ import org.jgrapht.graph.{ClassBasedEdgeFactory, ClassBasedVertexFactory}
  */
 object NetworkUtils {
   def createLane(start: Node = null): Lane = {
-    val vertexFactory: ClassBasedVertexFactory[Node] = new ClassBasedVertexFactory("Node".getClass)
+    val vertexFactory: ClassBasedVertexFactory[Node] = new ClassBasedVertexFactory(classOf[Node])
     var v1: Node = null
     if (start == null) {
       v1 = vertexFactory.createVertex()
@@ -15,9 +15,7 @@ object NetworkUtils {
       v1 = start
     }
     val v2: Node = vertexFactory.createVertex()
-    val edgeFactor: ClassBasedEdgeFactory[Node, Lane] = new ClassBasedEdgeFactory("Lane".getClass)
-    val lane: Lane = edgeFactor.createEdge(v1, v2)
-
-    lane
+    val edgeFactor: ClassBasedEdgeFactory[Node, Lane] = new ClassBasedEdgeFactory(classOf[Lane])
+    edgeFactor.createEdge(v1, v2)
   }
 }
