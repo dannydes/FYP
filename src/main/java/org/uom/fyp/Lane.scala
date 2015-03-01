@@ -2,8 +2,6 @@ package org.uom.fyp
 
 import org.jgrapht.graph.DefaultEdge
 
-import scala.collection.mutable.Queue
-
 /**
  * Created by Desira Daniel on 2/10/2015.
  */
