@@ -3,7 +3,7 @@ package org.uom.fyp
 import scala.io.Source
 
 /**
- * Created by Desira Daniel on 12/5/2014.
+ * DSL lexer
  */
 class Lexer(sourcefile: String) {
   var lines: Array[String] = Array()

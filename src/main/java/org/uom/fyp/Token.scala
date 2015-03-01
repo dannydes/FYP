@@ -1,7 +1,7 @@
 package org.uom.fyp
 
 /**
- * Created by Desira Daniel on 12/6/2014.
+ * Token class
  */
 class Token(lex: String, r: Int, c: Int) {
   def lexeme = lex

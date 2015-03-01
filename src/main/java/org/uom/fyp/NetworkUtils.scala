@@ -3,7 +3,7 @@ package org.uom.fyp
 import org.jgrapht.graph.{ClassBasedEdgeFactory, ClassBasedVertexFactory}
 
 /**
- * Created by Daniel on 2/26/2015.
+ * Static methods for use upon road networks
  */
 object NetworkUtils {
   def createLane(start: Node = null): Lane = {
