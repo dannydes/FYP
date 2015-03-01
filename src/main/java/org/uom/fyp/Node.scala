@@ -3,6 +3,6 @@ package org.uom.fyp
 /**
  * Node class
  */
-class Node {
-
+class Node(nodeType: NodeType) {
+  def nType: NodeType = nodeType
 }
