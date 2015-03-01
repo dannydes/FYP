@@ -14,7 +14,5 @@ trait RoadNetwork {
 
   private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
 
-  def createLane(properties: AnyRef): Lane = {
-    NetworkUtils.createLane()
-  }
+  def createLane(properties: AnyRef): Lane = NetworkUtils.createLane()
 }
