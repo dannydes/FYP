@@ -13,4 +13,8 @@ class RoadNetwork extends IRoadNetwork {
   override def findAverageTime(nodes: VertexPair[Node]): Double = ???
 
   override def applyDiversion(): Unit = ???
+
+  def blockLane(streetName: String): Unit = {
+
+  }
 }
