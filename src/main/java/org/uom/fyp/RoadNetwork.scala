@@ -21,6 +21,6 @@ class RoadNetwork extends IRoadNetwork {
     for (lane <- lanes) {
 
     }
-    return null
+    null
   }
 }
