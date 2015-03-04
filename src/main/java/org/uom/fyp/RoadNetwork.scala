@@ -18,8 +18,10 @@ class RoadNetwork extends IRoadNetwork {
 
   def getLane(streetName: String): Lane = {
     val lanes = graph.edgeSet.toArray
-    for (lane <- lanes) {
-
+    for (lane: Lane <- lanes) {
+      if (lane.street.name == streetName) {
+        lane
+      }
     }
     null
   }
