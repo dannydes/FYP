@@ -6,7 +6,7 @@ import org.jgrapht.util.VertexPair
 /**
  * Created by Daniel on 11/30/2014.
  */
-trait IRoadNetwork extends DefaultDirectedGraph[Node, Lane] {
+trait IRoadNetwork {
   def applyDiversion() : Unit
   def findAverageTime(nodes : VertexPair[Node]) : Double
 
