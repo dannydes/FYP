@@ -1,6 +1,5 @@
 package org.uom.fyp
 
-import org.jgrapht.DirectedGraph
 import org.jgrapht.graph.DefaultDirectedGraph
 import org.jgrapht.util.VertexPair
 
