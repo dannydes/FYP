@@ -11,4 +11,5 @@ class Lane(l: Double, w: Double) extends DefaultEdge {
   def width: Double = w
 
   def attachLane(properties: AnyRef): Lane = NetworkUtils.createLane(this.getTarget.asInstanceOf[Node])
+  def block(streetName: String) = {}
 }

@@ -1,5 +1,7 @@
 package org.uom.fyp
 
+import java.util.Set
+
 import org.jgrapht.DirectedGraph
 import org.jgrapht.graph.DefaultDirectedGraph
 import org.jgrapht.util.VertexPair
@@ -14,7 +16,11 @@ class RoadNetwork extends IRoadNetwork {
 
   override def applyDiversion(): Unit = ???
 
-  def blockLane(streetName: String): Unit = {
+  def getLane(streetName: String): Lane = {
+    val lanes = graph.edgeSet.toArray
+    for (lane <- lanes) {
 
+    }
+    return null
   }
 }
