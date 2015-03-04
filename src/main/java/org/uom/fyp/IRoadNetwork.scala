@@ -1,14 +1,12 @@
 package org.uom.fyp
 
-import org.jgrapht.DirectedGraph
+import org.jgrapht.graph.DefaultDirectedGraph
 import org.jgrapht.util.VertexPair
 
 /**
  * Created by Daniel on 11/30/2014.
  */
-trait IRoadNetwork {
-  var graph : DirectedGraph[Node, Lane]
-
+trait IRoadNetwork extends DefaultDirectedGraph[Node, Lane] {
   def applyDiversion() : Unit
   def findAverageTime(nodes : VertexPair[Node]) : Double
 
