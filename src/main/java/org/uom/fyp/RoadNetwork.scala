@@ -23,4 +23,9 @@ class RoadNetwork extends DefaultDirectedGraph(classOf[Lane]) with IRoadNetwork 
     }
     null
   }
+
+  def blockLane(streetName: String) = {
+    val lane = getLane(streetName)
+    lane.block(this)
+  }
 }
