@@ -3,7 +3,7 @@ package org.uom.fyp
 /**
  * Created by Desira Daniel on 2/10/2015.
  */
-class TwoWayLane(l: Double, w: Double) extends Lane(l, w) {
+class TwoWayLane(l: Double, w: Double, s: Street) extends Lane(l, w, s) {
   /**var lSide: Boolean = true
 
   def leftSide = lSide
