@@ -1,6 +1,6 @@
 package org.uom.fyp
 
-import org.jgrapht.graph.DefaultDirectedGraph
+import org.jgrapht.graph.{DirectedGraphUnion, DefaultDirectedGraph}
 import org.jgrapht.util.VertexPair
 
 /**
@@ -27,4 +27,6 @@ class RoadNetwork extends DefaultDirectedGraph(classOf[Lane]) with IRoadNetwork 
     val lane = getLane(streetName)
     lane.block(this)
   }
+
+  //def join(other: RoadNetwork) = new DirectedGraphUnion(this, other)
 }
