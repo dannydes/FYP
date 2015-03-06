@@ -1,12 +1,12 @@
 package org.uom.fyp
 
-import org.jgrapht.graph.{DirectedGraphUnion, DefaultDirectedGraph}
+import org.jgrapht.graph.DefaultDirectedGraph
 import org.jgrapht.util.VertexPair
 
 /**
  * RoadNetwork class
  */
-class RoadNetwork extends DefaultDirectedGraph(classOf[Lane]) with IRoadNetwork {
+class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
   override def findAverageTime(nodes: VertexPair[Node]): Double = ???
 
   override def applyDiversion(): Unit = ???
@@ -28,5 +28,5 @@ class RoadNetwork extends DefaultDirectedGraph(classOf[Lane]) with IRoadNetwork 
     lane.block(this)
   }
 
-  //def join(other: RoadNetwork) = new DirectedGraphUnion(this, other)
+  def join(other: RoadNetwork) = new UnifiedDirectedGraph(this, other)
 }
