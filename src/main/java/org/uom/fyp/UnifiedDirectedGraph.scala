@@ -1,20 +1,20 @@
 package org.uom.fyp
 
+import java.util.HashSet
+
 import org.jgrapht.graph.DefaultDirectedGraph
 
 /**
  * Created by Daniel on 3/6/2015.
  */
 class UnifiedDirectedGraph(g1: DefaultDirectedGraph[Node, Lane], g2: DefaultDirectedGraph[Node, Lane]) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) {
-  val g1EdgeIterator = g1.edgeSet.iterator
-  val g2EdgeIterator = g2.edgeSet.iterator
-  while (g1EdgeIterator.hasNext || g2EdgeIterator.hasNext) {
+  jSetUnion(g1.edgeSet, g2.edgeSet)
+  jSetUnion(g2.vertexSet, g2.vertexSet)
 
-  }
-
-  val g1VertexIterator = g1.vertexSet.iterator
-  val g2VertexIterator = g2.vertexSet.iterator
-  while (g1VertexIterator.hasNext || g2VertexIterator.hasNext) {
-
+  private def jSetUnion(s1: java.util.Set, s2: java.util.Set): HashSet = {
+    val res = new HashSet
+    res.addAll(s1)
+    res.addAll(s2)
+    res
   }
 }
