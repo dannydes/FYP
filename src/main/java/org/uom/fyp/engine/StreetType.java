@@ -1,4 +1,4 @@
-package org.uom.fyp;
+package org.uom.fyp.engine;
 
 /**
  * StreetType enum

@@ -1,6 +1,7 @@
-package org.uom.fyp
+package org.uom.fyp.engine
 
 import org.jgrapht.graph.{ClassBasedEdgeFactory, ClassBasedVertexFactory}
+import org.uom.fyp.engine.Lane
 
 /**
  * Static methods for use upon road networks
