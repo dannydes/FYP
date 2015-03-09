@@ -3,7 +3,6 @@ package org.uom.fyp.engine
 import java.util.HashSet
 
 import org.jgrapht.graph.DefaultDirectedGraph
-import org.uom.fyp.engine.Lane
 
 /**
  * Created by Daniel on 3/6/2015.
