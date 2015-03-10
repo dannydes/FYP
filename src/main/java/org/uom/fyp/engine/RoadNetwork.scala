@@ -28,6 +28,10 @@ class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with I
     null
   }
 
+  /**
+   * Block lane found in the street with the given name.
+   * @param streetName Street name.
+   */
   def blockLane(streetName: String) = {
     val lane = getLane(streetName)
     lane.block(this)
