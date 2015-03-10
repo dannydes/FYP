@@ -1,7 +1,9 @@
 package org.uom.fyp.engine
 
 /**
- * Vehicle class
+ * Defines operations over vehicles.
+ * @param l Length of vehicle.
+ * @param w Width of vehicle.
  */
 class Vehicle(l: Double, w: Double) {
   var s: Int = 0

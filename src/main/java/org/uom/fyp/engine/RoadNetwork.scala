@@ -4,13 +4,18 @@ import org.jgrapht.graph.DefaultDirectedGraph
 import org.jgrapht.util.VertexPair
 
 /**
- * RoadNetwork class
+ * Organises and simulates road networks.
  */
 class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
   override def findAverageTime(nodes: VertexPair[Node]): Double = ???
 
   override def applyDiversion(): Unit = ???
 
+  /**
+   * Returns the lane found in a street with the given name.
+   * @param streetName Street name.
+   * @return Lane found in the given street.
+   */
   def getLane(streetName: String): Lane = {
     val lanes = edgeSet
     val iterator = lanes.iterator
