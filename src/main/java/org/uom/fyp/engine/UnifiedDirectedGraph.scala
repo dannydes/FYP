@@ -1,6 +1,6 @@
 package org.uom.fyp.engine
 
-import java.util.HashSet
+import java.util
 
 import org.jgrapht.graph.DefaultDirectedGraph
 
@@ -11,8 +11,8 @@ class UnifiedDirectedGraph(g1: DefaultDirectedGraph[Node, Lane], g2: DefaultDire
   jSetUnion(g1.edgeSet, g2.edgeSet)
   jSetUnion(g2.vertexSet, g2.vertexSet)
 
-  private def jSetUnion(s1: java.util.Set, s2: java.util.Set): HashSet = {
-    val res = new HashSet
+  private def jSetUnion(s1: util.Collection[_], s2: util.Collection[_]): util.HashSet[_] = {
+    val res = new util.HashSet[Any]
     res.addAll(s1)
     res.addAll(s2)
     res
