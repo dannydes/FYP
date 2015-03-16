@@ -4,6 +4,7 @@ package org.uom.fyp.dslfrontend
  * Token class
  */
 class Token(lex: String, r: Int, c: Int) {
+
   def lexeme = lex
   def row = r
   def column = c
@@ -12,4 +13,5 @@ class Token(lex: String, r: Int, c: Int) {
 
   def isKeyword = keywords.contains(lexeme)
   def isDoubleLit = ! lexeme.contains("a-z".r)
+
 }

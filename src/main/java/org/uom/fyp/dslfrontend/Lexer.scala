@@ -6,6 +6,7 @@ import scala.io.Source
  * DSL lexer
  */
 class Lexer(sourcefile: String) {
+
   var lines: Array[String] = Array()
 
   def produceGenericTokens = {
@@ -34,4 +35,5 @@ class Lexer(sourcefile: String) {
       }
     })
   }
+
 }

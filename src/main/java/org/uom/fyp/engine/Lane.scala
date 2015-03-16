@@ -36,7 +36,6 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
    * Blocks the context lane.
    * @param network The network from which to remove the lane.
    */
-  def block(network: RoadNetwork): Unit = {
-    network.removeEdge(this)
-  }
+  def block(network: RoadNetwork): Unit = network.removeEdge(this)
+
 }

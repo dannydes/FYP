@@ -6,6 +6,7 @@ import org.jgrapht.util.VertexPair
  * Created by Daniel on 11/30/2014.
  */
 trait IRoadNetwork {
+
   /**
    *
    */

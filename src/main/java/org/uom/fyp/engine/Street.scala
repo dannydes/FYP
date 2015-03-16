@@ -16,4 +16,5 @@ class Street(streetName: String, streetType: StreetType) {
    * Returns the type of the street.
    */
   def sType = streetType
+
 }
