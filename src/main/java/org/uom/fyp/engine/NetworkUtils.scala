@@ -11,7 +11,7 @@ object NetworkUtils {
    * Returns a lane that is created and attached to the node given to the parameter,
    * if provided.
    * @param start The starting node to which to attach the created lane is to be
-   *              attached. When it is not provide, a new starting node is created
+   *              attached. When it is not provided, a new starting node is created
    *              and used in the creation of the new node instead.
    * @return The lane that has been created.
    */
