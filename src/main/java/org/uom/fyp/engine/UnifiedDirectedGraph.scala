@@ -7,9 +7,27 @@ import org.jgrapht.graph.DefaultDirectedGraph
 /**
  * Replaces JGraphT's DriectedGraphUnion class with a different implementation.
  */
-class UnifiedDirectedGraph(g1: DefaultDirectedGraph[Node, Lane], g2: DefaultDirectedGraph[Node, Lane]) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) {
-  jSetUnion(g1.edgeSet, g2.edgeSet)
-  jSetUnion(g2.vertexSet, g2.vertexSet)
+class UnifiedDirectedGraph(g1: DefaultDirectedGraph[_, _], g2: DefaultDirectedGraph[_, _]) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) {
+
+  /**
+   * Stores the new set of lanes.
+   */
+  var lanes = jSetUnion(g1.edgeSet, g2.edgeSet)
+
+  /**
+   * Stores the new set of nodes.
+   */
+  var nodes = jSetUnion(g2.vertexSet, g2.vertexSet)
+
+  /**
+   * Returns the new set of lanes.
+   */
+  override def edgeSet = lanes.asInstanceOf[util.Set[Lane]]
+
+  /**
+   * Returns the new set of nodes.
+   */
+  override def vertexSet = nodes.asInstanceOf[util.Set[Node]]
 
   /**
    * Returns the union of two sets, s1 and s2.
