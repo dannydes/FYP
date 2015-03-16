@@ -5,7 +5,7 @@ import java.util
 import org.jgrapht.graph.DefaultDirectedGraph
 
 /**
- * Replaces JGraphT's DriectedGraphUnion class with a different implementation.
+ * Replaces JGraphT's DirectedGraphUnion class in such a way that better suites the project's structure.
  */
 class UnifiedDirectedGraph(g1: DefaultDirectedGraph[_, _], g2: DefaultDirectedGraph[_, _]) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) {
 
