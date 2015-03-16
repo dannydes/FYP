@@ -3,9 +3,18 @@ package org.uom.fyp.engine
 import org.jgrapht.graph.{ClassBasedEdgeFactory, ClassBasedVertexFactory}
 
 /**
- * Static methods for use upon road networks
+ * Contains static methods for use upon road networks.
  */
 object NetworkUtils {
+
+  /**
+   * Returns a lane that is created and attached to the node given to the parameter,
+   * if provided.
+   * @param start The starting node to which to attach the created lane is to be
+   *              attached. When it is not provide, a new starting node is created
+   *              and used in the creation of the new node instead.
+   * @return The lane that has been created.
+   */
   def createLane(start: Node = null): Lane = {
     val vertexFactory: ClassBasedVertexFactory[Node] = new ClassBasedVertexFactory(classOf[Node])
     var v1: Node = null
@@ -18,4 +27,5 @@ object NetworkUtils {
     val edgeFactor: ClassBasedEdgeFactory[Node, Lane] = new ClassBasedEdgeFactory(classOf[Lane])
     edgeFactor.createEdge(v1, v2)
   }
+
 }

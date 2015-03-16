@@ -7,8 +7,17 @@ import org.jgrapht.util.VertexPair
  * Organises and simulates road networks.
  */
 class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
+
+  /**
+   *
+   * @param nodes
+   * @return
+   */
   override def findAverageTime(nodes: VertexPair[Node]): Double = ???
 
+  /**
+   *
+   */
   override def applyDiversion(): Unit = ???
 
   /**
