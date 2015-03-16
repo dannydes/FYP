@@ -37,5 +37,5 @@ class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with I
     lane.block(this)
   }
 
-  def join(other: RoadNetwork) = new UnifiedDirectedGraph(this, other)
+  def join(other: RoadNetwork) = new RoadNetworkUnion(this, other)
 }
