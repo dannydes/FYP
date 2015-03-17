@@ -8,6 +8,6 @@ import org.uom.fyp.dslfrontend.Lexer
 object Main {
   def main(args: Array[String]): Unit = {
     val lexer = new Lexer("scripts/density_if_closed.tal")
-    lexer.specializeTokens
+
   }
 }

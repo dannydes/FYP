@@ -4,16 +4,29 @@ import scala.io.Source
 
 /**
  * DSL lexer
+ * @param sourcefile Filename of the file containing source code.
  */
 class Lexer(sourcefile: String) {
 
-  var lines: Array[String] = Array()
+  var tokenArray = produceGenericTokens
+  specializeTokens
 
-  def produceGenericTokens = {
+  def tokens = tokenArray
+
+  /**
+   * Returns an array of tokens of no type by splitting the text within <b>sourcefile</b>
+   * over whitespaces.
+   */
+  private def produceGenericTokens = {
+    val lines: Array[String] = Array()
+
+    //Load file content into the array.
     Source.fromFile(sourcefile).getLines().copyToArray(lines)
+
     var i = 0
     var tokens: Array[Token] = Array()
     var tokenRow = 0
+
     for (i <- 0 to lines.length)
     {
       val lineTokens: Array[Token] = lines(i).split(" ").filter((x: String) => x != "")
@@ -23,11 +36,15 @@ class Lexer(sourcefile: String) {
         })
       tokens = Array.concat(tokens, lineTokens)
     }
+
     tokens
   }
 
-  def specializeTokens = {
-    produceGenericTokens.map((token: Token) => {
+  /**
+   * Handles token specialization.
+   */
+  private def specializeTokens = {
+    tokenArray.map((token: Token) => {
       if (token.isKeyword) {
         new KeywordToken(token.lexeme, token.row, token.column)
       } else if (token.isDoubleLit) {
