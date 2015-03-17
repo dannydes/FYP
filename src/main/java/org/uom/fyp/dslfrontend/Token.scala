@@ -31,11 +31,11 @@ class Token(lex: String, r: Int, c: Int) {
   /**
    * Returns whether the lexeme is a keyword.
    */
-  def isKeyword = keywords.contains(lexeme)
+  def isKeyword = keywords.contains(lex)
 
   /**
    * Returns whether the lexeme is a double literal.
    */
-  def isDoubleLit = ! lexeme.contains("a-z".r)
+  def isDoubleLit = ! lex.contains("a-z".r)
 
 }
