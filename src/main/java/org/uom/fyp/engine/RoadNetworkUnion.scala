@@ -6,18 +6,20 @@ import org.jgrapht.graph.DefaultDirectedGraph
 
 /**
  * Replaces JGraphT's DirectedGraphUnion class in such a way that better suites the project's structure.
+ * @param n1 A road network.
+ * @param n2 Another road network.
  */
-class RoadNetworkUnion(g1: DefaultDirectedGraph[_, _], g2: DefaultDirectedGraph[_, _]) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) {
+class RoadNetworkUnion(n1: RoadNetwork, n2: RoadNetwork) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) {
 
   /**
    * Stores the new set of lanes.
    */
-  var lanes = jSetUnion(g1.edgeSet, g2.edgeSet)
+  var lanes = jSetUnion(n1.edgeSet, n2.edgeSet)
 
   /**
    * Stores the new set of nodes.
    */
-  var nodes = jSetUnion(g2.vertexSet, g2.vertexSet)
+  var nodes = jSetUnion(n2.vertexSet, n2.vertexSet)
 
   /**
    * Returns the new set of lanes.
