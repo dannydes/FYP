@@ -16,11 +16,6 @@ class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with I
   override def findAverageTime(nodes: VertexPair[Node]): Double = ???
 
   /**
-   *
-   */
-  override def applyDiversion(): Unit = ???
-
-  /**
    * Returns the lane found in a street with the given name.
    * @param streetName Street name.
    * @return Lane found in the given street.

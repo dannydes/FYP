@@ -9,11 +9,6 @@ trait IRoadNetwork {
 
   /**
    *
-   */
-  def applyDiversion() : Unit
-
-  /**
-   *
    * @param nodes
    * @return
    */
