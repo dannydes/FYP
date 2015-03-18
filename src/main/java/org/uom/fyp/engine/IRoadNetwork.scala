@@ -8,9 +8,10 @@ import org.jgrapht.util.VertexPair
 trait IRoadNetwork {
 
   /**
-   *
+   * Returns the time expected to be taken for a vehicle to go from one
+   * point to another.
    * @param nodes
-   * @return
+   * @return Time to be taken to travel from a node to the other.
    */
   def findAverageTime(nodes : VertexPair[Node]) : Double
 
@@ -25,9 +26,9 @@ trait IRoadNetwork {
   private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
 
   /**
-   *
+   * Creates and returns a lane auto-defining both vertices.
    * @param properties
-   * @return
+   * @return Lane just created.
    */
   def createLane(properties: AnyRef): Lane = NetworkUtils.createLane()
 
