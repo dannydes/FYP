@@ -39,8 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>DSL lexer
-</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>DSL lexer</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -80,7 +79,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="org.uom.fyp.dslfrontend.Lexer#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="org.uom.fyp.dslfrontend.Lexer#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(sourcefile:String):org.uom.fyp.dslfrontend.Lexer"></a>
       <a id="&lt;init&gt;:Lexer"></a>
       <h4 class="signature">
@@ -92,7 +91,8 @@
         <span class="name">Lexer</span><span class="params">(<span name="sourcefile">sourcefile: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">sourcefile</dt><dd class="cmt"><p>Filename of the file containing source code.
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -283,19 +283,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="org.uom.fyp.dslfrontend.Lexer#lines" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="lines:Array[String]"></a>
-      <a id="lines:Array[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">var</span>
-      </span>
-      <span class="symbol">
-        <span class="name">lines</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4>
-      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -335,32 +322,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="org.uom.fyp.dslfrontend.Lexer#produceGenericTokens" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="produceGenericTokens:Array[org.uom.fyp.dslfrontend.Token]"></a>
-      <a id="produceGenericTokens:Array[Token]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">produceGenericTokens</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Token.html" class="extype" name="org.uom.fyp.dslfrontend.Token">Token</a>]</span>
-      </span>
-      </h4>
-      
-    </li><li name="org.uom.fyp.dslfrontend.Lexer#specializeTokens" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="specializeTokens:Array[Any]"></a>
-      <a id="specializeTokens:Array[Any]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">specializeTokens</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Any">Any</span>]</span>
-      </span>
-      </h4>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -387,6 +348,32 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.uom.fyp.dslfrontend.Lexer#tokenArray" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tokenArray:Array[org.uom.fyp.dslfrontend.Token]"></a>
+      <a id="tokenArray:Array[Token]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">var</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tokenArray</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Token.html" class="extype" name="org.uom.fyp.dslfrontend.Token">Token</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="org.uom.fyp.dslfrontend.Lexer#tokens" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tokens:Array[org.uom.fyp.dslfrontend.Token]"></a>
+      <a id="tokens:Array[Token]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tokens</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Token.html" class="extype" name="org.uom.fyp.dslfrontend.Token">Token</a>]</span>
+      </span>
+      </h4>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

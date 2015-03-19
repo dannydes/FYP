@@ -39,8 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Token class
-</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Defines operations over tokens.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
@@ -83,7 +82,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="org.uom.fyp.dslfrontend.Token#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="org.uom.fyp.dslfrontend.Token#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(lex:String,r:Int,c:Int):org.uom.fyp.dslfrontend.Token"></a>
       <a id="&lt;init&gt;:Token"></a>
       <h4 class="signature">
@@ -95,7 +94,8 @@
         <span class="name">Token</span><span class="params">(<span name="lex">lex: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="r">r: <span class="extype" name="scala.Int">Int</span></span>, <span name="c">c: <span class="extype" name="scala.Int">Int</span></span>)</span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">lex</dt><dd class="cmt"><p>The lexeme.</p></dd><dt class="param">r</dt><dd class="cmt"><p>The row at which token is found.</p></dd><dt class="param">c</dt><dd class="cmt"><p>The column at which token is found.
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -214,7 +214,7 @@
         <span class="name">column</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns the column at which the token is found.</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -298,7 +298,7 @@
         <span class="name">isDoubleLit</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns whether the lexeme is a double literal.</p>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -324,7 +324,7 @@
         <span class="name">isKeyword</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns whether the lexeme is a keyword.</p>
     </li><li name="org.uom.fyp.dslfrontend.Token#keywords" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="keywords:Array[String]"></a>
       <a id="keywords:Array[String]"></a>
@@ -337,7 +337,7 @@
         <span class="name">keywords</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="java.lang.String">String</span>]</span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Holds an array of keywords.</p>
     </li><li name="org.uom.fyp.dslfrontend.Token#lexeme" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="lexeme:String"></a>
       <a id="lexeme:String"></a>
@@ -350,7 +350,7 @@
         <span class="name">lexeme</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns the token's lexeme.</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -402,7 +402,7 @@
         <span class="name">row</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns the row at which the token is found.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

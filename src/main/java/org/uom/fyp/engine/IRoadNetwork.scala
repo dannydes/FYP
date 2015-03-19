@@ -3,7 +3,7 @@ package org.uom.fyp.engine
 import org.jgrapht.util.VertexPair
 
 /**
- * Created by Daniel on 11/30/2014.
+ *
  */
 trait IRoadNetwork {
 
@@ -16,12 +16,11 @@ trait IRoadNetwork {
   def findAverageTime(nodes : VertexPair[Node]) : Double
 
   /**
-   *
-   * @param qb
-   * @param qa
-   * @param kb
-   * @param ka
-   * @return
+   * Returns the propagation velocity of a shock wave.
+   * @param qb Flow before change in conditions.
+   * @param qa Flow after change in conditions.
+   * @param kb Traffic density before change in conditions.
+   * @param ka Traffic density after change in conditions.
    */
   private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
 
