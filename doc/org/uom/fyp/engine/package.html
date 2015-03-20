@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>engine - FYP documentation - org.uom.fyp.engine</title>
+          <meta name="description" content="engine - FYP documentation - org.uom.fyp.engine" />
+          <meta name="keywords" content="engine FYP documentation org.uom.fyp.engine" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'org.uom.fyp.engine.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="org">org</a>.<a href="../../package.html" class="extype" name="org.uom">uom</a>.<a href="../package.html" class="extype" name="org.uom.fyp">fyp</a></p>
+        <h1>engine</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">engine</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.uom.fyp.engine.IRoadNetwork" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="IRoadNetworkextendsAnyRef"></a>
+      <a id="IRoadNetwork:IRoadNetwork"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="IRoadNetwork.html"><span class="name">IRoadNetwork</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt"></p>
+    </li><li name="org.uom.fyp.engine.Lane" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LaneextendsDefaultEdge"></a>
+      <a id="Lane:Lane"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Lane.html"><span class="name">Lane</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Applies operations over lanes.</p>
+    </li><li name="org.uom.fyp.engine.Node" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NodeextendsAnyRef"></a>
+      <a id="Node:Node"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Node.html"><span class="name">Node</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Node class
+</p>
+    </li><li name="org.uom.fyp.engine.OneWayLane" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OneWayLaneextendsLane"></a>
+      <a id="OneWayLane:OneWayLane"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="OneWayLane.html"><span class="name">OneWayLane</span></a><span class="result"> extends <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt"></p>
+    </li><li name="org.uom.fyp.engine.RoadNetwork" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RoadNetworkextendsDefaultDirectedGraph[org.uom.fyp.engine.Node,org.uom.fyp.engine.Lane]withIRoadNetwork"></a>
+      <a id="RoadNetwork:RoadNetwork"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RoadNetwork.html"><span class="name">RoadNetwork</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>] with <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Organises and simulates road networks.</p>
+    </li><li name="org.uom.fyp.engine.RoadNetworkUnion" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RoadNetworkUnionextendsDefaultDirectedGraph[org.uom.fyp.engine.Node,org.uom.fyp.engine.Lane]"></a>
+      <a id="RoadNetworkUnion:RoadNetworkUnion"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RoadNetworkUnion.html"><span class="name">RoadNetworkUnion</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Replaces JGraphT's DirectedGraphUnion class in such a way that better suites the project's structure.</p>
+    </li><li name="org.uom.fyp.engine.Street" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreetextendsAnyRef"></a>
+      <a id="Street:Street"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Street.html"><span class="name">Street</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Applies operations over streets.</p>
+    </li><li name="org.uom.fyp.engine.TwoWayLane" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TwoWayLaneextendsLane"></a>
+      <a id="TwoWayLane:TwoWayLane"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TwoWayLane.html"><span class="name">TwoWayLane</span></a><span class="result"> extends <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Created by Desira Daniel on 2/10/2015.</p>
+    </li><li name="org.uom.fyp.engine.Vehicle" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VehicleextendsAnyRef"></a>
+      <a id="Vehicle:Vehicle"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Vehicle.html"><span class="name">Vehicle</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Defines operations over vehicles.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.uom.fyp.engine.NetworkUtils" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NetworkUtils"></a>
+      <a id="NetworkUtils:NetworkUtils"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="NetworkUtils$.html"><span class="name">NetworkUtils</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Contains static methods for use upon road networks.</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../lib/template.js"></script>
+    </body>
+      </html>
