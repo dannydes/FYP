@@ -3,7 +3,8 @@ package org.uom.fyp.dslfrontend
 import scala.io.Source
 
 /**
- * DSL lexer
+ * Generates an array of tokens from a the contents of the source file whose filename
+ * is provided as a constructor parameter.
  * @param sourcefile Filename of the file containing source code.
  */
 class Lexer(sourcefile: String) {
@@ -11,6 +12,9 @@ class Lexer(sourcefile: String) {
   var tokenArray = produceGenericTokens
   specializeTokens
 
+  /**
+   * Returns an array of tokens which occur in the source file.
+   */
   def tokens = tokenArray
 
   /**
