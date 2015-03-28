@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="pdq">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/pdq.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/pdq.jar!/examples" />
+    </SOURCES>
+  </library>
+</component>
