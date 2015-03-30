@@ -38,4 +38,10 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
    */
   def block(network: RoadNetwork): Unit = network.removeEdge(this)
 
+  def populate(noOfVehicles: Double) = {}
+
+  def vehicleLeave = {}
+
+  def veicleEnter = {}
+
 }
