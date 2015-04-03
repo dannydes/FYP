@@ -10,6 +10,9 @@ import org.jgrapht.graph.DefaultEdge
  */
 class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
 
+  private val pdq = new PDQ
+  private var server = createServer
+
   /**
    * Returns lane length.
    */
@@ -24,6 +27,10 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
    * Returns street to which lane belongs.
    */
   def street = s
+
+  private def createServer = {
+    pdq.createNode("Server", PDQ.CEN, PDQ.FCFS)
+  }
 
   /**
    * Attaches and returns a new lane to the context lane.
