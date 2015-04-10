@@ -64,6 +64,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="pdq" level="project" />
-    <orderEntry type="library" name="scala-sdk-2.11.6" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.2:jar" level="project" />
   </component>
 </module>
