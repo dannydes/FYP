@@ -1,5 +1,6 @@
 package org.uom.fyp.engine
 
+import com.perfdynamics.pdq._
 import org.jgrapht.graph.DefaultEdge
 
 /**
@@ -10,8 +11,7 @@ import org.jgrapht.graph.DefaultEdge
  */
 class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
 
-  private val pdq = new PDQ
-  private var server = createServer
+  private val pdq = new PDQ()
 
   /**
    * Returns lane length.
@@ -29,7 +29,8 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
   def street = s
 
   private def createServer = {
-    pdq.createNode("Server", PDQ.CEN, PDQ.FCFS)
+    pdq.CreateNode(s.name + toString, defs.CEN, defs.FCFS)
+    pdq.CreateOpen(s.name + toString + "load")
   }
 
   /**
@@ -45,10 +46,8 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
    */
   def block(network: RoadNetwork): Unit = network.removeEdge(this)
 
-  def populate(noOfVehicles: Double) = {}
-
-  def vehicleLeave = {}
-
-  def veicleEnter = {}
+  def populate(noOfVehicles: Double) = {
+    pdq.SetVisits(s.name + toString, , noOfVehicles, )
+  }
 
 }
