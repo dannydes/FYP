@@ -30,7 +30,7 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
 
   private def createServer = {
     pdq.CreateNode(s.name + toString, defs.CEN, defs.FCFS)
-    pdq.CreateOpen(s.name + toString + "load")
+    //pdq.CreateOpen(s.name + toString + "load", 0.0)
   }
 
   /**
@@ -47,7 +47,7 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
   def block(network: RoadNetwork): Unit = network.removeEdge(this)
 
   def populate(noOfVehicles: Double) = {
-    pdq.SetVisits(s.name + toString, , noOfVehicles, )
+    pdq.SetVisits(s.name + toString, s.name + toString + "load", noOfVehicles, )
   }
 
 }
