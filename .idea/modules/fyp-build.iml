@@ -63,6 +63,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="pdq" level="project" />
   </component>
 </module>
