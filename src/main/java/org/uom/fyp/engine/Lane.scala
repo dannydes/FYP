@@ -1,3 +1,4 @@
+
 package org.uom.fyp.engine
 
 import com.perfdynamics.pdq._
@@ -9,24 +10,44 @@ import org.jgrapht.graph.DefaultEdge
  * @param w Lane width.
  * @param s Street to which lane belongs.
  */
-class Lane(l: Double, w: Double, s: Street, lambda: Double) extends DefaultEdge {
+class Lane extends DefaultEdge {
 
   private var vehicles: Int = 0
+
+  private var l = 0.0
+
+  private var w = 0.0
+
+  private var s: Street = null
+
+  private var lambda = 0.0
 
   /**
    * Returns lane length.
    */
   def lLen: Double = l
 
+  def lLen_(l: Double) = {
+    this.l = l
+  }
+
   /**
    * Returns lane width.
    */
   def width: Double = w
 
+  def width_(w: Double) = {
+    this.w = w
+  }
+
   /**
    * Returns street to which lane belongs.
    */
   def street = s
+
+  def street_(s: Street) = {
+    this.s = s
+  }
 
   def noOfVehicles = vehicles
 
@@ -48,6 +69,10 @@ class Lane(l: Double, w: Double, s: Street, lambda: Double) extends DefaultEdge 
   def block(network: RoadNetwork): Unit = network.removeEdge(this)
 
   private def arrivalRate = lambda
+
+  def arrivalRate_(lambda: Double) = {
+    this.lambda = lambda
+  }
 
   private def departureRate = lambda / (1 - noOfVehicles)
 

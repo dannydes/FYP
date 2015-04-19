@@ -3,8 +3,14 @@ package org.uom.fyp.engine
 /**
  * Node class
  */
-class Node(nodeType: NodeType) {
+class Node {
 
-  def nType: NodeType = nodeType
+  private var nType = NodeType.ROAD_ENDING
+
+  def nodeType: NodeType = nType
+
+  def nodeType_(nType: NodeType) = {
+    this.nType = nType
+  }
 
 }
