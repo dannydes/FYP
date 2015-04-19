@@ -21,13 +21,25 @@ class RoadNetwork extends DefaultDirectedWeightedGraph[Node, Lane](classOf[Lane]
       val node = nodeIterator.next
 
       val inDegrees: util.Set[Lane] = incomingEdgesOf(node)
+      val incoming = inDegrees.toArray()
+      incoming(0).asInstanceOf[Lane].arrivalRate_(vehicles)
+      /*var firstInDegree = false
+      val inDegreeIterator = inDegrees.iterator()
+      while (inDegreeIterator.hasNext) {
+        val lane = inDegreeIterator.next
+        if (! firstInDegree) {
+          lane.arrivalRate_(vehicles)
+          firstInDegree = true
+        }
+      }*/
+
       val outDegrees: util.Set[Lane] = outgoingEdgesOf(node)
       val outDegreeIterator = outDegrees.iterator()
       while (outDegreeIterator.hasNext) {
         val lane = outDegreeIterator.next
-
+        //lane.arrivalRate_(0)
+        lane.simulate()
       }
-      //time += laneIterator.next().time
     }
     time
   }
