@@ -6,20 +6,32 @@ import org.jgrapht.graph.DefaultEdge
 
 /**
  * Applies operations over lanes.
- * @param l Lane length.
- * @param w Lane width.
- * @param s Street to which lane belongs.
  */
 class Lane extends DefaultEdge {
 
+  /**
+   * Stores the number of vehicles in lane.
+   */
   private var vehicles: Int = 0
 
+  /**
+   * Stores lane length.
+   */
   private var l = 0.0
 
+  /**
+   * Stores lane width.
+   */
   private var w = 0.0
 
+  /**
+   * Stores the street to the which the lane belongs.
+   */
   private var s: Street = null
 
+  /**
+   * Stores the arrival rate for this lane.
+   */
   private var lambda = 0.0
 
   /**
@@ -27,6 +39,10 @@ class Lane extends DefaultEdge {
    */
   def lLen: Double = l
 
+  /**
+   * Sets lane length.
+   * @param l Lane length.
+   */
   def lLen_(l: Double) = {
     this.l = l
   }
@@ -36,6 +52,10 @@ class Lane extends DefaultEdge {
    */
   def width: Double = w
 
+  /**
+   * Sets lane width.
+   * @param w Lane width.
+   */
   def width_(w: Double) = {
     this.w = w
   }
@@ -45,12 +65,23 @@ class Lane extends DefaultEdge {
    */
   def street = s
 
+  /**
+   * Sets the street to which lane belongs. (Pointer to be relocated!)
+   * @param s Street to which lane belongs.
+   */
   def street_(s: Street) = {
     this.s = s
   }
 
+  /**
+   * Returns the number of vehicles in lane.
+   */
   def noOfVehicles = vehicles
 
+  /**
+   * Sets the number of vehicles in lane.
+   * @param vehicles The number of vehicles in lane.
+   */
   def noOfVehicles_(vehicles: Int) = {
     this.vehicles = vehicles
   }
@@ -68,19 +99,35 @@ class Lane extends DefaultEdge {
    */
   def block(network: RoadNetwork): Unit = network.removeEdge(this)
 
+  /**
+   * Returns the lane's arrival rate.
+   */
   private def arrivalRate = lambda
 
+  /**
+   * Sets the lane's arrival rate.
+   * @param lambda The lane's arrival rate.
+   */
   def arrivalRate_(lambda: Double) = {
     this.lambda = lambda
   }
 
+  /**
+   * Returns the lane's departure rate.
+   */
   private def departureRate = lambda / (1 - noOfVehicles)
 
+  /**
+   * Returns the time taken for one job (vehicle) to be serviced.
+   */
   def time: Double = {
     1 / (departureRate - lambda)
   }
 
-  def simulate = {
+  /**
+   * Simulates traffic going through the lane.
+   */
+  def simulate() = {
     val pdq: PDQ = new PDQ
     pdq.CreateNode(s.name + toString, defs.CEN, defs.FCFS)
     pdq.CreateOpen(s.name + toString + "load", 0.0)
