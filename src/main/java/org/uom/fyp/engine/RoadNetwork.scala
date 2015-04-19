@@ -1,19 +1,37 @@
 package org.uom.fyp.engine
 
-import org.jgrapht.graph.DefaultDirectedGraph
-import org.jgrapht.util.VertexPair
+import org.jgrapht.alg.HamiltonianCycle
+import org.jgrapht.graph.DefaultDirectedWeightedGraph
+import java.util
 
 /**
  * Organises and simulates road networks.
  */
-class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
+class RoadNetwork extends DefaultDirectedWeightedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
 
   /**
    *
-   * @param nodes
+   * @param vehicles Number of vehicles in system.
    * @return
    */
-  override def findAverageTime(nodes: VertexPair[Node]): Double = ???
+  override def findTime(vehicles: Int): Double = {
+    var time = 0.0
+    val nodes: util.Set[Node] = vertexSet
+    val nodeIterator = nodes.iterator()
+    while (nodeIterator.hasNext) {
+      val node = nodeIterator.next
+
+      val inDegrees: util.Set[Lane] = incomingEdgesOf(node)
+      val outDegrees: util.Set[Lane] = outgoingEdgesOf(node)
+      val outDegreeIterator = outDegrees.iterator()
+      while (outDegreeIterator.hasNext) {
+        val lane = outDegreeIterator.next
+
+      }
+      //time += laneIterator.next().time
+    }
+    time
+  }
 
   /**
    * Returns the lane found in a street with the given name.

@@ -6,6 +6,6 @@ package org.uom.fyp.engine
  * @param w Lane width.
  * @param s Street to which lane belongs.
  */
-class OneWayLane(l: Double, w: Double, s: Street) extends Lane(l, w, s) {
+class OneWayLane(l: Double, w: Double, s: Street, lambda: Double) extends Lane(l, w, s, lambda) {
 
 }

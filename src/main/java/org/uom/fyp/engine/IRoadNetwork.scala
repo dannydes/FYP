@@ -10,10 +10,10 @@ trait IRoadNetwork {
   /**
    * Returns the time expected to be taken for a vehicle to go from one
    * point to another.
-   * @param nodes
-   * @return Time to be taken to travel from a node to the other.
+   * @param vehicles Number of vehicles in system.
+   * @return Time to be taken to travel within the road network.
    */
-  def findAverageTime(nodes : VertexPair[Node]) : Double
+  def findTime(vehicles: Int) : Double
 
   /**
    * Returns the propagation velocity of a shock wave.

@@ -9,9 +9,9 @@ import org.jgrapht.graph.DefaultEdge
  * @param w Lane width.
  * @param s Street to which lane belongs.
  */
-class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
+class Lane(l: Double, w: Double, s: Street, lambda: Double) extends DefaultEdge {
 
-  private val pdq = new PDQ()
+  private var vehicles: Int = 0
 
   /**
    * Returns lane length.
@@ -28,9 +28,10 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
    */
   def street = s
 
-  private def createServer = {
-    pdq.CreateNode(s.name + toString, defs.CEN, defs.FCFS)
-    //pdq.CreateOpen(s.name + toString + "load", 0.0)
+  def noOfVehicles = vehicles
+
+  def noOfVehicles_(vehicles: Int) = {
+    this.vehicles = vehicles
   }
 
   /**
@@ -46,8 +47,19 @@ class Lane(l: Double, w: Double, s: Street) extends DefaultEdge {
    */
   def block(network: RoadNetwork): Unit = network.removeEdge(this)
 
-  def populate(noOfVehicles: Double) = {
-    pdq.SetVisits(s.name + toString, s.name + toString + "load", noOfVehicles, )
+  private def arrivalRate = lambda
+
+  private def departureRate = lambda / (1 - noOfVehicles)
+
+  def time: Double = {
+    1 / (departureRate - lambda)
+  }
+
+  def simulate = {
+    val pdq: PDQ = new PDQ
+    pdq.CreateNode(s.name + toString, defs.CEN, defs.FCFS)
+    pdq.CreateOpen(s.name + toString + "load", 0.0)
+    pdq.SetVisits(s.name + toString, s.name + toString + "load", noOfVehicles, 0.1)
   }
 
 }

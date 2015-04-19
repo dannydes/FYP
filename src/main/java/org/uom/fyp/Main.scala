@@ -1,6 +1,7 @@
 package org.uom.fyp
 
 import org.uom.fyp.dslfrontend.Lexer
+import org.uom.fyp.engine.RoadNetwork
 
 /**
  * Calls parser and prediction engine so as to make a workable language.
@@ -8,8 +9,18 @@ import org.uom.fyp.dslfrontend.Lexer
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val lexer = new Lexer("scripts/density_if_closed.tal")
+    //val lexer = new Lexer("scripts/density_if_closed.tal")
 
+    //Construct sample road network.
+    val zabbarPrimaries = new RoadNetwork
+    val parishStreet = zabbarPrimaries.createLane(null)
+
+    parishStreet.attachLane(null)
+    parishStreet.attachLane(null)
+    parishStreet.attachLane(null)
+
+    //Find the time taken to go from one node to another and print it!
+    println(zabbarPrimaries.findTime(10))
   }
 
 }
