@@ -97,7 +97,7 @@ class Lane extends DefaultEdge {
   /**
    * Returns the lane's departure rate.
    */
-  private def departureRate = lambda / (1 - noOfVehicles)
+  def departureRate = lambda / (1 - noOfVehicles)
 
   /**
    * Returns the time taken for one job (vehicle) to be serviced.

@@ -18,13 +18,17 @@ class RoadNetwork extends DefaultDirectedWeightedGraph[Node, Lane](classOf[Lane]
   override def findTime(vehicles: Int): Double = {
     var time = 0.0
     val nodes: util.Set[Node] = vertexSet
+    println(nodes.size)
     val nodeIterator = nodes.iterator()
     while (nodeIterator.hasNext) {
       val node = nodeIterator.next
 
       val inDegrees: util.Set[Lane] = incomingEdgesOf(node)
       val incoming = inDegrees.toArray()
-      incoming(0).asInstanceOf[Lane].arrivalRate_(vehicles)
+      val firstLane: Lane = incoming(0).asInstanceOf[Lane]
+      firstLane.arrivalRate_(vehicles)
+
+      var priorLaneDeptRate = firstLane.departureRate
       /*var firstInDegree = false
       val inDegreeIterator = inDegrees.iterator()
       while (inDegreeIterator.hasNext) {
@@ -39,7 +43,8 @@ class RoadNetwork extends DefaultDirectedWeightedGraph[Node, Lane](classOf[Lane]
       val outDegreeIterator = outDegrees.iterator()
       while (outDegreeIterator.hasNext) {
         val lane = outDegreeIterator.next
-        //lane.arrivalRate_(0)
+        lane.arrivalRate_(priorLaneDeptRate)
+        //priorLaneDeptRate = lane.departureRate
         lane.simulate()
       }
     }
