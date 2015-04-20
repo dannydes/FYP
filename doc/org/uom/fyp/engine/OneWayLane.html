@@ -80,7 +80,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.uom.fyp.engine.OneWayLane#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(l:Double,w:Double,s:org.uom.fyp.engine.Street):org.uom.fyp.engine.OneWayLane"></a>
+      <a id="&lt;init&gt;(l:Double,w:Double,lambda:Double):org.uom.fyp.engine.OneWayLane"></a>
       <a id="&lt;init&gt;:OneWayLane"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -88,10 +88,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">OneWayLane</span><span class="params">(<span name="l">l: <span class="extype" name="scala.Double">Double</span></span>, <span name="w">w: <span class="extype" name="scala.Double">Double</span></span>, <span name="s">s: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>)</span>
+        <span class="name">OneWayLane</span><span class="params">(<span name="l">l: <span class="extype" name="scala.Double">Double</span></span>, <span name="w">w: <span class="extype" name="scala.Double">Double</span></span>, <span name="lambda">lambda: <span class="extype" name="scala.Double">Double</span></span>)</span>
       </span>
       </h4>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">l</dt><dd class="cmt"><p>Lane length.</p></dd><dt class="param">w</dt><dd class="cmt"><p>Lane width.</p></dd><dt class="param">s</dt><dd class="cmt"><p>Street to which lane belongs.
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">l</dt><dd class="cmt"><p>Lane length.</p></dd><dt class="param">w</dt><dd class="cmt"><p>Lane width.
 </p></dd></dl></div>
     </li></ol>
             </div>
@@ -167,6 +167,20 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.uom.fyp.engine.Lane#arrivalRate_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="arrivalRate_(lambda:Double):Unit"></a>
+      <a id="arrivalRate_(Double):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">arrivalRate_</span><span class="params">(<span name="lambda">lambda: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the lane's arrival rate.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the lane's arrival rate.</p></div><dl class="paramcmts block"><dt class="param">lambda</dt><dd class="cmt"><p>The lane's arrival rate.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -332,6 +346,20 @@
       </h4>
       <p class="shortcomment cmt">Returns lane length.</p><div class="fullcomment"><div class="comment cmt"><p>Returns lane length.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
+    </li><li name="org.uom.fyp.engine.Lane#lLen_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="lLen_(l:Double):Unit"></a>
+      <a id="lLen_(Double):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lLen_</span><span class="params">(<span name="l">l: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets lane length.</p><div class="fullcomment"><div class="comment cmt"><p>Sets lane length.</p></div><dl class="paramcmts block"><dt class="param">l</dt><dd class="cmt"><p>Lane length.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -345,6 +373,34 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.uom.fyp.engine.Lane#noOfVehicles" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="noOfVehicles:Int"></a>
+      <a id="noOfVehicles:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">noOfVehicles</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the number of vehicles in lane.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the number of vehicles in lane.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
+    </li><li name="org.uom.fyp.engine.Lane#noOfVehicles_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="noOfVehicles_(vehicles:Int):Unit"></a>
+      <a id="noOfVehicles_(Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">noOfVehicles_</span><span class="params">(<span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the number of vehicles in lane.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the number of vehicles in lane.</p></div><dl class="paramcmts block"><dt class="param">vehicles</dt><dd class="cmt"><p>The number of vehicles in lane.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>
@@ -371,19 +427,19 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="org.uom.fyp.engine.Lane#street" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="street:org.uom.fyp.engine.Street"></a>
-      <a id="street:Street"></a>
+    </li><li name="org.uom.fyp.engine.Lane#simulate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="simulate():Unit"></a>
+      <a id="simulate():Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">street</span><span class="result">: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
+        <span class="name">simulate</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Returns street to which lane belongs.</p><div class="fullcomment"><div class="comment cmt"><p>Returns street to which lane belongs.
+      <p class="shortcomment cmt">Simulates traffic going through the lane.</p><div class="fullcomment"><div class="comment cmt"><p>Simulates traffic going through the lane.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -398,6 +454,20 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.uom.fyp.engine.Lane#time" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="time:Double"></a>
+      <a id="time:Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">time</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the time taken for one job (vehicle) to be serviced.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the time taken for one job (vehicle) to be serviced.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
     </li><li name="org.jgrapht.graph.DefaultEdge#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -482,6 +552,20 @@
       </h4>
       <p class="shortcomment cmt">Returns lane width.</p><div class="fullcomment"><div class="comment cmt"><p>Returns lane width.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
+    </li><li name="org.uom.fyp.engine.Lane#width_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="width_(w:Double):Unit"></a>
+      <a id="width_(Double):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">width_</span><span class="params">(<span name="w">w: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets lane width.</p><div class="fullcomment"><div class="comment cmt"><p>Sets lane width.</p></div><dl class="paramcmts block"><dt class="param">w</dt><dd class="cmt"><p>Lane width.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></dd></dl></div>
     </li></ol>
             </div>
 

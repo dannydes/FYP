@@ -43,6 +43,9 @@
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span>, <span class="extype" name="org.jgrapht.graph.IntrusiveEdge">IntrusiveEdge</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="OneWayLane.html" class="extype" name="org.uom.fyp.engine.OneWayLane">OneWayLane</a>, <a href="TwoWayLane.html" class="extype" name="org.uom.fyp.engine.TwoWayLane">TwoWayLane</a></div>
         </div></div>
         
 
@@ -217,7 +220,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">block</span><span class="params">(<span name="network">network: <span class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">block</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Blocks the context lane.</p><div class="fullcomment"><div class="comment cmt"><p>Blocks the context lane.</p></div><dl class="paramcmts block"><dt class="param">network</dt><dd class="cmt"><p>The network from which to remove the lane.
@@ -438,33 +441,6 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Simulates traffic going through the lane.</p>
-    </li><li name="org.uom.fyp.engine.Lane#street" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="street:org.uom.fyp.engine.Street"></a>
-      <a id="street:Street"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">street</span><span class="result">: <span class="extype" name="org.uom.fyp.engine.Street">Street</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns street to which lane belongs.</p>
-    </li><li name="org.uom.fyp.engine.Lane#street_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="street_(s:org.uom.fyp.engine.Street):Unit"></a>
-      <a id="street_(Street):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">street_</span><span class="params">(<span name="s">s: <span class="extype" name="org.uom.fyp.engine.Street">Street</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Sets the street to which lane belongs.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the street to which lane belongs. (Pointer to be relocated!)</p></div><dl class="paramcmts block"><dt class="param">s</dt><dd class="cmt"><p>Street to which lane belongs.
-</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
