@@ -8,6 +8,8 @@ import java.util
  */
 class RoadNetwork extends DefaultDirectedWeightedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
 
+  private var streets = List()
+
   /**
    *
    * @param vehicles Number of vehicles in system.
@@ -45,19 +47,21 @@ class RoadNetwork extends DefaultDirectedWeightedGraph[Node, Lane](classOf[Lane]
   }
 
   /**
-   * Returns the lane found in a street with the given name.
+   * Returns the lane found in a street with the given name and the given
+   * lane number.
    * @param streetName Street name.
+   * @param laneNo The lane's number relative to other lanes in that given street.
    * @return Lane found in the given street.
    */
-  def getLane(streetName: String): Lane = {
-    val lanes = edgeSet
+  def getLane(streetName: String, laneNo: Int): Lane = {
+  /*TO BE CHANGED!  val lanes = edgeSet
     val iterator = lanes.iterator
     while (iterator.hasNext) {
       val lane = iterator.next
       if (lane.street.name == streetName) {
         lane
       }
-    }
+    }*/
     null
   }
 
@@ -65,8 +69,8 @@ class RoadNetwork extends DefaultDirectedWeightedGraph[Node, Lane](classOf[Lane]
    * Block lane found in the street with the given name.
    * @param streetName Street name.
    */
-  def blockLane(streetName: String) = {
-    val lane = getLane(streetName)
+  def blockLane(streetName: String, laneNo: Int) = {
+    val lane = getLane(streetName, laneNo)
     lane.block(this)
   }
 

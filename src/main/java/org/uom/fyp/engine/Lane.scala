@@ -25,11 +25,6 @@ class Lane extends DefaultEdge {
   private var w = 0.0
 
   /**
-   * Stores the street to the which the lane belongs.
-   */
-  private var s: Street = null
-
-  /**
    * Stores the arrival rate for this lane.
    */
   private var lambda = 0.0
@@ -58,19 +53,6 @@ class Lane extends DefaultEdge {
    */
   def width_(w: Double) = {
     this.w = w
-  }
-
-  /**
-   * Returns street to which lane belongs.
-   */
-  def street = s
-
-  /**
-   * Sets the street to which lane belongs. (Pointer to be relocated!)
-   * @param s Street to which lane belongs.
-   */
-  def street_(s: Street) = {
-    this.s = s
   }
 
   /**
@@ -129,9 +111,9 @@ class Lane extends DefaultEdge {
    */
   def simulate() = {
     val pdq: PDQ = new PDQ
-    pdq.CreateNode(s.name + toString, defs.CEN, defs.FCFS)
-    pdq.CreateOpen(s.name + toString + "load", lambda)
-    pdq.SetVisits(s.name + toString, s.name + toString + "load", noOfVehicles, time)
+    pdq.CreateNode(toString, defs.CEN, defs.FCFS)
+    pdq.CreateOpen(toString + "load", lambda)
+    pdq.SetVisits(toString, toString + "load", noOfVehicles, time)
     pdq.SetTUnit("Minutes")
     pdq.SetWUnit("Vehicles")
     pdq.Solve(defs.CANON)
