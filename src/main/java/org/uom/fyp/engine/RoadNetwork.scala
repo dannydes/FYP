@@ -25,10 +25,10 @@ class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with I
 
       val inDegrees: util.Set[Lane] = incomingEdgesOf(node)
       val incoming = inDegrees.toArray()
-      val firstLane: Lane = incoming(0).asInstanceOf[Lane]
-      firstLane.arrivalRate_(vehicles)
+      //val firstLane: Lane = incoming(0).asInstanceOf[Lane]
+      //firstLane.arrivalRate_(vehicles)
 
-      var priorLaneDeptRate = firstLane.departureRate
+      var priorLaneDeptRate = 10//firstLane.departureRate
       /*var firstInDegree = false
       val inDegreeIterator = inDegrees.iterator()
       while (inDegreeIterator.hasNext) {
