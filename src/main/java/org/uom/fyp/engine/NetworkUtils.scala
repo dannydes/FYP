@@ -15,7 +15,7 @@ object NetworkUtils {
    *              and used in the creation of the new node instead.
    * @return The lane that has been created.
    */
-  def createLane(start: Node = null): Lane = {
+  def createLane(network: RoadNetwork, start: Node = null): Lane = {
     val vertexFactory: ClassBasedVertexFactory[Node] = new ClassBasedVertexFactory(classOf[Node])
     var v1: Node = null
     if (start == null) {
@@ -24,8 +24,12 @@ object NetworkUtils {
       v1 = start
     }
     val v2: Node = vertexFactory.createVertex()
+    network.addVertex(v1)
+    network.addVertex(v2)
     val edgeFactor: ClassBasedEdgeFactory[Node, Lane] = new ClassBasedEdgeFactory(classOf[Lane])
-    edgeFactor.createEdge(v1, v2)
+    val lane: Lane = edgeFactor.createEdge(v1, v2)
+    network.addEdge(v1, v2, lane)
+    lane
   }
 
 }

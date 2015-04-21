@@ -13,7 +13,7 @@ trait IRoadNetwork {
    * @param vehicles Number of vehicles in system.
    * @return Time to be taken to travel within the road network.
    */
-  def findTime(vehicles: Int) : Double
+  def findTime(vehicles: Int): Double
 
   /**
    * Returns the propagation velocity of a shock wave.
@@ -22,13 +22,15 @@ trait IRoadNetwork {
    * @param kb Traffic density before change in conditions.
    * @param ka Traffic density after change in conditions.
    */
-  private def shockwave(qb : Double, qa : Double, kb : Double, ka : Double) : Double = (qb - qa) / (kb - ka)
+  def shockwave(qb : Double, qa : Double, kb : Double, ka : Double): Double
 
   /**
    * Creates and returns a lane auto-defining both vertices.
    * @param properties
    * @return Lane just created.
    */
-  def createLane(properties: AnyRef): Lane = NetworkUtils.createLane()
+  def createLane(properties: AnyRef): Lane
+
+  def blockLane(streetName: String, laneNo: Int)
 
 }

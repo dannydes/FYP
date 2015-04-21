@@ -15,9 +15,9 @@ object Main {
     val zabbarPrimaries = new RoadNetwork
     val parishStreet = zabbarPrimaries.createLane(null)
 
-    parishStreet.attachLane(null)
-    parishStreet.attachLane(null)
-    parishStreet.attachLane(null)
+    parishStreet.attachLane(zabbarPrimaries, null)
+    parishStreet.attachLane(zabbarPrimaries, null)
+    parishStreet.attachLane(zabbarPrimaries, null)
 
     //Find the time taken to go from one node to another and print it!
     println(zabbarPrimaries.findTime(10))

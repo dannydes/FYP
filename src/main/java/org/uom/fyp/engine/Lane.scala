@@ -73,7 +73,7 @@ class Lane extends DefaultEdge {
    * @param properties
    * @return The lane just attached.
    */
-  def attachLane(properties: AnyRef): Lane = NetworkUtils.createLane(this.getTarget.asInstanceOf[Node])
+  def attachLane(network: RoadNetwork, properties: AnyRef): Lane = NetworkUtils.createLane(network, this.getTarget)
 
   /**
    * Blocks the context lane.
@@ -118,6 +118,14 @@ class Lane extends DefaultEdge {
     pdq.SetWUnit("Vehicles")
     pdq.Solve(defs.CANON)
     pdq.Report()
+  }
+
+  override def getSource = {
+    super.getSource.asInstanceOf[Node]
+  }
+
+  override def getTarget = {
+    super.getTarget.asInstanceOf[Node]
   }
 
 }
