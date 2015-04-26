@@ -111,6 +111,7 @@ class Lane extends DefaultEdge {
    */
   def simulate() = {
     val pdq: PDQ = new PDQ
+    pdq.Init("Hello")
     pdq.CreateNode(toString, defs.CEN, defs.FCFS)
     pdq.CreateOpen(toString + "load", lambda)
     pdq.SetVisits(toString, toString + "load", noOfVehicles, time)
