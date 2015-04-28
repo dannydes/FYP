@@ -1,5 +1,6 @@
 package org.uom.fyp.engine
 
+import com.perfdynamics.pdq.PDQ
 import org.jgrapht.alg.HamiltonianCycle
 import org.jgrapht.graph.DefaultDirectedGraph
 import java.util
@@ -7,14 +8,16 @@ import java.util
 /**
  * Organises and simulates road networks.
  */
-class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
+class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
 
   private var streets = List()
 
-  private def simulate(vehicles: Int, arrivalRate: Double, lane: Lane): Unit = {
+  def networkName = name
+
+  private def simulate(vehicles: Int, arrivalRate: Double, lane: Lane, pdq: PDQ): Unit = {
     lane.noOfVehicles_(vehicles)
     lane.arrivalRate_(arrivalRate)
-    lane.simulate()
+    lane.simulate(pdq)
 
     val outgoingLanes: util.Set[Lane] = outgoingEdgesOf(lane.getTarget)
     if (outgoingLanes.size > 0) {
@@ -23,14 +26,17 @@ class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with I
       val outgoingLanesIterator = outgoingLanes.iterator
 
       while (outgoingLanesIterator.hasNext) {
-        simulate(newNoOfVehicles, newArrivalRate, outgoingLanesIterator.next)
+        simulate(newNoOfVehicles, newArrivalRate, outgoingLanesIterator.next, pdq)
       }
     }
   }
 
   override def initSimulation(vehicles: Int) = {
     val lanes = edgeSet().toArray
-    simulate(vehicles, vehicles, lanes(0).asInstanceOf[Lane])
+    val pdq: PDQ = new PDQ
+    pdq.Init(name)
+    simulate(vehicles, vehicles, lanes(0).asInstanceOf[Lane], pdq)
+    pdq.Report()
   }
 
   /**

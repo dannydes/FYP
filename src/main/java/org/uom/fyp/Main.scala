@@ -12,7 +12,7 @@ object Main {
     //val lexer = new Lexer("scripts/density_if_closed.tal")
 
     //Construct sample road network.
-    val zabbarPrimaries = new RoadNetwork
+    val zabbarPrimaries = new RoadNetwork("Zabbar Primaries")
     val parishStreet = zabbarPrimaries.createLane(null)
 
     parishStreet.attachLane(zabbarPrimaries, null)
