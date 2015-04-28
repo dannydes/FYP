@@ -29,6 +29,7 @@ object NetworkUtils {
     val edgeFactor: ClassBasedEdgeFactory[Node, Lane] = new ClassBasedEdgeFactory(classOf[Lane])
     val lane: Lane = edgeFactor.createEdge(v1, v2)
     network.addEdge(v1, v2, lane)
+
     lane
   }
 

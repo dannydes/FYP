@@ -20,7 +20,7 @@ object Main {
     parishStreet.attachLane(zabbarPrimaries, null)
 
     //Find the time taken to go from one node to another and print it!
-    println(zabbarPrimaries.findTime(10))
+    println(zabbarPrimaries.initSimulation(10))
   }
 
 }
