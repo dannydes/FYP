@@ -17,12 +17,14 @@ class RoadNetwork extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with I
     lane.simulate()
 
     val outgoingLanes: util.Set[Lane] = outgoingEdgesOf(lane.getTarget)
-    val newArrivalRate = lane.departureRate / outgoingLanes.size
-    val newNoOfVehicles = vehicles / outgoingLanes.size
-    val outgoingLanesIterator = outgoingLanes.iterator
+    if (outgoingLanes.size > 0) {
+      val newArrivalRate = lane.departureRate / outgoingLanes.size
+      val newNoOfVehicles = vehicles / outgoingLanes.size
+      val outgoingLanesIterator = outgoingLanes.iterator
 
-    while (outgoingLanesIterator.hasNext) {
-      simulate(newNoOfVehicles, newArrivalRate, outgoingLanesIterator.next)
+      while (outgoingLanesIterator.hasNext) {
+        simulate(newNoOfVehicles, newArrivalRate, outgoingLanesIterator.next)
+      }
     }
   }
 
