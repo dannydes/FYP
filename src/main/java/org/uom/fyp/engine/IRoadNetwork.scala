@@ -32,4 +32,6 @@ trait IRoadNetwork {
 
   def blockLane(streetName: String, laneNo: Int)
 
+  def addStreet(streetName: String, streetType: StreetType)
+
 }

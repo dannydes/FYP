@@ -9,7 +9,7 @@ import java.util
  */
 class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
 
-  private var streets = List()
+  private var streets: List[Street] = List()
 
   def networkName = name
 
@@ -40,21 +40,14 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf
 
   /**
    * Returns the lane found in a street with the given name and the given
-   * lane number.
+   * lane number.(untested)
    * @param streetName Street name.
    * @param laneNo The lane's number relative to other lanes in that given street.
    * @return Lane found in the given street.
    */
   def getLane(streetName: String, laneNo: Int): Lane = {
-  /*TO BE CHANGED!  val lanes = edgeSet
-    val iterator = lanes.iterator
-    while (iterator.hasNext) {
-      val lane = iterator.next
-      if (lane.street.name == streetName) {
-        lane
-      }
-    }*/
-    null
+    val street: Street = streets.find((street: Street) => street.name == streetName).asInstanceOf[Street]
+    street.lanes.find((lane: Lane) => lane.no == laneNo).asInstanceOf[Lane]
   }
 
   /**
@@ -89,5 +82,11 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf
    */
   override def shockwave(qb : Double, qa : Double, kb : Double, ka : Double): Double = (qb - qa) / (kb - ka)
 
+  /**
+   * untested
+   */
+  override def addStreet(streetName: String, streetType: StreetType) = {
+    streets = streets ++ List(new Street(streetName, streetType))
+  }
 
 }

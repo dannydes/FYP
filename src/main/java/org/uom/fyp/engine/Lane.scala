@@ -10,6 +10,11 @@ import org.jgrapht.graph.DefaultEdge
 class Lane extends DefaultEdge {
 
   /**
+   * Stores lane number.
+   */
+  private var laneNo: Int = 0
+
+  /**
    * Stores the number of vehicles in lane.
    */
   private var vehicles: Int = 0
@@ -66,6 +71,19 @@ class Lane extends DefaultEdge {
    */
   def noOfVehicles_(vehicles: Int) = {
     this.vehicles = vehicles
+  }
+
+  /**
+   * Returns the lane's number.
+   */
+  def no = laneNo
+
+  /**
+   * Sets the lane's number.
+   * @param laneNo Lane number.
+   */
+  def no_(laneNo: Int) = {
+    this.laneNo = laneNo
   }
 
   /**
