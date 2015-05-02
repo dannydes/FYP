@@ -9,10 +9,23 @@ import java.util
  */
 class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
 
+  /**
+   * Stores a list of streets/roads within the network.
+   */
   private var streets: List[Street] = List()
 
+  /**
+   * Returns the name of the network.
+   */
   def networkName = name
 
+  /**
+   *
+   * @param vehicles Number of vehicles in system.
+   * @param arrivalRate
+   * @param lane
+   * @param pdq
+   */
   private def simulate(vehicles: Int, arrivalRate: Double, lane: Lane, pdq: PDQ): Unit = {
     lane.noOfVehicles_(vehicles)
     lane.arrivalRate_(arrivalRate)
@@ -30,6 +43,10 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf
     }
   }
 
+  /**
+   *
+   * @param vehicles Number of vehicles in system.
+   */
   override def initSimulation(vehicles: Int) = {
     val lanes = edgeSet().toArray
     val pdq: PDQ = new PDQ

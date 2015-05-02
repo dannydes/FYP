@@ -30,6 +30,10 @@ trait IRoadNetwork {
    */
   def createLane(properties: AnyRef): Lane
 
+  /**
+   * Block lane found in the street with the given name.
+   * @param streetName Street name.
+   */
   def blockLane(streetName: String, laneNo: Int)
 
   def addStreet(streetName: String, streetType: StreetType)
