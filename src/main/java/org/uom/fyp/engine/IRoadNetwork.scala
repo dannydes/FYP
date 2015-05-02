@@ -1,7 +1,5 @@
 package org.uom.fyp.engine
 
-import org.jgrapht.util.VertexPair
-
 /**
  * Provides signatures to methods that handle road networks.
  */
