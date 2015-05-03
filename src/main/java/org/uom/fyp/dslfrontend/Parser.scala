@@ -24,9 +24,9 @@ class Parser extends JavaTokenParsers {
 
   def roads = createRoad ~ (attachRoad | blockRoad).*
 
-  def createRoad = "create" ~ "primary" ~ "road" ~ stringLiteral
+  def createRoad = "create" ~ "primary" ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
 
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral
+  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
 
   def blockRoad = "block" ~ stringLiteral
 
