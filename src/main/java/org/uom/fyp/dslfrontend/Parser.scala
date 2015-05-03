@@ -18,7 +18,7 @@ class Parser extends JavaTokenParsers {
   def joinNetworks = "join" ~ stringLiteral ~ "," ~ stringLiteral ^^
     { case "join" ~ n1 ~ "," ~ n2 => new RoadNetworkUnion(null, null) }
 
-  def given = "given" ~ stringLiteral ~ (", " ~ stringLiteral).*
+  def given = "given" ~ stringLiteral ~ ("," ~ stringLiteral).*
 
   def runSimulation = "run" ~ "simulation"
 
