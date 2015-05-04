@@ -3,12 +3,13 @@ package org.uom.fyp.dslfrontend
 import org.uom.fyp.engine.{RoadNetwork, RoadNetworkUnion}
 
 import scala.util.parsing.combinator.JavaTokenParsers
+import scala.io.Source
 
 /**
  * Forms a parse tree from an array of tokens, depending on their type and
  * content.
  */
-class Parser extends JavaTokenParsers {
+object Parser extends JavaTokenParsers {
 
   def statement = constructNetwork.+ ~ joinNetworks.? ~ given ~ runSimulation
 
@@ -29,5 +30,13 @@ class Parser extends JavaTokenParsers {
   def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
 
   def blockRoad = "block" ~ stringLiteral
+
+  def parse(filename: String) = {
+    parseAll(statement, Source.fromFile(filename).mkString) match {
+      case Success(query, _) => println("Yeah!")
+      case Failure(msg, _) => println(msg)
+      case Error(msg, _) => println(msg)
+    }
+  }
 
 }
