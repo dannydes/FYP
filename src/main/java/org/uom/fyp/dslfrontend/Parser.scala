@@ -13,59 +13,59 @@ object Parser extends JavaTokenParsers {
 
   /**
    * Parses a whole statement.
-   * @return
+   * @return Parser for statement.
    */
   def statement = constructNetwork.+ ~ joinNetworks.? ~ given ~ runSimulation
 
   /**
-   * Parses the "construct network" construct, as well as starts creating
+   * Parses the <b>construct network</b> construct, as well as starts creating
    * the network.
-   * @return
+   * @return Parser for network construction.
    */
   def constructNetwork = "construct" ~ "network" ~ stringLiteral ~ "(" ~ roads ~ ")" ^^
     { case "construct" ~ "network" ~ network ~ "(" ~ _ ~ ")" => new RoadNetwork(network) }
 
   /**
-   * Parses the join construct, taking the names of two road networks.
-   * @return
+   * Parses the <b>join</b> construct, taking the names of two road networks.
+   * @return Parser for joining two networks.
    */
   def joinNetworks = "join" ~ stringLiteral ~ "," ~ stringLiteral ^^
     { case "join" ~ n1 ~ "," ~ n2 => new RoadNetworkUnion(null, null) }
 
   /**
-   * Parses the given construct.
-   * @return
+   * Parses the <b>given</b> construct.
+   * @return Parser for the "given" construct.
    */
   def given = "given" ~ stringLiteral ~ ("," ~ stringLiteral).*
 
   /**
-   * Parses the run simulation construct.
-   * @return
+   * Parses the <b>run simulation</b> construct.
+   * @return Parser to run the simulation.
    */
   def runSimulation = "run" ~ "simulation"
 
   /**
-   * Parses actions related to road network construction, such as "create road" and
-   * "block road".
-   * @return
+   * Parses actions related to road network construction, such as <b>create road</b> and
+   * <b>block road</b>.
+   * @return Parser for the actions related to road network construction.
    */
   def roads = createRoad ~ (attachRoad | blockRoad).*
 
   /**
-   * Parses the create primary road construct, together with its length.
-   * @return
+   * Parses the <b>create primary road</b> construct, together with its length.
+   * @return Parser for road creation.
    */
   def createRoad = "create" ~ "primary" ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
 
   /**
-   * Parses the attach primary/secondary road construct, together with its length.
-   * @return
+   * Parses the <b>attach primary/secondary road</b> construct, together with its length.
+   * @return Parser for road attachment.
    */
   def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
 
   /**
-   * Parses the block construct.
-   * @return
+   * Parses the <b>block</b> construct.
+   * @return Parser for blocking.
    */
   def blockRoad = "block" ~ stringLiteral
 
