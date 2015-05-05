@@ -35,14 +35,14 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">RoadNetwork</span><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>] with <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></span>
+        <span class="name">RoadNetwork</span><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>] with <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Organises and simulates road networks.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a>, <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>], <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>], <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>], <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>], <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a>, <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -176,7 +176,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg2">arg2: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg2">arg2: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -189,7 +189,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -283,7 +283,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">containsEdge</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">containsEdge</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -314,7 +314,7 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.uom.fyp.engine.RoadNetwork#createLane" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createLane(properties:AnyRef):org.uom.fyp.engine.Lane"></a>
+      <a id="createLane(properties:AnyRef):org.uom.fyp.engine.PartialLane"></a>
       <a id="createLane(AnyRef):Lane"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -322,7 +322,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createLane</span><span class="params">(<span name="properties">properties: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+        <span class="name">createLane</span><span class="params">(<span name="properties">properties: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Creates and returns a lane auto-defining both vertices.</p><div class="fullcomment"><div class="comment cmt"><p>Creates and returns a lane auto-defining both vertices.</p></div><dl class="paramcmts block"><dt class="param">properties</dt><dd class="cmt"></dd><dt>returns</dt><dd class="cmt"><p>Lane just created.
@@ -349,7 +349,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">edgeSet</span><span class="params">()</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+        <span class="name">edgeSet</span><span class="params">()</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -362,7 +362,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">edgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+        <span class="name">edgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -420,7 +420,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+        <span class="name">getAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -446,7 +446,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+        <span class="name">getEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -459,7 +459,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeFactory</span><span class="params">()</span><span class="result">: <span class="extype" name="org.jgrapht.EdgeFactory">EdgeFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+        <span class="name">getEdgeFactory</span><span class="params">()</span><span class="result">: <span class="extype" name="org.jgrapht.EdgeFactory">EdgeFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -472,7 +472,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeSource</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
+        <span class="name">getEdgeSource</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -485,7 +485,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeTarget</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
+        <span class="name">getEdgeTarget</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -498,12 +498,12 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+        <span class="name">getEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.uom.fyp.engine.RoadNetwork#getLane" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getLane(streetName:String,laneNo:Int):org.uom.fyp.engine.Lane"></a>
+      <a id="getLane(streetName:String,laneNo:Int):org.uom.fyp.engine.PartialLane"></a>
       <a id="getLane(String,Int):Lane"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -511,7 +511,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getLane</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="laneNo">laneNo: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+        <span class="name">getLane</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="laneNo">laneNo: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the lane found in a street with the given name and the given
@@ -553,7 +553,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">incomingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+        <span class="name">incomingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
@@ -698,7 +698,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">outgoingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+        <span class="name">outgoingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
@@ -711,7 +711,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Array">Array</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Array">Array</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../jgrapht$graph.html" class="extype" name="org.jgrapht.graph">org.jgrapht.graph</a>] </dd><dt>Definition Classes</dt><dd>AbstractGraph</dd></dl></div>
@@ -724,7 +724,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>
+        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractGraph → Graph</dd></dl></div>
@@ -737,7 +737,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractGraph → Graph</dd></dl></div>
@@ -763,7 +763,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -776,7 +776,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -802,7 +802,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setEdgeSetFactory</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.jgrapht.graph.EdgeSetFactory">EdgeSetFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">setEdgeSetFactory</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.jgrapht.graph.EdgeSetFactory">EdgeSetFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
@@ -815,7 +815,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>, <span name="arg1">arg1: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">setEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>, <span name="arg1">arg1: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
@@ -868,7 +868,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toStringFromSets</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>]</span>, <span name="arg1">arg1: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</span>, <span name="arg2">arg2: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">toStringFromSets</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>]</span>, <span name="arg1">arg1: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>, <span name="arg2">arg2: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../jgrapht$graph.html" class="extype" name="org.jgrapht.graph">org.jgrapht.graph</a>] </dd><dt>Definition Classes</dt><dd>AbstractGraph</dd></dl></div>
@@ -954,19 +954,19 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <div class="parent" name="org.uom.fyp.engine.IRoadNetwork">
               <h3>Inherited from <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></h3>
             </div><div class="parent" name="org.jgrapht.graph.DefaultDirectedGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
             </div><div class="parent" name="org.jgrapht.DirectedGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
             </div><div class="parent" name="org.jgrapht.graph.AbstractBaseGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="java.lang.Cloneable">
               <h3>Inherited from <span class="extype" name="java.lang.Cloneable">Cloneable</span></h3>
             </div><div class="parent" name="org.jgrapht.graph.AbstractGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
             </div><div class="parent" name="org.jgrapht.Graph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

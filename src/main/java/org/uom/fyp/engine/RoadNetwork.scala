@@ -7,7 +7,7 @@ import java.util
 /**
  * Organises and simulates road networks.
  */
-class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf[Lane]) with IRoadNetwork {
+class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, PartialLane](classOf[PartialLane]) with IRoadNetwork {
 
   /**
    * Stores a list of streets/roads within the network.
@@ -26,12 +26,12 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf
    * @param lane
    * @param pdq
    */
-  private def simulate(vehicles: Int, arrivalRate: Double, lane: Lane, pdq: PDQ): Unit = {
+  private def simulate(vehicles: Int, arrivalRate: Double, lane: PartialLane, pdq: PDQ): Unit = {
     lane.noOfVehicles_(vehicles)
     lane.arrivalRate_(arrivalRate)
     lane.simulate(pdq)
 
-    val outgoingLanes: util.Set[Lane] = outgoingEdgesOf(lane.getTarget)
+    val outgoingLanes: util.Set[PartialLane] = outgoingEdgesOf(lane.getTarget)
     if (outgoingLanes.size > 0) {
       val newArrivalRate = lane.departureRate / outgoingLanes.size
       val newNoOfVehicles = vehicles / outgoingLanes.size
@@ -51,7 +51,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf
     val lanes = edgeSet().toArray
     val pdq: PDQ = new PDQ
     pdq.Init(name)
-    simulate(vehicles, vehicles, lanes(0).asInstanceOf[Lane], pdq)
+    simulate(vehicles, vehicles, lanes(0).asInstanceOf[PartialLane], pdq)
     pdq.Report()
   }
 
@@ -62,9 +62,9 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf
    * @param laneNo The lane's number relative to other lanes in that given street.
    * @return Lane found in the given street.
    */
-  def getLane(streetName: String, laneNo: Int): Lane = {
+  def getLane(streetName: String, laneNo: Int): PartialLane = {
     val street: Street = streets.find((street: Street) => street.name == streetName).asInstanceOf[Street]
-    street.lanes.find((lane: Lane) => lane.no == laneNo).asInstanceOf[Lane]
+    street.lanes.find((lane: Lane) => lane.no == laneNo).asInstanceOf[PartialLane]
   }
 
   /**
@@ -72,7 +72,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Lane](classOf
    * @param properties
    * @return Lane just created.
    */
-  override def createLane(properties: AnyRef): Lane = NetworkUtils.createLane(this)
+  override def createLane(properties: AnyRef): PartialLane = NetworkUtils.createLane(this)
 
   /**
    * Block lane found in the street with the given name.

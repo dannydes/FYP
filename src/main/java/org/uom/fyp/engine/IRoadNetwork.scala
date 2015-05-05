@@ -26,7 +26,7 @@ trait IRoadNetwork {
    * @param properties
    * @return Lane just created.
    */
-  def createLane(properties: AnyRef): Lane
+  def createLane(properties: AnyRef): PartialLane
 
   /**
    * Block lane found in the street with the given name.

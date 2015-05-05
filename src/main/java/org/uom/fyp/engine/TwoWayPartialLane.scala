@@ -3,7 +3,7 @@ package org.uom.fyp.engine
 /**
  * Created by Desira Daniel on 2/10/2015.
  */
-class TwoWayLane(l: Double, w: Double, lambda: Double) extends Lane {
+class TwoWayPartialLane(l: Double, w: Double, lambda: Double) extends PartialLane {
 
   super.lLen_(l)
   super.width_(w)

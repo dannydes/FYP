@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Lane - FYP documentation - org.uom.fyp.engine.Lane</title>
-          <meta name="description" content="Lane - FYP documentation - org.uom.fyp.engine.Lane" />
-          <meta name="keywords" content="Lane FYP documentation org.uom.fyp.engine.Lane" />
+          <title>Lane - FYP documentation - org.uom.fyp.engine.PartialLane</title>
+          <meta name="description" content="Lane - FYP documentation - org.uom.fyp.engine.PartialLane" />
+          <meta name="keywords" content="Lane FYP documentation org.uom.fyp.engine.PartialLane" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -45,7 +45,7 @@
           <div class="superTypes hiddenContent"><span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span>, <span class="extype" name="org.jgrapht.graph.IntrusiveEdge">IntrusiveEdge</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
           <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="OneWayLane.html" class="extype" name="org.uom.fyp.engine.OneWayLane">OneWayLane</a>, <a href="TwoWayLane.html" class="extype" name="org.uom.fyp.engine.TwoWayLane">TwoWayLane</a></div>
+          <div class="subClasses hiddenContent"><a href="OneWayLane.html" class="extype" name="org.uom.fyp.engine.OneWayPartialLane">OneWayLane</a>, <a href="TwoWayLane.html" class="extype" name="org.uom.fyp.engine.TwoWayPartialLane">TwoWayLane</a></div>
         </div></div>
         
 
@@ -63,7 +63,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="org.uom.fyp.engine.Lane"><span>Lane</span></li><li class="in" name="org.jgrapht.graph.DefaultEdge"><span>DefaultEdge</span></li><li class="in" name="org.jgrapht.graph.IntrusiveEdge"><span>IntrusiveEdge</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="java.lang.Cloneable"><span>Cloneable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="org.uom.fyp.engine.PartialLane"><span>Lane</span></li><li class="in" name="org.jgrapht.graph.DefaultEdge"><span>DefaultEdge</span></li><li class="in" name="org.jgrapht.graph.IntrusiveEdge"><span>IntrusiveEdge</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="java.lang.Cloneable"><span>Cloneable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -84,7 +84,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.uom.fyp.engine.Lane#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;():org.uom.fyp.engine.Lane"></a>
+      <a id="&lt;init&gt;():org.uom.fyp.engine.PartialLane"></a>
       <a id="&lt;init&gt;:Lane"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -198,7 +198,7 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="org.uom.fyp.engine.Lane#attachLane" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="attachLane(network:org.uom.fyp.engine.RoadNetwork,properties:AnyRef):org.uom.fyp.engine.Lane"></a>
+      <a id="attachLane(network:org.uom.fyp.engine.RoadNetwork,properties:AnyRef):org.uom.fyp.engine.PartialLane"></a>
       <a id="attachLane(RoadNetwork,AnyRef):Lane"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -206,7 +206,7 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">attachLane</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="properties">properties: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+        <span class="name">attachLane</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="properties">properties: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Attaches and returns a new lane to the context lane.</p><div class="fullcomment"><div class="comment cmt"><p>Attaches and returns a new lane to the context lane.</p></div><dl class="paramcmts block"><dt class="param">properties</dt><dd class="cmt"></dd><dt>returns</dt><dd class="cmt"><p>The lane just attached.
@@ -308,7 +308,7 @@
         <span class="name">getSource</span><span class="params">()</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.Lane">Lane</a> → DefaultEdge</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a> → DefaultEdge</dd></dl></div>
     </li><li name="org.uom.fyp.engine.Lane#getTarget" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getTarget():org.uom.fyp.engine.Node"></a>
       <a id="getTarget():Node"></a>
@@ -321,7 +321,7 @@
         <span class="name">getTarget</span><span class="params">()</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
       </span>
       </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.Lane">Lane</a> → DefaultEdge</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a> → DefaultEdge</dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
