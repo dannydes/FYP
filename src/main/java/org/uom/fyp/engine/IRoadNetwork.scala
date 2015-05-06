@@ -22,11 +22,10 @@ trait IRoadNetwork {
   def shockwave(qb : Double, qa : Double, kb : Double, ka : Double): Double
 
   /**
-   * Creates and returns a lane auto-defining both vertices.
+   * Creates a lane.
    * @param properties
-   * @return Lane just created.
    */
-  def createLane(properties: AnyRef): PartialLane
+  def createLane(properties: AnyRef): Unit
 
   /**
    * Block lane found in the street with the given name.

@@ -35,13 +35,13 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">RoadNetworkUnion</span><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">RoadNetworkUnion</span><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Replaces JGraphT's DirectedGraphUnion class in such a way that better suites the project's structure.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -169,27 +169,27 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#addEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="addEdge(x$1:V,x$2:V,x$3:E):Boolean"></a>
-      <a id="addEdge(Node,Node,Lane):Boolean"></a>
+      <a id="addEdge(Node,Node,LaneSlice):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg2">arg2: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg2">arg2: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#addEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="addEdge(x$1:V,x$2:V):E"></a>
-      <a id="addEdge(Node,Node):Lane"></a>
+      <a id="addEdge(Node,Node):LaneSlice"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
+        <span class="name">addEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -247,14 +247,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → AnyRef</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#containsEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="containsEdge(x$1:E):Boolean"></a>
-      <a id="containsEdge(Lane):Boolean"></a>
+      <a id="containsEdge(LaneSlice):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">containsEdge</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">containsEdge</span><span class="params">(<span name="arg0">arg0: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -298,29 +298,29 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
     </li><li name="org.uom.fyp.engine.RoadNetworkUnion#edgeSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="edgeSet():java.util.Set[org.uom.fyp.engine.Lane]"></a>
-      <a id="edgeSet():Set[Lane]"></a>
+      <a id="edgeSet():java.util.Set[org.uom.fyp.engine.LaneSlice]"></a>
+      <a id="edgeSet():Set[LaneSlice]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">edgeSet</span><span class="params">()</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">edgeSet</span><span class="params">()</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the new set of lanes.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the new set of lanes.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.RoadNetworkUnion">RoadNetworkUnion</a> → AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#edgesOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="edgesOf(x$1:V):java.util.Set[E]"></a>
-      <a id="edgesOf(Node):Set[Lane]"></a>
+      <a id="edgesOf(Node):Set[LaneSlice]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">edgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">edgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -371,14 +371,14 @@
         </dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#getAllEdges" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getAllEdges(x$1:V,x$2:V):java.util.Set[E]"></a>
-      <a id="getAllEdges(Node,Node):Set[Lane]"></a>
+      <a id="getAllEdges(Node,Node):Set[LaneSlice]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">getAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -397,66 +397,66 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#getEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getEdge(x$1:V,x$2:V):E"></a>
-      <a id="getEdge(Node,Node):Lane"></a>
+      <a id="getEdge(Node,Node):LaneSlice"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
+        <span class="name">getEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#getEdgeFactory" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getEdgeFactory():org.jgrapht.EdgeFactory[V,E]"></a>
-      <a id="getEdgeFactory():EdgeFactory[Node,Lane]"></a>
+      <a id="getEdgeFactory():EdgeFactory[Node,LaneSlice]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeFactory</span><span class="params">()</span><span class="result">: <span class="extype" name="org.jgrapht.EdgeFactory">EdgeFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">getEdgeFactory</span><span class="params">()</span><span class="result">: <span class="extype" name="org.jgrapht.EdgeFactory">EdgeFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#getEdgeSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getEdgeSource(x$1:E):V"></a>
-      <a id="getEdgeSource(Lane):Node"></a>
+      <a id="getEdgeSource(LaneSlice):Node"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeSource</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
+        <span class="name">getEdgeSource</span><span class="params">(<span name="arg0">arg0: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#getEdgeTarget" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getEdgeTarget(x$1:E):V"></a>
-      <a id="getEdgeTarget(Lane):Node"></a>
+      <a id="getEdgeTarget(LaneSlice):Node"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeTarget</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
+        <span class="name">getEdgeTarget</span><span class="params">(<span name="arg0">arg0: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>)</span><span class="result">: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#getEdgeWeight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getEdgeWeight(x$1:E):Double"></a>
-      <a id="getEdgeWeight(Lane):Double"></a>
+      <a id="getEdgeWeight(LaneSlice):Double"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+        <span class="name">getEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -488,14 +488,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#incomingEdgesOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="incomingEdgesOf(x$1:V):java.util.Set[E]"></a>
-      <a id="incomingEdgesOf(Node):Set[Lane]"></a>
+      <a id="incomingEdgesOf(Node):Set[LaneSlice]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">incomingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">incomingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
@@ -618,53 +618,53 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#outgoingEdgesOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="outgoingEdgesOf(x$1:V):java.util.Set[E]"></a>
-      <a id="outgoingEdgesOf(Node):Set[Lane]"></a>
+      <a id="outgoingEdgesOf(Node):Set[LaneSlice]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">outgoingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">outgoingEdgesOf</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractGraph#removeAllEdges" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="removeAllEdges(x$1:Array[EwithObject]):Boolean"></a>
-      <a id="removeAllEdges(Array[Lane]):Boolean"></a>
+      <a id="removeAllEdges(Array[LaneSlice]):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Array">Array</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Array">Array</span>[<a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../jgrapht$graph.html" class="extype" name="org.jgrapht.graph">org.jgrapht.graph</a>] </dd><dt>Definition Classes</dt><dd>AbstractGraph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractGraph#removeAllEdges" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="removeAllEdges(x$1:V,x$2:V):java.util.Set[E]"></a>
-      <a id="removeAllEdges(Node,Node):Set[Lane]"></a>
+      <a id="removeAllEdges(Node,Node):Set[LaneSlice]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>
+        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="java.util.Set">Set</span>[<a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractGraph#removeAllEdges" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="removeAllEdges(x$1:java.util.Collection[_&lt;:E]):Boolean"></a>
-      <a id="removeAllEdges(Collection[_&lt;:Lane]):Boolean"></a>
+      <a id="removeAllEdges(Collection[_&lt;:LaneSlice]):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">removeAllEdges</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractGraph → Graph</dd></dl></div>
@@ -683,27 +683,27 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#removeEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="removeEdge(x$1:E):Boolean"></a>
-      <a id="removeEdge(Lane):Boolean"></a>
+      <a id="removeEdge(LaneSlice):Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#removeEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="removeEdge(x$1:V,x$2:V):E"></a>
-      <a id="removeEdge(Node,Node):Lane"></a>
+      <a id="removeEdge(Node,Node):LaneSlice"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>
+        <span class="name">removeEdge</span><span class="params">(<span name="arg0">arg0: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="arg1">arg1: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
@@ -722,27 +722,27 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#setEdgeSetFactory" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setEdgeSetFactory(x$1:org.jgrapht.graph.EdgeSetFactory[V,E]):Unit"></a>
-      <a id="setEdgeSetFactory(EdgeSetFactory[Node,Lane]):Unit"></a>
+      <a id="setEdgeSetFactory(EdgeSetFactory[Node,LaneSlice]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setEdgeSetFactory</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.jgrapht.graph.EdgeSetFactory">EdgeSetFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">setEdgeSetFactory</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="org.jgrapht.graph.EdgeSetFactory">EdgeSetFactory</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#setEdgeWeight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setEdgeWeight(x$1:E,x$2:Double):Unit"></a>
-      <a id="setEdgeWeight(Lane,Double):Unit"></a>
+      <a id="setEdgeWeight(LaneSlice,Double):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a></span>, <span name="arg1">arg1: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">setEdgeWeight</span><span class="params">(<span name="arg0">arg0: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>, <span name="arg1">arg1: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph</dd></dl></div>
@@ -774,14 +774,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractGraph → AnyRef → Any</dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractGraph#toStringFromSets" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toStringFromSets(x$1:java.util.Collection[_&lt;:V],x$2:java.util.Collection[_&lt;:E],x$3:Boolean):String"></a>
-      <a id="toStringFromSets(Collection[_&lt;:Node],Collection[_&lt;:Lane],Boolean):String"></a>
+      <a id="toStringFromSets(Collection[_&lt;:Node],Collection[_&lt;:LaneSlice],Boolean):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toStringFromSets</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>]</span>, <span name="arg1">arg1: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</span>, <span name="arg2">arg2: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">toStringFromSets</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>]</span>, <span name="arg1">arg1: <span class="extype" name="java.util.Collection">Collection</span>[_ &lt;: <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>, <span name="arg2">arg2: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../jgrapht$graph.html" class="extype" name="org.jgrapht.graph">org.jgrapht.graph</a>] </dd><dt>Definition Classes</dt><dd>AbstractGraph</dd></dl></div>
@@ -866,19 +866,19 @@
 
         <div id="inheritedMembers">
         <div class="parent" name="org.jgrapht.graph.DefaultDirectedGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</h3>
             </div><div class="parent" name="org.jgrapht.DirectedGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</h3>
             </div><div class="parent" name="org.jgrapht.graph.AbstractBaseGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="java.lang.Cloneable">
               <h3>Inherited from <span class="extype" name="java.lang.Cloneable">Cloneable</span></h3>
             </div><div class="parent" name="org.jgrapht.graph.AbstractGraph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</h3>
             </div><div class="parent" name="org.jgrapht.Graph">
-              <h3>Inherited from <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Lane.html" class="extype" name="org.uom.fyp.engine.PartialLane">Lane</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

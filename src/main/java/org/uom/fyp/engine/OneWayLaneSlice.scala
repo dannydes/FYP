@@ -5,7 +5,7 @@ package org.uom.fyp.engine
  * @param l Lane length.
  * @param w Lane width.
  */
-class OneWayPartialLane(l: Double, w: Double, lambda: Double) extends PartialLane {
+class OneWayLaneSlice(l: Double, w: Double, lambda: Double) extends LaneSlice {
 
   super.lLen_(l)
   super.width_(w)

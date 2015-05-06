@@ -1,18 +1,14 @@
-
 package org.uom.fyp.engine
 
 import com.perfdynamics.pdq._
 import org.jgrapht.graph.DefaultEdge
 
 /**
- * Applies operations over lanes.
+ * Applies operations over slices from lanes.</br>
+ * A lane slice is essentially a part of a lane, whereby the
+ * source and target are marked on intersection with other lanes.
  */
-class PartialLane extends DefaultEdge {
-
-  /**
-   * Stores lane number.
-   */
-  private var laneNo: Int = 0
+class LaneSlice extends DefaultEdge {
 
   /**
    * Stores the number of vehicles in lane.
@@ -74,24 +70,12 @@ class PartialLane extends DefaultEdge {
   }
 
   /**
-   * Returns the lane's number.
-   */
-  def no = laneNo
-
-  /**
-   * Sets the lane's number.
-   * @param laneNo Lane number.
-   */
-  def no_(laneNo: Int) = {
-    this.laneNo = laneNo
-  }
-
-  /**
    * Attaches and returns a new lane to the context lane.
-   * @param properties
+   * @param network
+   * @param l
    * @return The lane just attached.
    */
-  def attachPartialLane(network: RoadNetwork, l: Double): PartialLane = NetworkUtils.createLane(network, this.getTarget)
+  def attachLaneSlice(network: RoadNetwork, l: Double): LaneSlice = NetworkUtils.createLaneSlice(network, this.getTarget)
 
   /**
    * Blocks the context lane.
@@ -125,7 +109,9 @@ class PartialLane extends DefaultEdge {
   }
 
   /**
-   * Simulates traffic going through the lane.
+   * Simulates traffic going from the starting point to the ending point of the
+   * particular lane slice.
+   * @param pdq PDQ object.
    */
   def simulate(pdq: PDQ) = {
     pdq.CreateNode(toString, defs.CEN, defs.FCFS)
@@ -136,10 +122,16 @@ class PartialLane extends DefaultEdge {
     pdq.Solve(defs.CANON)
   }
 
+  /**
+   * Returns the lane slice's source.
+   */
   override def getSource = {
     super.getSource.asInstanceOf[Node]
   }
 
+  /**
+   * Returns the lane slice's target.
+   */
   override def getTarget = {
     super.getTarget.asInstanceOf[Node]
   }
