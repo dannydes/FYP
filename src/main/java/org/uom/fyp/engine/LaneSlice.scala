@@ -31,6 +31,13 @@ class LaneSlice extends DefaultEdge {
   private var lambda = 0.0
 
   /**
+   * Stores the point in which the lane slice exists, in relation to the
+   * lane in which it is found. Depends on the point of interaction of
+   * the two lanes.
+   */
+  private var point = 0.0
+
+  /**
    * Returns lane length.
    */
   def lLen: Double = l
@@ -54,6 +61,24 @@ class LaneSlice extends DefaultEdge {
    */
   def width_(w: Double) = {
     this.w = w
+  }
+
+  /**
+   * Returns the point in which the lane slice exists, in relation to the
+   * lane in which it is found. Depends on the point of interaction of
+   * the two lanes.
+   */
+  def intersectionPoint = point
+
+  /**
+   * Sets the point in which the lane slice exists, in relation to the
+   * lane in which it is found.
+   * @param point The point in which the lane slice exists, in relation to
+   *              the lane in which it is found. Depends on the point of
+   *              intersection of the two lanes.
+   */
+  def intersectionPoint_(point: Double) = {
+    this.point = point
   }
 
   /**

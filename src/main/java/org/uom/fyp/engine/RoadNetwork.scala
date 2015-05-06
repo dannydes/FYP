@@ -69,10 +69,15 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
 
   /**
    * Creates a lane.
-   * @param properties
+   * @param streetName The name of the street to which the lane belongs.
+   * @param streetType The type of the street to which the lane belongs. Can be StreetType.PRIMARY or
+   *                   StreetType.SECONDARY.
+   * @param length The lane's length.
    */
-  override def createLane(properties: AnyRef): Unit = {
-
+  override def createLane(streetName: String, streetType: StreetType, length: Double): Unit = {
+    val street: Street = addStreet(streetName, streetType)
+    val lane: Lane = new Lane(street.lanes.length, length)
+    street.addLane(lane)
   }
 
   /**
@@ -103,8 +108,29 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   /**
    * untested
    */
-  override def addStreet(streetName: String, streetType: StreetType) = {
-    streets = streets ++ List(new Street(streetName, streetType))
+  override def addStreet(streetName: String, streetType: StreetType): Street = {
+    //First, we must check if the street has already been defined.
+    var street: Street = streets.find((street: Street) => street.name == streetName).asInstanceOf[Street]
+
+    if (street == None) {
+      street = new Street(streetName, streetType)
+      streets = streets ++ List(street)
+    }
+
+    street
+  }
+
+  //under construction!!
+  override def buildGraph(): Unit = {
+    var source: Node = null
+    streets.foreach((street: Street) => {
+      street.lanes.foreach((lane: Lane) => {
+        lane.edges.foreach((slice: LaneSlice) => {
+          val edge: LaneSlice = NetworkUtils.createLaneSlice(this, source)
+          source = edge.getTarget
+        })
+      })
+    })
   }
 
 }

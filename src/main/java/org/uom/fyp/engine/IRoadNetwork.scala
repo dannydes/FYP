@@ -25,7 +25,7 @@ trait IRoadNetwork {
    * Creates a lane.
    * @param properties
    */
-  def createLane(properties: AnyRef): Unit
+  def createLane(streetName: String, streetType: StreetType, length: Double): Unit
 
   /**
    * Block lane found in the street with the given name.
@@ -33,6 +33,8 @@ trait IRoadNetwork {
    */
   def blockLane(streetName: String, laneNo: Int)
 
-  def addStreet(streetName: String, streetType: StreetType)
+  def addStreet(streetName: String, streetType: StreetType): Street
+
+  def buildGraph(): Unit
 
 }

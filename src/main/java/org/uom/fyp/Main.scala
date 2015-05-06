@@ -8,7 +8,7 @@ import org.uom.fyp.engine.RoadNetwork
 object Main {
 
   def main(args: Array[String]): Unit = {
-    //Construct sample road network.
+    /*//Construct sample road network.
     val zabbarPrimaries = new RoadNetwork("Zabbar Primaries")
     val parishStreet = zabbarPrimaries.createLane(null)
 
@@ -17,7 +17,7 @@ object Main {
     parishStreet.attachLane(zabbarPrimaries, null)
 
     //Find the time taken to go from one node to another and print it!
-    println(zabbarPrimaries.initSimulation(10))
+    println(zabbarPrimaries.initSimulation(10))*/
   }
 
 }

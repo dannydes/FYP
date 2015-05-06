@@ -70,4 +70,30 @@ class Lane(laneNo: Int, l: Double) {
     })
   }
 
+  /**
+   *
+   * @param network
+   * @param streetName
+   * @param streetType
+   * @param length
+   * @param point
+   * @return
+   */
+  def attachLane(network: RoadNetwork, streetName: String, streetType: StreetType,
+                 length: Double, point: Double): Lane = {
+    val street: Street = network.addStreet(streetName, streetType)
+    val lane: Lane = new Lane(street.lanes.length, length)
+
+    street.addLane(lane)
+
+    var otherAt = 0.0
+    if (this.laneSlices.length != 0) {
+      otherAt = this.laneSlices(this.laneSlices.length - 1).intersectionPoint
+    }
+
+    addEdge(otherAt, point)
+
+    lane
+  }
+
 }
