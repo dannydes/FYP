@@ -129,6 +129,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
           val edge: LaneSlice = NetworkUtils.createLaneSlice(this, source)
           source = edge.getTarget
         })
+        source = null
       })
     })
   }
