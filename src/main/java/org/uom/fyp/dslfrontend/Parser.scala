@@ -61,7 +61,7 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>attach primary/secondary road</b> construct, together with its length.
    * @return Parser for road attachment.
    */
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
+  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber
 
   /**
    * Parses the <b>block</b> construct.
