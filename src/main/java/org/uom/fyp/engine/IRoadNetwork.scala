@@ -23,7 +23,9 @@ trait IRoadNetwork {
 
   /**
    * Creates a lane.
-   * @param properties
+   * @param streetName
+   * @param streetType
+   * @param length
    */
   def createLane(streetName: String, streetType: StreetType, length: Double): Unit
 

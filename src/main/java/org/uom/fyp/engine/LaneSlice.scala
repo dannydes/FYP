@@ -38,6 +38,13 @@ class LaneSlice extends DefaultEdge {
   private var point = 0.0
 
   /**
+   * Stores a reference to the <b>Lane</b> object representing the physical
+   * lane that intersects with the lane on which the slice is found. Used in
+   * the graph building process.
+   */
+  private var lane: Lane = null
+
+  /**
    * Returns lane length.
    */
   def lLen: Double = l
@@ -82,6 +89,23 @@ class LaneSlice extends DefaultEdge {
   }
 
   /**
+   * Returns a reference to the <b>Lane</b> object representing the physical
+   * lane that intersects with the lane on which the slice is found. Used in
+   * the graph building process.
+   */
+  def intersectingLane = lane
+
+  /**
+   * Sets a reference to the <b>Lane</b> object representing the physical
+   * lane that intersects with the lane on which the slice is found.
+   * @param lane Lane object intersecting with the lane from which the
+   *             slice is taken to create the lane slice.
+   */
+  def intersectingLane_(lane: Lane) = {
+    this.lane = lane
+  }
+
+  /**
    * Returns the number of vehicles in lane.
    */
   def noOfVehicles = vehicles
@@ -93,14 +117,6 @@ class LaneSlice extends DefaultEdge {
   def noOfVehicles_(vehicles: Int) = {
     this.vehicles = vehicles
   }
-
-  /**
-   * Attaches and returns a new lane to the context lane.
-   * @param network
-   * @param l
-   * @return The lane just attached.
-   */
-  def attachLaneSlice(network: RoadNetwork, l: Double): LaneSlice = NetworkUtils.createLaneSlice(network, this.getTarget)
 
   /**
    * Blocks the context lane.

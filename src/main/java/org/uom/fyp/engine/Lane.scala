@@ -41,7 +41,7 @@ class Lane(laneNo: Int, l: Double) {
    * @param otherAttachedAt
    * @param nextOtherAttachedAt
    */
-  def addEdge(otherAttachedAt: Double, nextOtherAttachedAt: Double = len) = {
+  def addEdge(otherAttachedAt: Double, nextOtherAttachedAt: Double = len): LaneSlice = {
     if (nextOtherAttachedAt > len) {
       throw new LaneLengthExceededException(nextOtherAttachedAt)
     }
@@ -49,6 +49,8 @@ class Lane(laneNo: Int, l: Double) {
     val laneSlice: LaneSlice = new LaneSlice
     laneSlice.lLen_(nextOtherAttachedAt - otherAttachedAt)
     laneSlices = laneSlices ++ List(laneSlice)
+
+    laneSlice
   }
 
   /**
@@ -91,7 +93,8 @@ class Lane(laneNo: Int, l: Double) {
       otherAt = this.laneSlices(this.laneSlices.length - 1).intersectionPoint
     }
 
-    addEdge(otherAt, point)
+    val edge: LaneSlice = addEdge(otherAt, point)
+    edge.intersectingLane_(lane)
 
     lane
   }
