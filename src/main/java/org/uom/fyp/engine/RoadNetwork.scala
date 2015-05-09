@@ -128,6 +128,10 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
         lane.edges.foreach((slice: LaneSlice) => {
           val edge: LaneSlice = NetworkUtils.createLaneSlice(this, source)
           source = edge.getTarget
+
+          if (slice.intersectingNode != null) {
+            //intersection handling to be implemented!!
+          }
         })
         source = null
       })
