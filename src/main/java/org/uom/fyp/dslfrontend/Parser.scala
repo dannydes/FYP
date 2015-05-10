@@ -22,7 +22,7 @@ object Parser extends JavaTokenParsers {
    * the network.
    * @return Parser for network construction.
    */
-  def constructNetwork = "construct" ~ "network" ~ stringLiteral ~ "(" ~ roads ~ ")" ^^
+  def constructNetwork = "construct" ~ "network" ~ stringLiteral ~ "(" ~ lanes ~ ")" ^^
     { case "construct" ~ "network" ~ network ~ "(" ~ _ ~ ")" => new RoadNetwork(network) }
 
   /**
@@ -45,29 +45,29 @@ object Parser extends JavaTokenParsers {
   def runSimulation = "run" ~ "simulation"
 
   /**
-   * Parses actions related to road network construction, such as <b>create road</b> and
-   * <b>block road</b>.
+   * Parses actions related to road network construction, such as <b>create lane</b> and
+   * <b>block lane</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def roads = createRoad ~ (attachRoad | blockRoad).*
+  def lanes = createLane ~ (attachLane | blockLane).*
 
   /**
-   * Parses the <b>create primary road</b> construct, together with its length.
-   * @return Parser for road creation.
+   * Parses the <b>create primary lane</b> construct, together with its length.
+   * @return Parser for lane creation.
    */
-  def createRoad = "create" ~ "primary" ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
+  def createLane = "create" ~ "primary" ~ "lane" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
 
   /**
-   * Parses the <b>attach primary/secondary road</b> construct, together with its length.
-   * @return Parser for road attachment.
+   * Parses the <b>attach primary/secondary lane</b> construct, together with its length.
+   * @return Parser for lane attachment.
    */
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber
+  def attachLane = "attach" ~ ("primary" | "secondary") ~ "lane" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber
 
   /**
    * Parses the <b>block</b> construct.
    * @return Parser for blocking.
    */
-  def blockRoad = "block" ~ stringLiteral
+  def blockLane = "block" ~ stringLiteral
 
   /**
    * Initializes the parsing process for some source file with the given
