@@ -94,7 +94,7 @@ class Lane(laneNo: Int, l: Double) {
     }
 
     val edge: LaneSlice = addEdge(otherAt, point)
-    edge.intersectingLane_(lane)
+    edge.intersectingNode_(this.laneSlices(this.laneSlices.length - 1).getSource)
 
     lane
   }
