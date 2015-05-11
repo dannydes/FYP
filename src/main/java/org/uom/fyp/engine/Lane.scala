@@ -99,4 +99,16 @@ class Lane(laneNo: Int, l: Double) {
     lane
   }
 
+  def createLastEdge() = {
+    if (laneSlices.length == 0) {
+      addEdge(0, length)
+    } else {
+      val lastEdge: LaneSlice = laneSlices(laneSlices.length - 1)
+      val point = lastEdge.intersectionPoint + lastEdge.lLen
+      if (point < length) {
+        val edge: LaneSlice = addEdge(point, length)
+      }
+    }
+  }
+
 }

@@ -1,6 +1,6 @@
 package org.uom.fyp
 
-import org.uom.fyp.engine.RoadNetwork
+import org.uom.fyp.engine.{StreetType, RoadNetwork}
 
 /**
  * Calls parser and prediction engine so as to make a workable language.
@@ -8,16 +8,20 @@ import org.uom.fyp.engine.RoadNetwork
 object Main {
 
   def main(args: Array[String]): Unit = {
-    /*//Construct sample road network.
+    //Construct sample road network.
     val zabbarPrimaries = new RoadNetwork("Zabbar Primaries")
-    val parishStreet = zabbarPrimaries.createLane(null)
+    val parishStreet = zabbarPrimaries.createLane("", StreetType.PRIMARY, 400)
 
-    parishStreet.attachLane(zabbarPrimaries, null)
-    parishStreet.attachLane(zabbarPrimaries, null)
-    parishStreet.attachLane(zabbarPrimaries, null)
+    parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 100)
+    parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 250)
+    parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 320)
+
+    zabbarPrimaries.buildGraph()
+    println(zabbarPrimaries.vertexSet().size() + " " + zabbarPrimaries.edgeSet().size())
+
 
     //Find the time taken to go from one node to another and print it!
-    println(zabbarPrimaries.initSimulation(10))*/
+    println(zabbarPrimaries.initSimulation(10))
   }
 
 }

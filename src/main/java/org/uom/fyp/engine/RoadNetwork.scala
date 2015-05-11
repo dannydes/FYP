@@ -74,10 +74,12 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    *                   StreetType.SECONDARY.
    * @param length The lane's length.
    */
-  override def createLane(streetName: String, streetType: StreetType, length: Double): Unit = {
+  override def createLane(streetName: String, streetType: StreetType, length: Double): Lane = {
     val street: Street = addStreet(streetName, streetType)
     val lane: Lane = new Lane(street.lanes.length, length)
     street.addLane(lane)
+
+    lane
   }
 
   /**
@@ -109,26 +111,41 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    * untested
    */
   override def addStreet(streetName: String, streetType: StreetType): Street = {
-    //First, we must check if the street has already been defined.
-    var street: Street = streets.find((street: Street) => street.name == streetName).asInstanceOf[Street]
+    //First, we must check if the street has already been defined .
+    val matches: List[Street] = streets.filter((street: Street) => street.name == streetName)
+    var street: Street = null
 
-    if (street == None) {
+    if (matches.size == 0) {
       street = new Street(streetName, streetType)
       streets = streets ++ List(street)
+    } else {
+      street = matches(0)
     }
 
     street
   }
 
+  private def completeEdgeList() = {
+    streets.foreach((street: Street) => {
+      street.lanes.foreach((lane: Lane) => {
+        lane.createLastEdge()
+      })
+    })
+  }
+
   //under construction!!
   override def buildGraph(): Unit = {
+    completeEdgeList()
+
     var source: Node = null
     streets.foreach((street: Street) => {
       street.lanes.foreach((lane: Lane) => {
+        println(lane.edges.size)
         lane.edges.foreach((slice: LaneSlice) => {
           if (slice.intersectingNode != null) {
             source = slice.intersectingNode
           }
+          println(source)
 
           val edge: LaneSlice = NetworkUtils.createLaneSlice(this, source)
           source = edge.getTarget
