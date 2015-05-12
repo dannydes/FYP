@@ -94,7 +94,8 @@ class Lane(laneNo: Int, l: Double) {
     }
 
     val edge: LaneSlice = addEdge(otherAt, point)
-    edge.intersectingNode_(this.laneSlices(this.laneSlices.length - 1).getSource)
+    edge.laneAtTarget_(lane)
+    edge.otherIntersectionPoint_(0)
 
     lane
   }
@@ -109,6 +110,10 @@ class Lane(laneNo: Int, l: Double) {
         val edge: LaneSlice = addEdge(point, length)
       }
     }
+  }
+
+  def getEdge(otherIntersectionPoint: Double) = {
+    laneSlices.filter((edge: LaneSlice) => edge.intersectionPoint == otherIntersectionPoint)(0)
   }
 
 }

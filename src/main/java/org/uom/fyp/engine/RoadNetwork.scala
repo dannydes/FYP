@@ -134,14 +134,20 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   }
 
   //under construction!!
-  override def buildGraph(): Unit = {
+  override def buildGraph(lane: Lane = streets(0).lanes(0), intersectionPt: Double = 0, source: Node = null): Unit = {
     completeEdgeList()
 
-    var source: Node = null
-    streets.foreach((street: Street) => {
+    for (i <- 0 until lane.edges.size) {
+      val laneSlice: LaneSlice = lane.edges(i)
+      val edge: LaneSlice = NetworkUtils.createLaneSlice(this, source)
+      if (laneSlice.laneAtTarget != null) {
+        buildGraph(laneSlice.laneAtTarget, laneSlice.intersectionPoint, edge.getTarget)
+      }
+    }
+    /*streets.foreach((street: Street) => {
       street.lanes.foreach((lane: Lane) => {
         lane.edges.foreach((slice: LaneSlice) => {
-          if (slice.intersectingNode != null) {
+          if (slice. != null) {
             source = slice.intersectingNode
           }
           println(source)
@@ -150,8 +156,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
           source = edge.getTarget
         })
         source = null
-      })
-    })
+      })*/
   }
 
 }

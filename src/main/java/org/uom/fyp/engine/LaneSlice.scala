@@ -37,12 +37,14 @@ class LaneSlice extends DefaultEdge {
    */
   private var point = 0.0
 
+  private var otherPoint = 0.0
+
   /**
    * Stores a reference to the <b>Lane</b> object representing the physical
    * lane that intersects with the lane on which the slice is found. Used in
    * the graph building process.
    */
-  private var node: Node = null
+  private var lat: Lane = null
 
   /**
    * Returns lane length.
@@ -88,12 +90,18 @@ class LaneSlice extends DefaultEdge {
     this.point = point
   }
 
+  def otherIntersectionPoint = otherPoint
+
+  def otherIntersectionPoint_(otherPoint: Double) = {
+    this.otherPoint = otherPoint
+  }
+
   /**
    * Returns a reference to the <b>Lane</b> object representing the physical
    * lane that intersects with the lane on which the slice is found. Used in
    * the graph building process.
    */
-  def intersectingNode = node
+  def laneAtTarget = lat
 
   /**
    * Sets a reference to the <b>Lane</b> object representing the physical
@@ -101,8 +109,8 @@ class LaneSlice extends DefaultEdge {
    * @param lane Lane object intersecting with the lane from which the
    *             slice is taken to create the lane slice.
    */
-  def intersectingNode_(node: Node) = {
-    this.node = node
+  def laneAtTarget_(lat: Lane) = {
+    this.lat = lat
   }
 
   /**
