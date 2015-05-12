@@ -17,7 +17,7 @@ object Main {
     parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 320)
 
     zabbarPrimaries.buildGraph()
-    println(zabbarPrimaries.vertexSet().size() + " " + zabbarPrimaries.edgeSet().size())
+    println(zabbarPrimaries.vertexSet().size())
 
 
     //Find the time taken to go from one node to another and print it!

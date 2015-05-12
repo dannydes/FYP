@@ -140,7 +140,6 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
     var source: Node = null
     streets.foreach((street: Street) => {
       street.lanes.foreach((lane: Lane) => {
-        println(lane.edges.size)
         lane.edges.foreach((slice: LaneSlice) => {
           if (slice.intersectingNode != null) {
             source = slice.intersectingNode
