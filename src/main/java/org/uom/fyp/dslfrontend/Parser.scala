@@ -49,7 +49,7 @@ object Parser extends JavaTokenParsers {
    * <b>block lane</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def lanes = createLane ~ (attachLane | blockLane).*
+  def lanes = createLane ~ (createLane | attachLane | blockLane | intersection).*
 
   /**
    * Parses the <b>create primary lane</b> construct, together with its length.
@@ -68,6 +68,8 @@ object Parser extends JavaTokenParsers {
    * @return Parser for blocking.
    */
   def blockLane = "block" ~ stringLiteral
+
+  def intersection = "intersection" ~ stringLiteral ~ wholeNumber ~ "," ~ stringLiteral ~ wholeNumber ~ "at" ~ floatingPointNumber ~ "," ~ floatingPointNumber
 
   /**
    * Initializes the parsing process for some source file with the given
