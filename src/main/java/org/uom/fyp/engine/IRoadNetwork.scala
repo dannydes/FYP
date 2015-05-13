@@ -37,6 +37,6 @@ trait IRoadNetwork {
 
   def addStreet(streetName: String, streetType: StreetType): Street
 
-  def buildGraph(lane: Lane, intersectionPt: Double, source: Node): Unit
+  def buildGraph(lane: Lane, countStart: Int, source: Node): Unit
 
 }

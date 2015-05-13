@@ -113,7 +113,7 @@ class Lane(laneNo: Int, l: Double) {
     }
   }
 
-  def getEdge(otherIntersectionPoint: Double) = {
+  def getEdge(otherIntersectionPoint: Double): LaneSlice = {
     laneSlices.filter((edge: LaneSlice) => edge.intersectionPoint == otherIntersectionPoint)(0)
   }
 

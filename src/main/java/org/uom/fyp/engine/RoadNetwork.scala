@@ -134,15 +134,16 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   }
 
   //under construction!!
-  override def buildGraph(lane: Lane = streets(0).lanes(0), intersectionPt: Double = 0, source: Node = null): Unit = {
+  override def buildGraph(lane: Lane = streets(0).lanes(0), countStart: Int = 0, source: Node = null): Unit = {
     var s: Node = source
-    for (i <- 0 until lane.edges.size) {
+    for (i <- countStart until lane.edges.size) {
       val laneSlice: LaneSlice = lane.edges(i)
       val edge: LaneSlice = NetworkUtils.createLaneSlice(this, s)
       s = edge.getTarget
 
       if (laneSlice.laneAtTarget != null) {
-        buildGraph(laneSlice.laneAtTarget, laneSlice.intersectionPoint, s)
+        val cStart = lane.edges.indexOf(lane.getEdge(laneSlice.otherIntersectionPoint))
+        buildGraph(laneSlice.laneAtTarget, cStart, s)
       }
     }
   }
