@@ -111,7 +111,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    * untested
    */
   override def addStreet(streetName: String, streetType: StreetType): Street = {
-    //First, we must check if the street has already been defined .
+    //First, we must check if the street has already been defined.
     val matches: List[Street] = streets.filter((street: Street) => street.name == streetName)
     var street: Street = null
 
@@ -125,7 +125,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
     street
   }
 
-  private def completeEdgeList() = {
+  def completeEdgeList() = {
     streets.foreach((street: Street) => {
       street.lanes.foreach((lane: Lane) => {
         lane.createLastEdge()
@@ -135,28 +135,16 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
 
   //under construction!!
   override def buildGraph(lane: Lane = streets(0).lanes(0), intersectionPt: Double = 0, source: Node = null): Unit = {
-    completeEdgeList()
-
+    var s: Node = source
     for (i <- 0 until lane.edges.size) {
       val laneSlice: LaneSlice = lane.edges(i)
-      val edge: LaneSlice = NetworkUtils.createLaneSlice(this, source)
+      val edge: LaneSlice = NetworkUtils.createLaneSlice(this, s)
+      s = edge.getTarget
+
       if (laneSlice.laneAtTarget != null) {
-        buildGraph(laneSlice.laneAtTarget, laneSlice.intersectionPoint, edge.getTarget)
+        buildGraph(laneSlice.laneAtTarget, laneSlice.intersectionPoint, s)
       }
     }
-    /*streets.foreach((street: Street) => {
-      street.lanes.foreach((lane: Lane) => {
-        lane.edges.foreach((slice: LaneSlice) => {
-          if (slice. != null) {
-            source = slice.intersectingNode
-          }
-          println(source)
-
-          val edge: LaneSlice = NetworkUtils.createLaneSlice(this, source)
-          source = edge.getTarget
-        })
-        source = null
-      })*/
   }
 
 }

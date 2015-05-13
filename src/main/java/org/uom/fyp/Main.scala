@@ -16,6 +16,7 @@ object Main {
     parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 250)
     parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 320)
 
+    zabbarPrimaries.completeEdgeList()
     zabbarPrimaries.buildGraph()
     println(zabbarPrimaries.vertexSet().size())
 
