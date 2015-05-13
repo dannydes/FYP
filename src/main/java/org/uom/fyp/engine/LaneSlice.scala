@@ -18,7 +18,7 @@ class LaneSlice extends DefaultEdge {
   /**
    * Stores lane length.
    */
-  private var l = 0.0
+  private var len = 0.0
 
   /**
    * Stores lane width.
@@ -49,14 +49,14 @@ class LaneSlice extends DefaultEdge {
   /**
    * Returns lane length.
    */
-  def lLen: Double = l
+  def length: Double = len
 
   /**
    * Sets lane length.
-   * @param l Lane length.
+   * @param len Lane length.
    */
-  def lLen_(l: Double) = {
-    this.l = l
+  def length_(len: Double) = {
+    this.len = len
   }
 
   /**
@@ -184,5 +184,7 @@ class LaneSlice extends DefaultEdge {
   override def getTarget = {
     super.getTarget.asInstanceOf[Node]
   }
+
+  //override def toString =  + " " + vehicles
 
 }

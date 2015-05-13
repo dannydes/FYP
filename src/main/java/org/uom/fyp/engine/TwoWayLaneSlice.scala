@@ -5,7 +5,7 @@ package org.uom.fyp.engine
  */
 class TwoWayLaneSlice(l: Double, w: Double, lambda: Double) extends LaneSlice {
 
-  super.lLen_(l)
+  super.length_(l)
   super.width_(w)
   super.arrivalRate_(lambda)
 

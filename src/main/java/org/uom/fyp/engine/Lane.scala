@@ -47,7 +47,7 @@ class Lane(laneNo: Int, l: Double) {
     }
 
     val laneSlice: LaneSlice = new LaneSlice
-    laneSlice.lLen_(nextOtherAttachedAt - otherAttachedAt)
+    laneSlice.length_(nextOtherAttachedAt - otherAttachedAt)
     laneSlices = laneSlices ++ List(laneSlice)
 
     laneSlice
@@ -91,7 +91,7 @@ class Lane(laneNo: Int, l: Double) {
     var otherAt = 0.0
     if (this.laneSlices.length != 0) {
       val prev: LaneSlice = this.laneSlices(this.laneSlices.length - 1)
-      otherAt = prev.intersectionPoint + prev.lLen
+      otherAt = prev.intersectionPoint + prev.length
     }
 
     val edge: LaneSlice = addEdge(otherAt, point)
@@ -106,7 +106,7 @@ class Lane(laneNo: Int, l: Double) {
       addEdge(0, length)
     } else {
       val lastEdge: LaneSlice = laneSlices(laneSlices.length - 1)
-      val point = lastEdge.intersectionPoint + lastEdge.lLen
+      val point = lastEdge.intersectionPoint + lastEdge.length
       if (point < length) {
         val edge: LaneSlice = addEdge(point, length)
       }
