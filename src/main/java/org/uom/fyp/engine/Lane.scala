@@ -90,7 +90,8 @@ class Lane(laneNo: Int, l: Double) {
 
     var otherAt = 0.0
     if (this.laneSlices.length != 0) {
-      otherAt = this.laneSlices(this.laneSlices.length - 1).intersectionPoint
+      val prev: LaneSlice = this.laneSlices(this.laneSlices.length - 1)
+      otherAt = prev.intersectionPoint + prev.lLen
     }
 
     val edge: LaneSlice = addEdge(otherAt, point)
