@@ -88,15 +88,15 @@
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
               <ol><li name="org.uom.fyp.engine.IRoadNetwork#addStreet" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="addStreet(streetName:String,streetType:&lt;error&gt;):Unit"></a>
-      <a id="addStreet(String,&lt;error&gt;):Unit"></a>
+      <a id="addStreet(streetName:String,streetType:org.uom.fyp.engine.StreetType):org.uom.fyp.engine.Street"></a>
+      <a id="addStreet(String,StreetType):Street"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">addStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: &lt;error&gt;</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">addStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <span class="extype" name="org.uom.fyp.engine.StreetType">StreetType</span></span>)</span><span class="result">: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
       </span>
       </h4>
       
@@ -114,19 +114,32 @@
       </h4>
       <p class="shortcomment cmt">Block lane found in the street with the given name.</p><div class="fullcomment"><div class="comment cmt"><p>Block lane found in the street with the given name.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Street name.
 </p></dd></dl></div>
-    </li><li name="org.uom.fyp.engine.IRoadNetwork#createLane" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="createLane(properties:AnyRef):Unit"></a>
-      <a id="createLane(AnyRef):Unit"></a>
+    </li><li name="org.uom.fyp.engine.IRoadNetwork#buildGraph" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="buildGraph(lane:org.uom.fyp.engine.Lane,countStart:Int,source:org.uom.fyp.engine.Node):Unit"></a>
+      <a id="buildGraph(Lane,Int,Node):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createLane</span><span class="params">(<span name="properties">properties: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">buildGraph</span><span class="params">(<span name="lane">lane: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>, <span name="countStart">countStart: <span class="extype" name="scala.Int">Int</span></span>, <span name="source">source: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Creates a lane.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a lane.</p></div><dl class="paramcmts block"><dt class="param">properties</dt><dd class="cmt"><p>
+      
+    </li><li name="org.uom.fyp.engine.IRoadNetwork#createLane" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="createLane(streetName:String,streetType:org.uom.fyp.engine.StreetType,length:Double):org.uom.fyp.engine.Lane"></a>
+      <a id="createLane(String,StreetType,Double):Lane"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createLane</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <span class="extype" name="org.uom.fyp.engine.StreetType">StreetType</span></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Creates a lane.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a lane.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"></dd><dt class="param">streetType</dt><dd class="cmt"></dd><dt class="param">length</dt><dd class="cmt"><p>
 </p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.IRoadNetwork#initSimulation" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="initSimulation(vehicles:Int):Unit"></a>

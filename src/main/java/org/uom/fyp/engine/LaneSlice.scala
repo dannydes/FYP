@@ -10,6 +10,10 @@ import org.jgrapht.graph.DefaultEdge
  */
 class LaneSlice extends DefaultEdge {
 
+  private var sName = ""
+
+  private var lNo = 0
+
   /**
    * Stores the number of vehicles in lane.
    */
@@ -45,6 +49,34 @@ class LaneSlice extends DefaultEdge {
    * the graph building process.
    */
   private var lat: Lane = null
+
+  /**
+   * Returns the name of the street.
+   */
+  def streetName = sName
+
+  /**
+   * Sets the name of the street.
+   * @param sName The name of the street.
+   */
+  def streetName_(sName: String) = {
+    this.sName = sName
+  }
+
+  /**
+   * Returns the number of the lane on which the edge is found, relative to the other lanes
+   * found on the given street.
+   */
+  def laneNo = lNo
+
+  /**
+   * Sets the number of the lane on which the edge is found, relative to the other lanes found
+   * on the given street.
+   * @param lNo The number of the lane relative to the other lanes found on the given street.
+   */
+  def laneNo_(lNo: Int) = {
+    this.lNo = lNo
+  }
 
   /**
    * Returns lane length.
@@ -90,8 +122,16 @@ class LaneSlice extends DefaultEdge {
     this.point = point
   }
 
+  /**
+   * Returns the position where the intersection occurs upon the other road.
+   */
   def otherIntersectionPoint = otherPoint
 
+  /**
+   * Sets the position where the intersection occurs upon the other road.
+   * @param otherPoint The position where the intersection occurs upon the
+   *                   other road.
+   */
   def otherIntersectionPoint_(otherPoint: Double) = {
     this.otherPoint = otherPoint
   }
@@ -106,8 +146,8 @@ class LaneSlice extends DefaultEdge {
   /**
    * Sets a reference to the <b>Lane</b> object representing the physical
    * lane that intersects with the lane on which the slice is found.
-   * @param lane Lane object intersecting with the lane from which the
-   *             slice is taken to create the lane slice.
+   * @param lat Lane object intersecting with the lane from which the
+   *            slice is taken to create the lane slice.
    */
   def laneAtTarget_(lat: Lane) = {
     this.lat = lat
@@ -168,7 +208,7 @@ class LaneSlice extends DefaultEdge {
     pdq.SetVisits(toString, toString + "load", noOfVehicles, time)
     pdq.SetTUnit("Minutes")
     pdq.SetWUnit("Vehicles")
-    pdq.Solve(defs.CANON)
+    //pdq.Solve(defs.CANON)
   }
 
   /**
@@ -185,6 +225,6 @@ class LaneSlice extends DefaultEdge {
     super.getTarget.asInstanceOf[Node]
   }
 
-  //override def toString =  + " " + vehicles
+  //override def toString = sName + " " + lNo
 
 }

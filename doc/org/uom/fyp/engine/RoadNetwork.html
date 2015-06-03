@@ -39,8 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Organises and simulates road networks.
-</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Organises and simulates road networks.</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a>, <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="org.jgrapht.DirectedGraph">DirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="org.jgrapht.graph.AbstractBaseGraph">AbstractBaseGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="org.jgrapht.graph.AbstractGraph">AbstractGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="org.jgrapht.Graph">Graph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -80,7 +79,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="org.uom.fyp.engine.RoadNetwork#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="org.uom.fyp.engine.RoadNetwork#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(name:String):org.uom.fyp.engine.RoadNetwork"></a>
       <a id="&lt;init&gt;:RoadNetwork"></a>
       <h4 class="signature">
@@ -92,7 +91,8 @@
         <span class="name">RoadNetwork</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>The name given to the network.
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -194,20 +194,21 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.uom.fyp.engine.RoadNetwork#addStreet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="addStreet(streetName:String,streetType:&lt;error&gt;):Unit"></a>
-      <a id="addStreet(String,&lt;error&gt;):Unit"></a>
+      <a id="addStreet(streetName:String,streetType:org.uom.fyp.engine.StreetType):org.uom.fyp.engine.Street"></a>
+      <a id="addStreet(String,StreetType):Street"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">addStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: &lt;error&gt;</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">addStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <span class="extype" name="org.uom.fyp.engine.StreetType">StreetType</span></span>)</span><span class="result">: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">untested
-</p><div class="fullcomment"><div class="comment cmt"><p>untested
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a> → <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></dd></dl></div>
+      <p class="shortcomment cmt">Creates a <b>Street</b> object, appends it to the <b>streets</b> list and
+returns it.</b></b></p><div class="fullcomment"><div class="comment cmt"><p>Creates a <b>Street</b> object, appends it to the <b>streets</b> list and
+returns it.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Name of the street.</p></dd><dt class="param">streetType</dt><dd class="cmt"><p>Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).</p></dd><dt>returns</dt><dd class="cmt"><p>The <b>Street</b> object created.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a> → <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#addVertex" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="addVertex(x$1:V):Boolean"></a>
       <a id="addVertex(Node):Boolean"></a>
@@ -259,7 +260,29 @@
         <span class="name">blockLane</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="laneNo">laneNo: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Block lane found in the street with the given name.</p><div class="fullcomment"><div class="comment cmt"><p>Block lane found in the street with the given name.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Street name.
+      <p class="shortcomment cmt">Block lane found in the street with the given name.</p><div class="fullcomment"><div class="comment cmt"><p>Block lane found in the street with the given name.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Street name.</p></dd><dt class="param">laneNo</dt><dd class="cmt"><p>The number of the lane relative to its position within its respective street.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a> → <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></dd></dl></div>
+    </li><li name="org.uom.fyp.engine.RoadNetwork#buildGraph" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="buildGraph(lane:org.uom.fyp.engine.Lane,countStart:Int,source:org.uom.fyp.engine.Node):Unit"></a>
+      <a id="buildGraph(Lane,Int,Node):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildGraph</span><span class="params">(<span name="lane">lane: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a> = <span class="symbol"><span class="name"><a href="Street.html#lanes:List[org.uom.fyp.engine.Lane]">streets(0).lanes(0)</a></span></span></span>, <span name="countStart">countStart: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="source">source: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a> = <span class="symbol">null</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Builds the graph declared in the model by recursively going through the ficticious
+edge list created by the precedent stages.</p><div class="fullcomment"><div class="comment cmt"><p>Builds the graph declared in the model by recursively going through the ficticious
+edge list created by the precedent stages. Hence, this method should be called after
+all the other processes have took place.<br/>
+For the algorithm to work as it should, all arguments should be omitted so as to pass
+their respective default values.</p></div><dl class="paramcmts block"><dt class="param">lane</dt><dd class="cmt"><p>The current lane. Starts from the first occurring lane in the first occurring
+            street if omitted.</p></dd><dt class="param">countStart</dt><dd class="cmt"><p>The index at which the intersecting edge is found in the list. Is
+                  assigned 0 if omitted.</p></dd><dt class="param">source</dt><dd class="cmt"><p>The source where to attach the next edge in the graph. Starts as null if
+              omitted.
 </p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a> → <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#clone" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -274,6 +297,21 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → AnyRef</dd></dl></div>
+    </li><li name="org.uom.fyp.engine.RoadNetwork#completeEdgeList" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="completeEdgeList():Unit"></a>
+      <a id="completeEdgeList():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">completeEdgeList</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Creates the last edges for the remaining roads.</p><div class="fullcomment"><div class="comment cmt"><p>Creates the last edges for the remaining roads. This method is to be called
+after all roads have been attached.
+</p></div></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#containsEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="containsEdge(x$1:E):Boolean"></a>
       <a id="containsEdge(LaneSlice):Boolean"></a>
@@ -314,18 +352,19 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AbstractBaseGraph → Graph</dd></dl></div>
     </li><li name="org.uom.fyp.engine.RoadNetwork#createLane" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createLane(properties:AnyRef):Unit"></a>
-      <a id="createLane(AnyRef):Unit"></a>
+      <a id="createLane(streetName:String,streetType:org.uom.fyp.engine.StreetType,length:Double):org.uom.fyp.engine.Lane"></a>
+      <a id="createLane(String,StreetType,Double):Lane"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createLane</span><span class="params">(<span name="properties">properties: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">createLane</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <span class="extype" name="org.uom.fyp.engine.StreetType">StreetType</span></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <a href="Lane.html" class="extype" name="org.uom.fyp.engine.Lane">Lane</a></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Creates a lane.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a lane.</p></div><dl class="paramcmts block"><dt class="param">properties</dt><dd class="cmt"><p>
+      <p class="shortcomment cmt">Creates a lane and returns a reference to the object created.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a lane and returns a reference to the object created.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>The name of the street to which the lane belongs.</p></dd><dt class="param">streetType</dt><dd class="cmt"><p>The type of the street to which the lane belongs. Can be <b>StreetType.PRIMARY</b>
+                  or <b>StreetType.SECONDARY</b>.</p></dd><dt class="param">length</dt><dd class="cmt"><p>The lane's length.</p></dd><dt>returns</dt><dd class="cmt"><p>Reference to the lane object just created.
 </p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a> → <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#degreeOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="degreeOf(x$1:V):Int"></a>
@@ -516,7 +555,7 @@
       </h4>
       <p class="shortcomment cmt">Returns the lane found in a street with the given name and the given
 lane number.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the lane found in a street with the given name and the given
-lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Street name.</p></dd><dt class="param">laneNo</dt><dd class="cmt"><p>The lane's number relative to other lanes in that given street.</p></dd><dt>returns</dt><dd class="cmt"><p>Lane found in the given street.
+lane number.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Street name.</p></dd><dt class="param">laneNo</dt><dd class="cmt"><p>The lane's number relative to other lanes in that given street.</p></dd><dt>returns</dt><dd class="cmt"><p>Lane found in the given street.
 </p></dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractGraph#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -569,7 +608,7 @@ lane number.(untested)</p></div><dl class="paramcmts block"><dt class="param">st
         <span class="name">initSimulation</span><span class="params">(<span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">vehicles</dt><dd class="cmt"><p>Number of vehicles in system.
+      <p class="shortcomment cmt">Initialises simulation upon the road network.</p><div class="fullcomment"><div class="comment cmt"><p>Initialises simulation upon the road network.</p></div><dl class="paramcmts block"><dt class="param">vehicles</dt><dd class="cmt"><p>Number of vehicles in system.
 </p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a> → <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></dd></dl></div>
     </li><li name="org.jgrapht.graph.AbstractBaseGraph#isAllowingLoops" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isAllowingLoops():Boolean"></a>

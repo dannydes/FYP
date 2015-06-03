@@ -24,6 +24,7 @@ class Street(streetName: String, sType: StreetType) {
 
   /**
    * Adds a new lane to this street object.
+   * @param lane <b>Lane</b> object to be added to list.
    */
   def addLane(lane: Lane) = {
     lanesList = lanesList ++ List(lane)

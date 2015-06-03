@@ -1,11 +1,12 @@
 package org.uom.fyp.engine
 
-import com.perfdynamics.pdq.PDQ
+import com.perfdynamics.pdq.{defs, PDQ}
 import org.jgrapht.graph.DefaultDirectedGraph
 import java.util
 
 /**
  * Organises and simulates road networks.
+ * @param name The name given to the network.
  */
 class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](classOf[LaneSlice]) with IRoadNetwork {
 
@@ -20,11 +21,12 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   def networkName = name
 
   /**
-   *
+   * Simulates every edge in the graph recursively until there are no more
+   * outgoing edges.
    * @param vehicles Number of vehicles in system.
-   * @param arrivalRate
-   * @param lane
-   * @param pdq
+   * @param arrivalRate The arrival rate of the current edge.
+   * @param lane The current edge.
+   * @param pdq PDQ object.
    */
   private def simulate(vehicles: Int, arrivalRate: Double, lane: LaneSlice, pdq: PDQ): Unit = {
     lane.noOfVehicles_(vehicles)
@@ -44,7 +46,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   }
 
   /**
-   *
+   * Initialises simulation upon the road network.
    * @param vehicles Number of vehicles in system.
    */
   override def initSimulation(vehicles: Int) = {
@@ -52,12 +54,13 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
     val pdq: PDQ = new PDQ
     pdq.Init(name)
     simulate(vehicles, vehicles, lanes(0).asInstanceOf[LaneSlice], pdq)
+    pdq.Solve(defs.CANON)
     pdq.Report()
   }
 
   /**
    * Returns the lane found in a street with the given name and the given
-   * lane number.(untested)
+   * lane number.
    * @param streetName Street name.
    * @param laneNo The lane's number relative to other lanes in that given street.
    * @return Lane found in the given street.
@@ -68,15 +71,16 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   }
 
   /**
-   * Creates a lane.
+   * Creates a lane and returns a reference to the object created.
    * @param streetName The name of the street to which the lane belongs.
-   * @param streetType The type of the street to which the lane belongs. Can be StreetType.PRIMARY or
-   *                   StreetType.SECONDARY.
+   * @param streetType The type of the street to which the lane belongs. Can be <b>StreetType.PRIMARY</b>
+   *                   or <b>StreetType.SECONDARY</b>.
    * @param length The lane's length.
+   * @return Reference to the lane object just created.
    */
   override def createLane(streetName: String, streetType: StreetType, length: Double): Lane = {
     val street: Street = addStreet(streetName, streetType)
-    val lane: Lane = new Lane(street.lanes.length, length)
+    val lane: Lane = new Lane(streetName, street.lanes.length, length)
     street.addLane(lane)
 
     lane
@@ -85,6 +89,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   /**
    * Block lane found in the street with the given name.
    * @param streetName Street name.
+   * @param laneNo The number of the lane relative to its position within its respective street.
    */
   override def blockLane(streetName: String, laneNo: Int) = {
     val lane = getLane(streetName, laneNo)
@@ -108,7 +113,11 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   override def shockwave(qb : Double, qa : Double, kb : Double, ka : Double): Double = (qb - qa) / (kb - ka)
 
   /**
-   * untested
+   * Creates a <b>Street</b> object, appends it to the <b>streets</b> list and
+   * returns it.
+   * @param streetName Name of the street.
+   * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
+   * @return The <b>Street</b> object created.
    */
   override def addStreet(streetName: String, streetType: StreetType): Street = {
     //First, we must check if the street has already been defined.
@@ -125,6 +134,10 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
     street
   }
 
+  /**
+   * Creates the last edges for the remaining roads. This method is to be called
+   * after all roads have been attached.
+   */
   def completeEdgeList() = {
     streets.foreach((street: Street) => {
       street.lanes.foreach((lane: Lane) => {
@@ -133,7 +146,19 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
     })
   }
 
-  //under construction!!
+  /**
+   * Builds the graph declared in the model by recursively going through the ficticious
+   * edge list created by the precedent stages. Hence, this method should be called after
+   * all the other processes have took place.<br/>
+   * For the algorithm to work as it should, all arguments should be omitted so as to pass
+   * their respective default values.
+   * @param lane The current lane. Starts from the first occurring lane in the first occurring
+   *             street if omitted.
+   * @param countStart The index at which the intersecting edge is found in the list. Is
+   *                   assigned 0 if omitted.
+   * @param source The source where to attach the next edge in the graph. Starts as null if
+   *               omitted.
+   */
   override def buildGraph(lane: Lane = streets(0).lanes(0), countStart: Int = 0, source: Node = null): Unit = {
     var s: Node = source
     for (i <- countStart until lane.edges.size) {
