@@ -27,16 +27,16 @@ trait IRoadNetwork {
    * @param streetType
    * @param length
    */
-  def createLane(streetName: String, streetType: StreetType, length: Double): Lane
+  def createStreet(streetName: String, streetType: StreetType, length: Double, lanes: Int = 1): Street
 
   /**
    * Block lane found in the street with the given name.
    * @param streetName Street name.
    */
-  def blockLane(streetName: String, laneNo: Int)
+  def blockStreet(streetName: String)
 
-  def addStreet(streetName: String, streetType: StreetType): Street
+  def addStreet(streetName: String, streetType: StreetType, length: Double, lanes: Int = 1): Street
 
-  def buildGraph(lane: Lane, countStart: Int, source: Node): Unit
+  def buildGraph(street: Street, countStart: Int, source: Node): Unit
 
 }

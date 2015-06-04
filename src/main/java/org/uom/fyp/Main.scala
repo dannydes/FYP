@@ -10,11 +10,11 @@ object Main {
   def main(args: Array[String]): Unit = {
     //Construct sample road network.
     val zabbarPrimaries = new RoadNetwork("Zabbar Primaries")
-    val parishStreet = zabbarPrimaries.createLane("Santwarju", StreetType.PRIMARY, 400)
+    val parishStreet = zabbarPrimaries.createStreet("Santwarju", StreetType.PRIMARY, 400)
 
-    parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 100)
-    parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 250)
-    parishStreet.attachLane(zabbarPrimaries, "", StreetType.PRIMARY, 200, 320)
+    parishStreet.attachStreet(zabbarPrimaries, "", StreetType.PRIMARY, 200, 100)
+    parishStreet.attachStreet(zabbarPrimaries, "", StreetType.PRIMARY, 200, 250)
+    parishStreet.attachStreet(zabbarPrimaries, "", StreetType.PRIMARY, 200, 320)
 
     zabbarPrimaries.completeEdgeList()
     zabbarPrimaries.buildGraph()

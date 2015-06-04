@@ -48,7 +48,7 @@ class LaneSlice extends DefaultEdge {
    * lane that intersects with the lane on which the slice is found. Used in
    * the graph building process.
    */
-  private var lat: Lane = null
+  private var sat: Street = null
 
   /**
    * Returns the name of the street.
@@ -141,16 +141,16 @@ class LaneSlice extends DefaultEdge {
    * lane that intersects with the lane on which the slice is found. Used in
    * the graph building process.
    */
-  def laneAtTarget = lat
+  def streetAtTarget = sat
 
   /**
    * Sets a reference to the <b>Lane</b> object representing the physical
    * lane that intersects with the lane on which the slice is found.
-   * @param lat Lane object intersecting with the lane from which the
+   * @param sat Lane object intersecting with the lane from which the
    *            slice is taken to create the lane slice.
    */
-  def laneAtTarget_(lat: Lane) = {
-    this.lat = lat
+  def streetAtTarget_(sat: Street) = {
+    this.sat = sat
   }
 
   /**

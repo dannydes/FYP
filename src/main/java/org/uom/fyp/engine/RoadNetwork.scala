@@ -62,12 +62,11 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    * Returns the lane found in a street with the given name and the given
    * lane number.
    * @param streetName Street name.
-   * @param laneNo The lane's number relative to other lanes in that given street.
    * @return Lane found in the given street.
    */
-  def getLane(streetName: String, laneNo: Int): LaneSlice = {
+  def getLane(streetName: String): Street = {
     val street: Street = streets.find((street: Street) => street.name == streetName).asInstanceOf[Street]
-    street.lanes.find((lane: Lane) => lane.no == laneNo).asInstanceOf[LaneSlice]
+    street
   }
 
   /**
@@ -78,21 +77,16 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    * @param length The lane's length.
    * @return Reference to the lane object just created.
    */
-  override def createLane(streetName: String, streetType: StreetType, length: Double): Lane = {
-    val street: Street = addStreet(streetName, streetType)
-    val lane: Lane = new Lane(streetName, street.lanes.length, length)
-    street.addLane(lane)
-
-    lane
+  override def createStreet(streetName: String, streetType: StreetType, length: Double, lanes: Int = 1): Street = {
+    addStreet(streetName, streetType, length, lanes)
   }
 
   /**
    * Block lane found in the street with the given name.
    * @param streetName Street name.
-   * @param laneNo The number of the lane relative to its position within its respective street.
    */
-  override def blockLane(streetName: String, laneNo: Int) = {
-    val lane = getLane(streetName, laneNo)
+  override def blockStreet(streetName: String) = {
+    val lane = getLane(streetName)
     lane.block(this)
   }
 
@@ -119,13 +113,13 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
    * @return The <b>Street</b> object created.
    */
-  override def addStreet(streetName: String, streetType: StreetType): Street = {
+  override def addStreet(streetName: String, streetType: StreetType, length: Double, lanes: Int = 1): Street = {
     //First, we must check if the street has already been defined.
     val matches: List[Street] = streets.filter((street: Street) => street.name == streetName)
     var street: Street = null
 
     if (matches.size == 0) {
-      street = new Street(streetName, streetType)
+      street = new Street(streetName, streetType, length, lanes)
       streets = streets ++ List(street)
     } else {
       street = matches(0)
@@ -140,9 +134,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    */
   def completeEdgeList() = {
     streets.foreach((street: Street) => {
-      street.lanes.foreach((lane: Lane) => {
-        lane.createLastEdge()
-      })
+      street.createLastEdge()
     })
   }
 
@@ -152,23 +144,23 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    * all the other processes have took place.<br/>
    * For the algorithm to work as it should, all arguments should be omitted so as to pass
    * their respective default values.
-   * @param lane The current lane. Starts from the first occurring lane in the first occurring
+   * @param street The current lane. Starts from the first occurring lane in the first occurring
    *             street if omitted.
    * @param countStart The index at which the intersecting edge is found in the list. Is
    *                   assigned 0 if omitted.
    * @param source The source where to attach the next edge in the graph. Starts as null if
    *               omitted.
    */
-  override def buildGraph(lane: Lane = streets(0).lanes(0), countStart: Int = 0, source: Node = null): Unit = {
+  override def buildGraph(street: Street = streets(0), countStart: Int = 0, source: Node = null): Unit = {
     var s: Node = source
-    for (i <- countStart until lane.edges.size) {
-      val laneSlice: LaneSlice = lane.edges(i)
+    for (i <- countStart until street.edges.size) {
+      val laneSlice: LaneSlice = street.edges(i)
       val edge: LaneSlice = NetworkUtils.createLaneSlice(this, s)
       s = edge.getTarget
 
-      if (laneSlice.laneAtTarget != null) {
-        val cStart = lane.edges.indexOf(lane.getEdge(laneSlice.otherIntersectionPoint))
-        buildGraph(laneSlice.laneAtTarget, cStart, s)
+      if (laneSlice.streetAtTarget != null) {
+        val cStart = street.edges.indexOf(street.getEdge(laneSlice.otherIntersectionPoint))
+        buildGraph(laneSlice.streetAtTarget, cStart, s)
       }
     }
   }
