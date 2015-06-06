@@ -4,6 +4,8 @@ package org.uom.fyp.engine
  * Applies operations over streets.
  * @param streetName The name of the street.
  * @param sType The type of the street.
+ * @param len The length of the street.
+ * @param lanes The number of lanes the street has.
  */
 class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1) {
 
@@ -27,6 +29,9 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
    */
   def length = len
 
+  /**
+   * Returns the number of lanes the street has.
+   */
   def noOfLanes = lanes
 
   /**
@@ -51,14 +56,14 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
   }
 
   /**
-   * Returns a list containing the slices sliced off the lane.
+   * Returns a list containing the slices sliced off the street.
    */
   def edges = laneSlices
 
   /**
    * Initializes values to be used during simulation.
-   * @param vehicles The number of vehicles fed into the lane.
-   * @param arrivalRate The lane's arrival rate.
+   * @param vehicles The number of vehicles fed into the street.
+   * @param arrivalRate The street's arrival rate.
    */
   def initialize(vehicles: Int, arrivalRate: Double) = {
     val pFlowInOut = vehicles / laneSlices.length
@@ -70,13 +75,14 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
   }
 
   /**
-   * Creates and attaches an outgoing lane to the context lane.
-   * @param network The network where the lane will be attached.
-   * @param streetName The name of the street to which the lane belongs.
-   * @param streetType The type of the street to which the lane belongs.
-   * @param length The length the lane should have.
-   * @param point The point where the lane is to be attached.
-   * @return The lane that has been created.
+   * Creates and attaches an outgoing street to the context street.
+   * @param network The network where the street will be attached.
+   * @param streetName The name of the street to be attached.
+   * @param streetType The type of the street to be attached.
+   * @param length The length the street to be attached.
+   * @param point The point where the street is to be attached with respect to
+   *              the starting point of the other.
+   * @return The street that has been created.
    */
   def attachStreet(network: RoadNetwork, streetName: String, streetType: StreetType,
                  length: Double, point: Double): Street = {
@@ -122,6 +128,10 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
     laneSlices.filter((edge: LaneSlice) => edge.intersectionPoint == otherIntersectionPoint)(0)
   }
 
+  /**
+   * Blocks the street.
+   * @param network The road network in which the street is found.
+   */
   def block(network: RoadNetwork): Unit = {
 
   }
