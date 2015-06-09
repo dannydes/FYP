@@ -179,7 +179,7 @@
         <span class="name">addEdge</span><span class="params">(<span name="otherAttachedAt">otherAttachedAt: <span class="extype" name="scala.Double">Double</span></span>, <span name="nextOtherAttachedAt">nextOtherAttachedAt: <span class="extype" name="scala.Double">Double</span> = <span class="symbol">len</span></span>)</span><span class="result">: <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Adds a lane slice to be added to the graph later on.</p><div class="fullcomment"><div class="comment cmt"><p>Adds a lane slice to be added to the graph later on.</p></div><dl class="paramcmts block"><dt class="param">otherAttachedAt</dt><dd class="cmt"><p>The point where the attachment takes place.</p></dd><dt class="param">nextOtherAttachedAt</dt><dd class="cmt"><p>The next point where the attachment takes place.
+      <p class="shortcomment cmt">Adds an edge to the list in order to be added to the graph later on.</p><div class="fullcomment"><div class="comment cmt"><p>Adds an edge to the list in order to be added to the graph later on.</p></div><dl class="paramcmts block"><dt class="param">otherAttachedAt</dt><dd class="cmt"><p>The point where the attachment takes place.</p></dd><dt class="param">nextOtherAttachedAt</dt><dd class="cmt"><p>The next point where the attachment takes place.
                            Defaults to the length of the context length if
                            omitted.</p></dd><dt>returns</dt><dd class="cmt"><p>The edge that has been created and added to the graph.
 </p></dd></dl></div>
@@ -275,7 +275,8 @@ would be created.
         <span class="name">edges</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Returns a list containing the slices sliced off the street.</p>
+      <p class="shortcomment cmt">Returns a list containing the edges in this street (generated due to
+intersections).</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>

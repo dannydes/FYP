@@ -4,9 +4,9 @@ import com.perfdynamics.pdq._
 import org.jgrapht.graph.DefaultEdge
 
 /**
- * Applies operations over slices from lanes.</br>
- * A lane slice is essentially a part of a lane, whereby the
- * source and target are marked on intersection with other lanes.
+ * Applies operations over edges.</br>
+ * An edge is essentially a part of a street, whereby the source
+ * and target are marked on intersection with other streets.
  */
 class Edge extends DefaultEdge {
 
@@ -15,37 +15,37 @@ class Edge extends DefaultEdge {
   private var lNo = 0
 
   /**
-   * Stores the number of vehicles in lane.
+   * Stores the number of vehicles in edge.
    */
   private var vehicles: Int = 0
 
   /**
-   * Stores lane length.
+   * Stores edge length.
    */
   private var len = 0.0
 
   /**
-   * Stores lane width.
+   * Stores edge width.
    */
   private var w = 0.0
 
   /**
-   * Stores the arrival rate for this lane.
+   * Stores the arrival rate for this edge.
    */
   private var lambda = 0.0
 
   /**
-   * Stores the point in which the lane slice exists, in relation to the
-   * lane in which it is found. Depends on the point of interaction of
-   * the two lanes.
+   * Stores the point in which the edge exists, in relation to the
+   * street in which it is found. Depends on the point of interaction of
+   * the two streets.
    */
   private var point = 0.0
 
   private var otherPoint = 0.0
 
   /**
-   * Stores a reference to the <b>Lane</b> object representing the physical
-   * lane that intersects with the lane on which the slice is found. Used in
+   * Stores a reference to the <b>Street</b> object representing the physical
+   * street that intersects with the street on which the edge is found. Used in
    * the graph building process.
    */
   private var sat: Street = null
@@ -79,44 +79,44 @@ class Edge extends DefaultEdge {
   }
 
   /**
-   * Returns lane length.
+   * Returns edge length.
    */
   def length: Double = len
 
   /**
-   * Sets lane length.
-   * @param len Lane length.
+   * Sets edge length.
+   * @param len Edge length.
    */
   def length_(len: Double) = {
     this.len = len
   }
 
   /**
-   * Returns lane width.
+   * Returns edge width.
    */
   def width: Double = w
 
   /**
-   * Sets lane width.
-   * @param w Lane width.
+   * Sets edge width.
+   * @param w Edge width.
    */
   def width_(w: Double) = {
     this.w = w
   }
 
   /**
-   * Returns the point in which the lane slice exists, in relation to the
-   * lane in which it is found. Depends on the point of interaction of
-   * the two lanes.
+   * Returns the point in which the edge exists, in relation to the
+   * street in which it is found. Depends on the point of interaction of
+   * the two streets.
    */
   def intersectionPoint = point
 
   /**
-   * Sets the point in which the lane slice exists, in relation to the
-   * lane in which it is found.
-   * @param point The point in which the lane slice exists, in relation to
-   *              the lane in which it is found. Depends on the point of
-   *              intersection of the two lanes.
+   * Sets the point in which the edge exists, in relation to the street in
+   * which it is found.
+   * @param point The point in which the edge exists, in relation to
+   *              the street in which it is found. Depends on the point of
+   *              intersection of the two streets.
    */
   def intersectionPoint_(point: Double) = {
     this.point = point
@@ -137,56 +137,56 @@ class Edge extends DefaultEdge {
   }
 
   /**
-   * Returns a reference to the <b>Lane</b> object representing the physical
-   * lane that intersects with the lane on which the slice is found. Used in
+   * Returns a reference to the <b>Street</b> object representing the physical
+   * lane that intersects with the street on which the edge is found. Used in
    * the graph building process.
    */
   def streetAtTarget = sat
 
   /**
-   * Sets a reference to the <b>Lane</b> object representing the physical
-   * lane that intersects with the lane on which the slice is found.
-   * @param sat Lane object intersecting with the lane from which the
-   *            slice is taken to create the lane slice.
+   * Sets a reference to the <b>Street</b> object representing the physical
+   * lane that intersects with the street on which the edge is found.
+   * @param sat <b>Street</b> object intersecting with the street from which the
+   *            edge is taken to create the edge.
    */
   def streetAtTarget_(sat: Street) = {
     this.sat = sat
   }
 
   /**
-   * Returns the number of vehicles in lane.
+   * Returns the number of vehicles in the edge.
    */
   def noOfVehicles = vehicles
 
   /**
-   * Sets the number of vehicles in lane.
-   * @param vehicles The number of vehicles in lane.
+   * Sets the number of vehicles in the edge.
+   * @param vehicles The number of vehicles in the edge.
    */
   def noOfVehicles_(vehicles: Int) = {
     this.vehicles = vehicles
   }
 
   /**
-   * Blocks the context lane.
-   * @param network The network from which to remove the lane.
+   * Blocks the context edge.
+   * @param network The network from which to remove the edge.
    */
   def block(network: RoadNetwork): Unit = network.removeEdge(this)
 
   /**
-   * Returns the lane's arrival rate.
+   * Returns the street's arrival rate.
    */
   private def arrivalRate = lambda
 
   /**
-   * Sets the lane's arrival rate.
-   * @param lambda The lane's arrival rate.
+   * Sets the street's arrival rate.
+   * @param lambda The street's arrival rate.
    */
   def arrivalRate_(lambda: Double) = {
     this.lambda = lambda
   }
 
   /**
-   * Returns the lane's departure rate.
+   * Returns the street's departure rate.
    */
   def departureRate = lambda / (1 - noOfVehicles)
 
@@ -199,7 +199,7 @@ class Edge extends DefaultEdge {
 
   /**
    * Simulates traffic going from the starting point to the ending point of the
-   * particular lane slice.
+   * particular edge.
    * @param pdq PDQ object.
    */
   def simulate(pdq: PDQ) = {
@@ -212,14 +212,14 @@ class Edge extends DefaultEdge {
   }
 
   /**
-   * Returns the lane slice's source.
+   * Returns the edge's source.
    */
   override def getSource = {
     super.getSource.asInstanceOf[Node]
   }
 
   /**
-   * Returns the lane slice's target.
+   * Returns the edge's target.
    */
   override def getTarget = {
     super.getTarget.asInstanceOf[Node]
