@@ -199,20 +199,6 @@ and target are marked on intersection with other streets.
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="org.uom.fyp.engine.Edge#block" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="block(network:org.uom.fyp.engine.RoadNetwork):Unit"></a>
-      <a id="block(RoadNetwork):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">block</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Blocks the context edge.</p><div class="fullcomment"><div class="comment cmt"><p>Blocks the context edge.</p></div><dl class="paramcmts block"><dt class="param">network</dt><dd class="cmt"><p>The network from which to remove the edge.
-</p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.Edge#departureRate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="departureRate:Double"></a>
       <a id="departureRate:Double"></a>
@@ -373,36 +359,6 @@ which it is found.</p></div><dl class="paramcmts block"><dt class="param">point<
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="org.uom.fyp.engine.Edge#laneNo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="laneNo:Int"></a>
-      <a id="laneNo:Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">laneNo</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns the number of the lane on which the edge is found, relative to the other lanes
-found on the given street.</p>
-    </li><li name="org.uom.fyp.engine.Edge#laneNo_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="laneNo_(lNo:Int):Unit"></a>
-      <a id="laneNo_(Int):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">laneNo_</span><span class="params">(<span name="lNo">lNo: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Sets the number of the lane on which the edge is found, relative to the other lanes found
-on the given street.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the number of the lane on which the edge is found, relative to the other lanes found
-on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo</dt><dd class="cmt"><p>The number of the lane relative to the other lanes found on the given street.
-</p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.Edge#length" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="length:Double"></a>
       <a id="length:Double"></a>
@@ -525,15 +481,15 @@ on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo<
                   other road.
 </p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.Edge#simulate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="simulate(pdq:&lt;error&gt;):&lt;error&gt;"></a>
-      <a id="simulate(&lt;error&gt;):&lt;error&gt;"></a>
+      <a id="simulate(pdq:com.perfdynamics.pdq.PDQ):Unit"></a>
+      <a id="simulate(PDQ):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">simulate</span><span class="params">(<span name="pdq">pdq: &lt;error&gt;</span>)</span><span class="result">: &lt;error&gt;</span>
+        <span class="name">simulate</span><span class="params">(<span name="pdq">pdq: <span class="extype" name="com.perfdynamics.pdq.PDQ">PDQ</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Simulates traffic going from the starting point to the ending point of the
@@ -697,33 +653,6 @@ lane that intersects with the street on which the edge is found.</p></div><dl cl
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="org.uom.fyp.engine.Edge#width" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="width:Double"></a>
-      <a id="width:Double"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">width</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns edge width.</p>
-    </li><li name="org.uom.fyp.engine.Edge#width_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="width_(w:Double):Unit"></a>
-      <a id="width_(Double):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">width_</span><span class="params">(<span name="w">w: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Sets edge width.</p><div class="fullcomment"><div class="comment cmt"><p>Sets edge width.</p></div><dl class="paramcmts block"><dt class="param">w</dt><dd class="cmt"><p>Edge width.
-</p></dd></dl></div>
     </li></ol>
             </div>
 
