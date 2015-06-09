@@ -10,6 +10,9 @@ import org.jgrapht.graph.DefaultEdge
  */
 class Edge extends DefaultEdge {
 
+  /**
+   * Stores the name of the street to which the edge belongs.
+   */
   private var sName = ""
 
   /**
@@ -34,6 +37,9 @@ class Edge extends DefaultEdge {
    */
   private var point = 0.0
 
+  /**
+   * Stores the position where the intersection occurs upon the other road.
+   */
   private var otherPoint = 0.0
 
   /**
