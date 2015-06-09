@@ -23,11 +23,6 @@ class Edge extends DefaultEdge {
   private var len = 0.0
 
   /**
-   * Stores edge width.
-   */
-  private var w = 0.0
-
-  /**
    * Stores the arrival rate for this edge.
    */
   private var lambda = 0.0
@@ -72,19 +67,6 @@ class Edge extends DefaultEdge {
    */
   def length_(len: Double) = {
     this.len = len
-  }
-
-  /**
-   * Returns edge width.
-   */
-  def width: Double = w
-
-  /**
-   * Sets edge width.
-   * @param w Edge width.
-   */
-  def width_(w: Double) = {
-    this.w = w
   }
 
   /**

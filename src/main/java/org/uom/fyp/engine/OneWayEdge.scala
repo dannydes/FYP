@@ -2,13 +2,11 @@ package org.uom.fyp.engine
 
 /**
  *
- * @param l Lane length.
- * @param w Lane width.
+ * @param len Edge length.
  */
-class OneWayEdge(l: Double, w: Double, lambda: Double) extends Edge {
+class OneWayEdge(len: Double, lambda: Double) extends Edge {
 
-  super.length_(l)
-  super.width_(w)
+  super.length_(len)
   super.arrivalRate_(lambda)
 
 }
