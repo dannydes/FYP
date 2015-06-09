@@ -132,12 +132,6 @@ class Edge extends DefaultEdge {
   }
 
   /**
-   * Blocks the context edge.
-   * @param network The network from which to remove the edge.
-   */
-  def block(network: RoadNetwork): Unit = network.removeEdge(this)
-
-  /**
    * Returns the street's arrival rate.
    */
   private def arrivalRate = lambda

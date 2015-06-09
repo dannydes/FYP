@@ -134,7 +134,7 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
    * @param network The road network in which the street is found.
    */
   def block(network: RoadNetwork): Unit = {
-
+    e.foreach((edge: Edge) => network.removeEdge(edge))
   }
 
 }
