@@ -12,8 +12,6 @@ class Edge extends DefaultEdge {
 
   private var sName = ""
 
-  private var lNo = 0
-
   /**
    * Stores the number of vehicles in edge.
    */
@@ -61,21 +59,6 @@ class Edge extends DefaultEdge {
    */
   def streetName_(sName: String) = {
     this.sName = sName
-  }
-
-  /**
-   * Returns the number of the lane on which the edge is found, relative to the other lanes
-   * found on the given street.
-   */
-  def laneNo = lNo
-
-  /**
-   * Sets the number of the lane on which the edge is found, relative to the other lanes found
-   * on the given street.
-   * @param lNo The number of the lane relative to the other lanes found on the given street.
-   */
-  def laneNo_(lNo: Int) = {
-    this.lNo = lNo
   }
 
   /**
@@ -225,6 +208,6 @@ class Edge extends DefaultEdge {
     super.getTarget.asInstanceOf[Node]
   }
 
-  //override def toString = sName + " " + lNo
+  //override def toString = sName
 
 }
