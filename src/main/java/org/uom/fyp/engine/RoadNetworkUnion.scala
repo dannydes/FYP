@@ -9,7 +9,7 @@ import org.jgrapht.graph.DefaultDirectedGraph
  * @param n1 A road network.
  * @param n2 Another road network.
  */
-class RoadNetworkUnion(n1: RoadNetwork, n2: RoadNetwork) extends DefaultDirectedGraph[Node, LaneSlice](classOf[LaneSlice]) {
+class RoadNetworkUnion(n1: RoadNetwork, n2: RoadNetwork) extends DefaultDirectedGraph[Node, Edge](classOf[Edge]) {
 
   /**
    * Stores the new set of lanes.
@@ -24,7 +24,7 @@ class RoadNetworkUnion(n1: RoadNetwork, n2: RoadNetwork) extends DefaultDirected
   /**
    * Returns the new set of lanes.
    */
-  override def edgeSet = lanes.asInstanceOf[util.Set[LaneSlice]]
+  override def edgeSet = lanes.asInstanceOf[util.Set[Edge]]
 
   /**
    * Returns the new set of nodes.

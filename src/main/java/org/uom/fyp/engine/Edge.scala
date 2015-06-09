@@ -8,7 +8,7 @@ import org.jgrapht.graph.DefaultEdge
  * A lane slice is essentially a part of a lane, whereby the
  * source and target are marked on intersection with other lanes.
  */
-class LaneSlice extends DefaultEdge {
+class Edge extends DefaultEdge {
 
   private var sName = ""
 

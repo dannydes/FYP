@@ -8,7 +8,7 @@ import java.util
  * Organises and simulates road networks.
  * @param name The name given to the network.
  */
-class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](classOf[LaneSlice]) with IRoadNetwork {
+class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf[Edge]) with IRoadNetwork {
 
   /**
    * Stores a list of streets/roads within the network.
@@ -28,12 +28,12 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
    * @param lane The current edge.
    * @param pdq PDQ object.
    */
-  private def simulate(vehicles: Int, arrivalRate: Double, lane: LaneSlice, pdq: PDQ): Unit = {
+  private def simulate(vehicles: Int, arrivalRate: Double, lane: Edge, pdq: PDQ): Unit = {
     lane.noOfVehicles_(vehicles)
     lane.arrivalRate_(arrivalRate)
     lane.simulate(pdq)
 
-    val outgoingLanes: util.Set[LaneSlice] = outgoingEdgesOf(lane.getTarget)
+    val outgoingLanes: util.Set[Edge] = outgoingEdgesOf(lane.getTarget)
     if (outgoingLanes.size > 0) {
       val newArrivalRate = lane.departureRate / outgoingLanes.size
       val newNoOfVehicles = vehicles / outgoingLanes.size
@@ -53,7 +53,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
     val lanes = edgeSet().toArray
     val pdq: PDQ = new PDQ
     pdq.Init(name)
-    simulate(vehicles, vehicles, lanes(0).asInstanceOf[LaneSlice], pdq)
+    simulate(vehicles, vehicles, lanes(0).asInstanceOf[Edge], pdq)
     pdq.Solve(defs.CANON)
     pdq.Report()
   }
@@ -154,8 +154,8 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, LaneSlice](cl
   override def buildGraph(street: Street = streets(0), countStart: Int = 0, source: Node = null): Unit = {
     var s: Node = source
     for (i <- countStart until street.edges.size) {
-      val laneSlice: LaneSlice = street.edges(i)
-      val edge: LaneSlice = NetworkUtils.createLaneSlice(this, s)
+      val laneSlice: Edge = street.edges(i)
+      val edge: Edge = NetworkUtils.createLaneSlice(this, s)
       s = edge.getTarget
 
       if (laneSlice.streetAtTarget != null) {

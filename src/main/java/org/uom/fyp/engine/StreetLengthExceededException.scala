@@ -5,7 +5,7 @@ package org.uom.fyp.engine
  * lane is attached.
  * @param point The position that has been passed to the lane that was to be attached.
  */
-class LaneLengthExceededException(point: Double) extends Exception {
+class StreetLengthExceededException(point: Double) extends Exception {
 
   /**
    * Returns an error message.

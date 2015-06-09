@@ -58,7 +58,20 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="org.uom.fyp.engine.IRoadNetwork" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+              <ol><li name="org.uom.fyp.engine.Edge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EdgeextendsDefaultEdge"></a>
+      <a id="Edge:Edge"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Edge.html"><span class="name">Edge</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Applies operations over slices from lanes.</p>
+    </li><li name="org.uom.fyp.engine.IRoadNetwork" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="IRoadNetworkextendsAnyRef"></a>
       <a id="IRoadNetwork:IRoadNetwork"></a>
       <h4 class="signature">
@@ -71,33 +84,6 @@
       </span>
       </h4>
       <p class="comment cmt">Provides signatures to methods that handle road networks.</p>
-    </li><li name="org.uom.fyp.engine.LaneLengthExceededException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LaneLengthExceededExceptionextendsException"></a>
-      <a id="LaneLengthExceededException:LaneLengthExceededException"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="LaneLengthExceededException.html"><span class="name">LaneLengthExceededException</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span></span>
-      </span>
-      </h4>
-      <p class="comment cmt">Exception to be thrown if a lane is attached at a position that exceeds the length of the lane to which the former
-lane is attached.</p>
-    </li><li name="org.uom.fyp.engine.LaneSlice" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LaneSliceextendsDefaultEdge"></a>
-      <a id="LaneSlice:LaneSlice"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="LaneSlice.html"><span class="name">LaneSlice</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span></span>
-      </span>
-      </h4>
-      <p class="comment cmt">Applies operations over slices from lanes.</p>
     </li><li name="org.uom.fyp.engine.Node" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="NodeextendsAnyRef"></a>
       <a id="Node:Node"></a>
@@ -112,21 +98,21 @@ lane is attached.</p>
       </h4>
       <p class="comment cmt">Node class
 </p>
-    </li><li name="org.uom.fyp.engine.OneWayLaneSlice" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="OneWayLaneSliceextendsLaneSlice"></a>
-      <a id="OneWayLaneSlice:OneWayLaneSlice"></a>
+    </li><li name="org.uom.fyp.engine.OneWayEdge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OneWayEdgeextendsEdge"></a>
+      <a id="OneWayEdge:OneWayEdge"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="OneWayLaneSlice.html"><span class="name">OneWayLaneSlice</span></a><span class="result"> extends <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>
+        <a href="OneWayEdge.html"><span class="name">OneWayEdge</span></a><span class="result"> extends <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>
       </span>
       </h4>
       <p class="comment cmt"></p>
     </li><li name="org.uom.fyp.engine.RoadNetwork" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="RoadNetworkextendsDefaultDirectedGraph[org.uom.fyp.engine.Node,org.uom.fyp.engine.LaneSlice]withIRoadNetwork"></a>
+      <a id="RoadNetworkextendsDefaultDirectedGraph[org.uom.fyp.engine.Node,org.uom.fyp.engine.Edge]withIRoadNetwork"></a>
       <a id="RoadNetwork:RoadNetwork"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -134,12 +120,12 @@ lane is attached.</p>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="RoadNetwork.html"><span class="name">RoadNetwork</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>] with <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></span>
+        <a href="RoadNetwork.html"><span class="name">RoadNetwork</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a>] with <a href="IRoadNetwork.html" class="extype" name="org.uom.fyp.engine.IRoadNetwork">IRoadNetwork</a></span>
       </span>
       </h4>
       <p class="comment cmt">Organises and simulates road networks.</p>
     </li><li name="org.uom.fyp.engine.RoadNetworkUnion" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="RoadNetworkUnionextendsDefaultDirectedGraph[org.uom.fyp.engine.Node,org.uom.fyp.engine.LaneSlice]"></a>
+      <a id="RoadNetworkUnionextendsDefaultDirectedGraph[org.uom.fyp.engine.Node,org.uom.fyp.engine.Edge]"></a>
       <a id="RoadNetworkUnion:RoadNetworkUnion"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -147,7 +133,7 @@ lane is attached.</p>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="RoadNetworkUnion.html"><span class="name">RoadNetworkUnion</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>]</span>
+        <a href="RoadNetworkUnion.html"><span class="name">RoadNetworkUnion</span></a><span class="result"> extends <span class="extype" name="org.jgrapht.graph.DefaultDirectedGraph">DefaultDirectedGraph</span>[<a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a>, <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a>]</span>
       </span>
       </h4>
       <p class="comment cmt">Replaces JGraphT's DirectedGraphUnion class in such a way that better suites the project's structure.</p>
@@ -164,16 +150,30 @@ lane is attached.</p>
       </span>
       </h4>
       <p class="comment cmt">Applies operations over streets.</p>
-    </li><li name="org.uom.fyp.engine.TwoWayLaneSlice" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="TwoWayLaneSliceextendsLaneSlice"></a>
-      <a id="TwoWayLaneSlice:TwoWayLaneSlice"></a>
+    </li><li name="org.uom.fyp.engine.StreetLengthExceededException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreetLengthExceededExceptionextendsException"></a>
+      <a id="StreetLengthExceededException:StreetLengthExceededException"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="TwoWayLaneSlice.html"><span class="name">TwoWayLaneSlice</span></a><span class="result"> extends <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>
+        <a href="StreetLengthExceededException.html"><span class="name">StreetLengthExceededException</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Exception to be thrown if a lane is attached at a position that exceeds the length of the lane to which the former
+lane is attached.</p>
+    </li><li name="org.uom.fyp.engine.TwoWayEdge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TwoWayEdgeextendsEdge"></a>
+      <a id="TwoWayEdge:TwoWayEdge"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TwoWayEdge.html"><span class="name">TwoWayEdge</span></a><span class="result"> extends <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>
       </span>
       </h4>
       <p class="comment cmt">Created by Desira Daniel on 2/10/2015.</p>

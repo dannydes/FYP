@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>TwoWayLaneSlice - FYP documentation - org.uom.fyp.engine.TwoWayLaneSlice</title>
-          <meta name="description" content="TwoWayLaneSlice - FYP documentation - org.uom.fyp.engine.TwoWayLaneSlice" />
-          <meta name="keywords" content="TwoWayLaneSlice FYP documentation org.uom.fyp.engine.TwoWayLaneSlice" />
+          <title>TwoWayLaneSlice - FYP documentation - org.uom.fyp.engine.TwoWayEdge</title>
+          <meta name="description" content="TwoWayLaneSlice - FYP documentation - org.uom.fyp.engine.TwoWayEdge" />
+          <meta name="keywords" content="TwoWayLaneSlice FYP documentation org.uom.fyp.engine.TwoWayEdge" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -35,14 +35,14 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">TwoWayLaneSlice</span><span class="result"> extends <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></span>
+        <span class="name">TwoWayLaneSlice</span><span class="result"> extends <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Created by Desira Daniel on 2/10/2015.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a>, <span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span>, <span class="extype" name="org.jgrapht.graph.IntrusiveEdge">IntrusiveEdge</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a>, <span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span>, <span class="extype" name="org.jgrapht.graph.IntrusiveEdge">IntrusiveEdge</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="java.lang.Cloneable">Cloneable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -60,7 +60,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="org.uom.fyp.engine.TwoWayLaneSlice"><span>TwoWayLaneSlice</span></li><li class="in" name="org.uom.fyp.engine.LaneSlice"><span>LaneSlice</span></li><li class="in" name="org.jgrapht.graph.DefaultEdge"><span>DefaultEdge</span></li><li class="in" name="org.jgrapht.graph.IntrusiveEdge"><span>IntrusiveEdge</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="java.lang.Cloneable"><span>Cloneable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="org.uom.fyp.engine.TwoWayEdge"><span>TwoWayLaneSlice</span></li><li class="in" name="org.uom.fyp.engine.Edge"><span>LaneSlice</span></li><li class="in" name="org.jgrapht.graph.DefaultEdge"><span>DefaultEdge</span></li><li class="in" name="org.jgrapht.graph.IntrusiveEdge"><span>IntrusiveEdge</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="java.lang.Cloneable"><span>Cloneable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -81,7 +81,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.uom.fyp.engine.TwoWayLaneSlice#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(l:Double,w:Double,lambda:Double):org.uom.fyp.engine.TwoWayLaneSlice"></a>
+      <a id="&lt;init&gt;(l:Double,w:Double,lambda:Double):org.uom.fyp.engine.TwoWayEdge"></a>
       <a id="&lt;init&gt;:TwoWayLaneSlice"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -180,7 +180,7 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Sets the lane's arrival rate.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the lane's arrival rate.</p></div><dl class="paramcmts block"><dt class="param">lambda</dt><dd class="cmt"><p>The lane's arrival rate.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -207,7 +207,7 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Blocks the context lane.</p><div class="fullcomment"><div class="comment cmt"><p>Blocks the context lane.</p></div><dl class="paramcmts block"><dt class="param">network</dt><dd class="cmt"><p>The network from which to remove the lane.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#departureRate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="departureRate:Double"></a>
       <a id="departureRate:Double"></a>
@@ -221,7 +221,7 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the lane's departure rate.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the lane's departure rate.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -293,7 +293,7 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the lane slice's source.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the lane slice's source.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a> → DefaultEdge</dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a> → DefaultEdge</dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#getTarget" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getTarget():org.uom.fyp.engine.Node"></a>
       <a id="getTarget():Node"></a>
@@ -307,7 +307,7 @@
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the lane slice's target.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the lane slice's target.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a> → DefaultEdge</dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a> → DefaultEdge</dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -337,7 +337,7 @@
 lane in which it is found.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the point in which the lane slice exists, in relation to the
 lane in which it is found. Depends on the point of interaction of
 the two lanes.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#intersectionPoint_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="intersectionPoint_(point:Double):Unit"></a>
       <a id="intersectionPoint_(Double):Unit"></a>
@@ -355,7 +355,7 @@ lane in which it is found.</p><div class="fullcomment"><div class="comment cmt">
 lane in which it is found.</p></div><dl class="paramcmts block"><dt class="param">point</dt><dd class="cmt"><p>The point in which the lane slice exists, in relation to
              the lane in which it is found. Depends on the point of
              intersection of the two lanes.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -384,7 +384,7 @@ lane in which it is found.</p></div><dl class="paramcmts block"><dt class="param
       <p class="shortcomment cmt">Returns the number of the lane on which the edge is found, relative to the other lanes
 found on the given street.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the number of the lane on which the edge is found, relative to the other lanes
 found on the given street.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#laneNo_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="laneNo_(lNo:Int):Unit"></a>
       <a id="laneNo_(Int):Unit"></a>
@@ -400,7 +400,7 @@ found on the given street.
       <p class="shortcomment cmt">Sets the number of the lane on which the edge is found, relative to the other lanes found
 on the given street.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the number of the lane on which the edge is found, relative to the other lanes found
 on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo</dt><dd class="cmt"><p>The number of the lane relative to the other lanes found on the given street.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#length" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="length:Double"></a>
       <a id="length:Double"></a>
@@ -414,7 +414,7 @@ on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo<
       </span>
       </h4>
       <p class="shortcomment cmt">Returns lane length.</p><div class="fullcomment"><div class="comment cmt"><p>Returns lane length.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#length_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="length_(len:Double):Unit"></a>
       <a id="length_(Double):Unit"></a>
@@ -428,7 +428,7 @@ on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo<
       </span>
       </h4>
       <p class="shortcomment cmt">Sets lane length.</p><div class="fullcomment"><div class="comment cmt"><p>Sets lane length.</p></div><dl class="paramcmts block"><dt class="param">len</dt><dd class="cmt"><p>Lane length.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -455,7 +455,7 @@ on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo<
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the number of vehicles in lane.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the number of vehicles in lane.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#noOfVehicles_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="noOfVehicles_(vehicles:Int):Unit"></a>
       <a id="noOfVehicles_(Int):Unit"></a>
@@ -469,7 +469,7 @@ on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo<
       </span>
       </h4>
       <p class="shortcomment cmt">Sets the number of vehicles in lane.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the number of vehicles in lane.</p></div><dl class="paramcmts block"><dt class="param">vehicles</dt><dd class="cmt"><p>The number of vehicles in lane.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>
@@ -509,7 +509,7 @@ on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo<
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the position where the intersection occurs upon the other road.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the position where the intersection occurs upon the other road.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#otherIntersectionPoint_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="otherIntersectionPoint_(otherPoint:Double):Unit"></a>
       <a id="otherIntersectionPoint_(Double):Unit"></a>
@@ -524,23 +524,23 @@ on the given street.</p></div><dl class="paramcmts block"><dt class="param">lNo<
       </h4>
       <p class="shortcomment cmt">Sets the position where the intersection occurs upon the other road.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the position where the intersection occurs upon the other road.</p></div><dl class="paramcmts block"><dt class="param">otherPoint</dt><dd class="cmt"><p>The position where the intersection occurs upon the
                   other road.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#simulate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="simulate(pdq:com.perfdynamics.pdq.PDQ):Unit"></a>
-      <a id="simulate(PDQ):Unit"></a>
+      <a id="simulate(pdq:&lt;error&gt;):&lt;error&gt;"></a>
+      <a id="simulate(&lt;error&gt;):&lt;error&gt;"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">simulate</span><span class="params">(<span name="pdq">pdq: <span class="extype" name="com.perfdynamics.pdq.PDQ">PDQ</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">simulate</span><span class="params">(<span name="pdq">pdq: &lt;error&gt;</span>)</span><span class="result">: &lt;error&gt;</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Simulates traffic going from the starting point to the ending point of the
 particular lane slice.</p><div class="fullcomment"><div class="comment cmt"><p>Simulates traffic going from the starting point to the ending point of the
 particular lane slice.</p></div><dl class="paramcmts block"><dt class="param">pdq</dt><dd class="cmt"><p>PDQ object.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#streetAtTarget" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="streetAtTarget:org.uom.fyp.engine.Street"></a>
       <a id="streetAtTarget:Street"></a>
@@ -557,7 +557,7 @@ particular lane slice.</p></div><dl class="paramcmts block"><dt class="param">pd
 lane that intersects with the lane on which the slice is found.</b></p><div class="fullcomment"><div class="comment cmt"><p>Returns a reference to the <b>Lane</b> object representing the physical
 lane that intersects with the lane on which the slice is found. Used in
 the graph building process.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#streetAtTarget_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="streetAtTarget_(sat:org.uom.fyp.engine.Street):Unit"></a>
       <a id="streetAtTarget_(Street):Unit"></a>
@@ -574,7 +574,7 @@ the graph building process.
 lane that intersects with the lane on which the slice is found.</b></p><div class="fullcomment"><div class="comment cmt"><p>Sets a reference to the <b>Lane</b> object representing the physical
 lane that intersects with the lane on which the slice is found.</p></div><dl class="paramcmts block"><dt class="param">sat</dt><dd class="cmt"><p>Lane object intersecting with the lane from which the
            slice is taken to create the lane slice.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#streetName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="streetName:String"></a>
       <a id="streetName:String"></a>
@@ -588,7 +588,7 @@ lane that intersects with the lane on which the slice is found.</p></div><dl cla
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the name of the street.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the name of the street.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#streetName_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="streetName_(sName:String):Unit"></a>
       <a id="streetName_(String):Unit"></a>
@@ -602,7 +602,7 @@ lane that intersects with the lane on which the slice is found.</p></div><dl cla
       </span>
       </h4>
       <p class="shortcomment cmt">Sets the name of the street.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the name of the street.</p></div><dl class="paramcmts block"><dt class="param">sName</dt><dd class="cmt"><p>The name of the street.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -629,7 +629,7 @@ lane that intersects with the lane on which the slice is found.</p></div><dl cla
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the time taken for one job (vehicle) to be serviced.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the time taken for one job (vehicle) to be serviced.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.jgrapht.graph.DefaultEdge#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -713,7 +713,7 @@ lane that intersects with the lane on which the slice is found.</p></div><dl cla
       </span>
       </h4>
       <p class="shortcomment cmt">Returns lane width.</p><div class="fullcomment"><div class="comment cmt"><p>Returns lane width.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li><li name="org.uom.fyp.engine.LaneSlice#width_" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="width_(w:Double):Unit"></a>
       <a id="width_(Double):Unit"></a>
@@ -727,7 +727,7 @@ lane that intersects with the lane on which the slice is found.</p></div><dl cla
       </span>
       </h4>
       <p class="shortcomment cmt">Sets lane width.</p><div class="fullcomment"><div class="comment cmt"><p>Sets lane width.</p></div><dl class="paramcmts block"><dt class="param">w</dt><dd class="cmt"><p>Lane width.
-</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></dd></dl></div>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></dd></dl></div>
     </li></ol>
             </div>
 
@@ -737,8 +737,8 @@ lane that intersects with the lane on which the slice is found.</p></div><dl cla
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="org.uom.fyp.engine.LaneSlice">
-              <h3>Inherited from <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.LaneSlice">LaneSlice</a></h3>
+        <div class="parent" name="org.uom.fyp.engine.Edge">
+              <h3>Inherited from <a href="LaneSlice.html" class="extype" name="org.uom.fyp.engine.Edge">LaneSlice</a></h3>
             </div><div class="parent" name="org.jgrapht.graph.DefaultEdge">
               <h3>Inherited from <span class="extype" name="org.jgrapht.graph.DefaultEdge">DefaultEdge</span></h3>
             </div><div class="parent" name="org.jgrapht.graph.IntrusiveEdge">
