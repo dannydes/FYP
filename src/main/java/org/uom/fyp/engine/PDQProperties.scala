@@ -15,7 +15,20 @@ object PDQProperties {
    * @param network Road network.
    */
   def pdqNodesToRoadNetwork(pdq: PDQ, network: RoadNetwork) = {
+    //val edges = network.streetList.map((street: Street) => street.edges).flatten
 
+    val edges = network.edgeSet().toArray
+    pdqNodesToRoadNetworkWorker(pdq, network, edges(0).asInstanceOf[Edge])
+  }
+
+  private def pdqNodesToRoadNetworkWorker(pdq: PDQ, network: RoadNetwork, edge: Edge): Unit = {
+    val outgoing: java.util.Set[Edge] = network.outgoingEdgesOf(edge.getTarget)
+    if (outgoing.size > 0) {
+      val outgoingIterator = outgoing.iterator
+      while (outgoingIterator.hasNext) {
+        pdqNodesToRoadNetworkWorker(pdq, network, outgoingIterator.next)
+      }
+    }
   }
 
 }
