@@ -8,7 +8,7 @@ class Node {
   private var nType: RoadStructure.EnumVal = RoadStructure.Default
 
   /**
-   * Returns the node's type. (i.e. <b>NodeType.ROAD_ENDING</b>..
+   * Returns the node's type. (e.g.: <b>RoadStructure.Default</b>)
    */
   def nodeType: RoadStructure.EnumVal = nType
 
