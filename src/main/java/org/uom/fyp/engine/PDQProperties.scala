@@ -21,6 +21,12 @@ object PDQProperties {
     pdqNodesToRoadNetworkWorker(pdq, network, edges(0).asInstanceOf[Edge])
   }
 
+  /**
+   *
+   * @param pdq PDQ object.
+   * @param network Road network.
+   * @param edge The edge to have its properties set.
+   */
   private def pdqNodesToRoadNetworkWorker(pdq: PDQ, network: RoadNetwork, edge: Edge): Unit = {
     val outgoing: java.util.Set[Edge] = network.outgoingEdgesOf(edge.getTarget)
     if (outgoing.size > 0) {

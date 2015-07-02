@@ -49,6 +49,8 @@ class Edge extends DefaultEdge {
    */
   private var sat: Street = null
 
+  private var edgeType: RoadStructure.EnumVal = RoadStructure.Default
+
   /**
    * Returns the name of the street.
    */
@@ -160,6 +162,12 @@ class Edge extends DefaultEdge {
    */
   def time: Double = {
     1 / (departureRate - lambda)
+  }
+
+  def edgeT = edgeType
+
+  def edgeT_(edgeType: RoadStructure.EnumVal) = {
+    this.edgeType = edgeType
   }
 
   /**

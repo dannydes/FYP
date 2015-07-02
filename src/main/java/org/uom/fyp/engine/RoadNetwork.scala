@@ -160,6 +160,26 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
       val edge: Edge = NetworkUtils.createLaneSlice(this, s)
       s = edge.getTarget
 
+      if (laneSlice.edgeT == RoadStructure.TJunction) {
+        val sourceEdges = edgesOf(laneSlice.getSource)
+        val sourceEdgesIterator = sourceEdges.iterator()
+        while (sourceEdgesIterator.hasNext) {
+          val edge = sourceEdgesIterator.next()
+          if (edge.edgeT == RoadStructure.TJunction && edge != laneSlice) {
+            edge.getSource.nodeType_(RoadStructure.TJunction)
+          }
+        }
+
+        val targetEdges = edgesOf(laneSlice.getTarget)
+        val targetEdgesIterator = targetEdges.iterator()
+        while (targetEdgesIterator.hasNext) {
+          val edge = targetEdgesIterator.next()
+          if (edge.edgeT == RoadStructure.TJunction && edge != laneSlice) {
+            edge.getTarget.nodeType_(RoadStructure.TJunction)
+          }
+        }
+      }
+
       if (laneSlice.streetAtTarget != null) {
         val cStart = street.edges.indexOf(street.getEdge(laneSlice.otherIntersectionPoint))
         buildGraph(laneSlice.streetAtTarget, cStart, s)
