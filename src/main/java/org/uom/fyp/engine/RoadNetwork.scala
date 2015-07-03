@@ -4,6 +4,8 @@ import com.perfdynamics.pdq.{defs, PDQ}
 import org.jgrapht.graph.DefaultDirectedGraph
 import java.util
 
+import org.uom.fyp.engine.StreetType.StreetType
+
 /**
  * Organises and simulates road networks.
  * @param name The name given to the network.

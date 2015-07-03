@@ -1,5 +1,7 @@
 package org.uom.fyp.engine
 
+import org.uom.fyp.engine.StreetType.StreetType
+
 /**
  * Provides signatures to methods that handle road networks.
  */

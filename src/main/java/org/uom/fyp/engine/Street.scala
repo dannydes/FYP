@@ -1,5 +1,7 @@
 package org.uom.fyp.engine
 
+import org.uom.fyp.engine.StreetType.StreetType
+
 /**
  * Applies operations over streets.
  * @param streetName The name of the street.
