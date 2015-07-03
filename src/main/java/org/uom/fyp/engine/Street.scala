@@ -129,8 +129,8 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
    * Returns the edge at a given intersection point on the other road.
    * @param otherIntersectionPoint Intersection point on the other road.
    */
-  def getEdge(otherIntersectionPoint: Double): Edge = {
-    e.filter((edge: Edge) => edge.intersectionPoint == otherIntersectionPoint)(0)
+  def getEdge(point: Double): Edge = {
+    e.filter((edge: Edge) => edge.intersectionPoint <= point && edge.intersectionPoint + edge.length >= point)(0)
   }
 
   /**
