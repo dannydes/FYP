@@ -141,4 +141,12 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
     e.foreach((edge: Edge) => network.removeEdge(edge))
   }
 
+  /**
+   * Prepares for he creation of a roundabout node.
+   * @param at Position in the street where to place the roundabout.
+   */
+  def createRoundabout(at: Double) = {
+
+  }
+
 }
