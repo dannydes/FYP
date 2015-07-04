@@ -126,8 +126,8 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
   }
 
   /**
-   * Returns the edge at a given intersection point on the other road.
-   * @param otherIntersectionPoint Intersection point on the other road.
+   * Returns the edge on which a given point is found.
+   * @param point A point along the road.
    */
   def getEdge(point: Double): Edge = {
     e.filter((edge: Edge) => edge.intersectionPoint <= point && edge.intersectionPoint + edge.length >= point)(0)
@@ -146,7 +146,11 @@ class Street(streetName: String, sType: StreetType, len: Double, lanes: Int = 1)
    * @param at Position in the street where to place the roundabout.
    */
   def createRoundabout(at: Double) = {
-
+    val edge: Edge = getEdge(at)
+    val oldLength = edge.length
+    edge.length_(oldLength - edge.intersectionPoint - at)
+    edge.edgeT_(RoadStructure.Roadabout)
+    val newEdge: Edge = addEdge(at, oldLength - edge.length)
   }
 
 }
