@@ -41,4 +41,6 @@ trait IRoadNetwork {
 
   def buildGraph(street: Street, countStart: Int, source: Node): Unit
 
+  def markGraphNodes(): Unit
+
 }

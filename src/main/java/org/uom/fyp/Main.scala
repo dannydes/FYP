@@ -18,6 +18,7 @@ object Main {
 
     zabbarPrimaries.completeEdgeList()
     zabbarPrimaries.buildGraph()
+     zabbarPrimaries.markGraphNodes()
 
     //Find the time taken to go from one node to another and print it!
     zabbarPrimaries.initSimulation(10)
