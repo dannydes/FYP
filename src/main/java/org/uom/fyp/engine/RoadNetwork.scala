@@ -60,6 +60,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
     simulate(vehicles, vehicles, lanes(0).asInstanceOf[Edge], pdq)
     pdq.Solve(defs.CANON)
     pdq.Report()
+    PDQProperties.pdqNodesToRoadNetwork(pdq, this)
   }
 
   /**
