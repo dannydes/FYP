@@ -51,6 +51,8 @@ class Edge extends DefaultEdge {
 
   private var edgeType: RoadStructure.EnumVal = RoadStructure.Default
 
+  private var pdqNodeNo: Int = _
+
   /**
    * Returns the name of the street.
    */
@@ -181,8 +183,14 @@ class Edge extends DefaultEdge {
     pdq.SetVisits(toString, toString + "load", noOfVehicles, time)
     pdq.SetTUnit("Minutes")
     pdq.SetWUnit("Vehicles")
+    pdqNodeNo = pdq.noNodes - 1
     //pdq.Solve(defs.CANON)
   }
+
+  /**
+   * Returns the index of the corresponding node in PDQ's <b>node</b> array.
+   */
+  def pdqNodeIndex = pdqNodeNo
 
   /**
    * Returns the edge's source.
