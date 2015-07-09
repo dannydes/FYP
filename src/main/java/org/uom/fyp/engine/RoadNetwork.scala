@@ -170,6 +170,10 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
     }
   }
 
+  /**
+   * Provides nodes within the graph with their respective markers, depending on the
+   * markers assigned to their incoming edges.
+   */
   def markGraphNodes() = {
     val nodeIterator = vertexSet.iterator
     while (nodeIterator.hasNext) {
