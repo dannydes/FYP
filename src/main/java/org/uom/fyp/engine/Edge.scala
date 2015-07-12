@@ -144,7 +144,7 @@ class Edge extends DefaultEdge {
   /**
    * Returns the street's arrival rate.
    */
-  private def arrivalRate = lambda
+  def arrivalRate = lambda
 
   /**
    * Sets the street's arrival rate.
