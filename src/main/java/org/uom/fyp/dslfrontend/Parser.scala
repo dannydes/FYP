@@ -45,29 +45,29 @@ object Parser extends JavaTokenParsers {
   def runSimulation = "run" ~ "simulation"
 
   /**
-   * Parses actions related to road network construction, such as <b>create lane</b> and
-   * <b>block lane</b>.
+   * Parses actions related to road network construction, such as <b>create road</b> and
+   * <b>block road</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def lanes = createLane ~ (createLane | attachLane | blockLane | intersection).*
+  def lanes = createRoad ~ (createRoad | attachRoad | blockRoad | intersection).*
 
   /**
-   * Parses the <b>create primary lane</b> construct, together with its length.
+   * Parses the <b>create primary road</b> construct, together with its length.
    * @return Parser for lane creation.
    */
-  def createLane = "create" ~ "primary" ~ "lane" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
+  def createRoad = "create" ~ "primary" ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
 
   /**
-   * Parses the <b>attach primary/secondary lane</b> construct, together with its length.
+   * Parses the <b>attach primary/secondary road</b> construct, together with its length.
    * @return Parser for lane attachment.
    */
-  def attachLane = "attach" ~ ("primary" | "secondary") ~ "lane" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber
+  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber
 
   /**
    * Parses the <b>block</b> construct.
    * @return Parser for blocking.
    */
-  def blockLane = "block" ~ stringLiteral
+  def blockRoad = "block" ~ stringLiteral
 
   def intersection = "intersection" ~ stringLiteral ~ wholeNumber ~ "," ~ stringLiteral ~ wholeNumber ~ "at" ~ floatingPointNumber ~ "," ~ floatingPointNumber
 
