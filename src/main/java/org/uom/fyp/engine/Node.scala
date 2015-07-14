@@ -9,6 +9,8 @@ class Node {
 
   private var timing: Double = _
 
+  private var priority: Edge = _
+
   /**
    * Returns the node's type. (e.g.: <b>RoadStructure.Default</b>)
    */
@@ -26,6 +28,12 @@ class Node {
 
   def lightTiming_(timing: Double) = {
     this.timing = timing
+  }
+
+  def tPriority = priority
+
+  def tPriority_(priority: Edge) = {
+    this.priority = priority
   }
 
 }
