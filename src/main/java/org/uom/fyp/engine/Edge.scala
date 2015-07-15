@@ -164,7 +164,7 @@ class Edge extends DefaultEdge {
   //temporary arrangement
   val flow = vehicles
 
-  val speed = flow / density
+  var speed = flow / density
 
   /**
    * Returns the time taken for one job (vehicle) to be serviced.
