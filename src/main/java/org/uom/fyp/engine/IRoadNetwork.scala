@@ -67,4 +67,6 @@ trait IRoadNetwork {
    */
   def markGraphNodes(): Unit
 
+  def processNode(node: Node): Unit
+
 }
