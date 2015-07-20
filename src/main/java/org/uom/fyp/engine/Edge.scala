@@ -162,7 +162,7 @@ class Edge extends DefaultEdge {
   val density = vehicles / len
 
   //temporary arrangement
-  val flow = vehicles
+  var flow = vehicles
 
   var speed = flow / density
 
