@@ -71,7 +71,10 @@ object Parser extends JavaTokenParsers {
    * @return Parser for lane attachment.
    */
   def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ^^
-    { case "attach" ~ ("primary" | "secondary") ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos => networks(networks.length - 1)}
+    {
+      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos => networks(networks.length - 1)
+      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos => networks(networks.length - 1)
+    }
 
   /**
    * Parses the <b>block</b> construct.
