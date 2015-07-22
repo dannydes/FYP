@@ -1,6 +1,6 @@
 package org.uom.fyp.dslfrontend
 
-import org.uom.fyp.engine.{RoadNetwork, RoadNetworkUnion}
+import org.uom.fyp.engine.{StreetType, RoadNetwork, RoadNetworkUnion}
 
 import scala.util.parsing.combinator.JavaTokenParsers
 import scala.io.Source
@@ -10,6 +10,14 @@ import scala.io.Source
  * parsed.
  */
 object Parser extends JavaTokenParsers {
+
+  private var networks: List[RoadNetwork] = List()
+
+  private def createNetwork(n: String): RoadNetwork = {
+    val network: RoadNetwork = new RoadNetwork(n)
+    networks = networks ++ List(network)
+    network
+  }
 
   /**
    * Parses a whole statement.
@@ -22,21 +30,21 @@ object Parser extends JavaTokenParsers {
    * the network.
    * @return Parser for network construction.
    */
-  def constructNetwork = "construct" ~ "network" ~ stringLiteral ~ "(" ~ lanes ~ ")" ^^
-    { case "construct" ~ "network" ~ network ~ "(" ~ _ ~ ")" => new RoadNetwork(network) }
+  def constructNetwork = "construct" ~ "network" ~ ident ~ "(" ~ lanes ~ ")" ^^
+    { case "construct" ~ "network" ~ network ~ "(" ~ _ ~ ")" => createNetwork(network) }
 
   /**
    * Parses the <b>join</b> construct, taking the names of two road networks.
    * @return Parser for joining two networks.
    */
-  def joinNetworks = "join" ~ stringLiteral ~ "," ~ stringLiteral ^^
+  def joinNetworks = "join" ~ ident ~ "," ~ ident ^^
     { case "join" ~ n1 ~ "," ~ n2 => new RoadNetworkUnion(null, null) }
 
   /**
    * Parses the <b>given</b> construct.
    * @return Parser for the "given" construct.
    */
-  def given = "given" ~ stringLiteral ~ ("," ~ stringLiteral).*
+  def given = "given" ~ ident ~ ("," ~ ident).*
 
   /**
    * Parses the <b>run simulation</b> construct.
@@ -49,27 +57,27 @@ object Parser extends JavaTokenParsers {
    * <b>block road</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def lanes = createRoad ~ (createRoad | attachRoad | blockRoad | intersection).*
+  def lanes = createRoad ~ (createRoad | attachRoad | blockRoad).*
 
   /**
    * Parses the <b>create primary road</b> construct, together with its length.
    * @return Parser for lane creation.
    */
-  def createRoad = "create" ~ "primary" ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber
+  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "flow" ~ floatingPointNumber ^^
+    { case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "flow" ~ flow => networks(networks.length - 1).createStreet(road, StreetType.PRIMARY, len.toDouble, flow.toDouble) }
 
   /**
    * Parses the <b>attach primary/secondary road</b> construct, together with its length.
    * @return Parser for lane attachment.
    */
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ stringLiteral ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber
+  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ^^
+    { case "attach" ~ ("primary" | "secondary") ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos => networks(networks.length - 1)}
 
   /**
    * Parses the <b>block</b> construct.
    * @return Parser for blocking.
    */
-  def blockRoad = "block" ~ stringLiteral
-
-  def intersection = "intersection" ~ stringLiteral ~ wholeNumber ~ "," ~ stringLiteral ~ wholeNumber ~ "at" ~ floatingPointNumber ~ "," ~ floatingPointNumber
+  def blockRoad = "block" ~ ident
 
   /**
    * Initializes the parsing process for some source file with the given

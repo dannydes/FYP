@@ -1,5 +1,6 @@
 package org.uom.fyp
 
+import org.uom.fyp.dslfrontend.Parser
 import org.uom.fyp.engine.{StreetType, RoadNetwork}
 
 /**
@@ -8,7 +9,7 @@ import org.uom.fyp.engine.{StreetType, RoadNetwork}
 object Main {
 
   def main(args: Array[String]): Unit = {
-    //Construct sample road network.
+    /*//Construct sample road network.
     val zabbarPrimaries = new RoadNetwork("Zabbar Primaries")
     val parishStreet = zabbarPrimaries.createStreet("Santwarju", StreetType.PRIMARY, 10, 400)
 
@@ -21,7 +22,9 @@ object Main {
      zabbarPrimaries.markGraphNodes()
 
     //Find the time taken to go from one node to another and print it!
-    zabbarPrimaries.initSimulation(10)
+    zabbarPrimaries.initSimulation(10)*/
+
+    Parser.parse("C:\\Users\\Daniel\\OneDrive\\Documents\\zabbar_primaries.rdl")
   }
 
 }
