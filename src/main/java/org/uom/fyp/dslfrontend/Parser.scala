@@ -1,6 +1,6 @@
 package org.uom.fyp.dslfrontend
 
-import org.uom.fyp.engine.{StreetType, RoadNetwork, RoadNetworkUnion}
+import org.uom.fyp.engine.{Street, StreetType, RoadNetwork, RoadNetworkUnion}
 
 import scala.util.parsing.combinator.JavaTokenParsers
 import scala.io.Source
@@ -12,6 +12,8 @@ import scala.io.Source
 object Parser extends JavaTokenParsers {
 
   private var networks: List[RoadNetwork] = List()
+
+  private var structuresInCurrentNetwork: List[AnyRef] = List()
 
   private def createNetwork(n: String): RoadNetwork = {
     val network: RoadNetwork = new RoadNetwork(n)
@@ -63,8 +65,12 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>create primary road</b> construct, together with its length.
    * @return Parser for lane creation.
    */
-  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "flow" ~ floatingPointNumber ^^
-    { case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "flow" ~ flow => networks(networks.length - 1).createStreet(road, StreetType.PRIMARY, len.toDouble, flow.toDouble) }
+  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "flow" ~ floatingPointNumber ^^ {
+    case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "flow" ~ flow => {
+      structuresInCurrentNetwork = List()
+      structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(new Street(road, StreetType.PRIMARY, len.toDouble, flow.toDouble))
+    }
+  }
 
   /**
    * Parses the <b>attach primary/secondary road</b> construct, together with its length.
@@ -72,8 +78,8 @@ object Parser extends JavaTokenParsers {
    */
   def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ^^
     {
-      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos => networks(networks.length - 1)
-      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos => networks(networks.length - 1)
+      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, StreetType.PRIMARY, len.toDouble, flow.toDouble), pos))
+      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, StreetType.SECONDARY, len.toDouble, flow.toDouble), pos))
     }
 
   /**
