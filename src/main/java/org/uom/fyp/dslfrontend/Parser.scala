@@ -32,7 +32,7 @@ object Parser extends JavaTokenParsers {
    * the network.
    * @return Parser for network construction.
    */
-  def constructNetwork = "construct" ~ "network" ~ ident ~ "(" ~ lanes ~ ")" ^^
+  def constructNetwork = "construct" ~ "network" ~ ident ~ "(" ~ definitions ~ ")" ^^
     { case "construct" ~ "network" ~ network ~ "(" ~ _ ~ ")" => createNetwork(network) }
 
   /**
@@ -59,7 +59,7 @@ object Parser extends JavaTokenParsers {
    * <b>block road</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def lanes = createRoad ~ (createRoad | attachRoad | blockRoad).*
+  def definitions = createRoad ~ (createRoad | attachRoad | blockRoad).*
 
   /**
    * Parses the <b>create primary road</b> construct, together with its length.
