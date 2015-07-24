@@ -18,6 +18,18 @@ object Parser extends JavaTokenParsers {
   private def createNetwork(n: String): RoadNetwork = {
     val network: RoadNetwork = new RoadNetwork(n)
     networks = networks ++ List(network)
+
+    structuresInCurrentNetwork.foreach((obj: AnyRef) => {
+      if (obj.isInstanceOf[List]) {
+        val street: Street = obj.asInstanceOf[List](0).asInstanceOf[Street]
+        network.streetList(0).attachStreet(network, street.name, street.streetType, street.length,
+          obj.asInstanceOf[List](1).asInstanceOf[Double], street.flow)
+      } else {
+        val street: Street = obj.asInstanceOf[Street]
+        network.createStreet(street.name, street.streetType, street.length, street.flow, street.noOfLanes)
+      }
+    })
+
     network
   }
 

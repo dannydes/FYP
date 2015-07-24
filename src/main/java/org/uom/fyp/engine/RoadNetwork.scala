@@ -22,7 +22,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    */
   def networkName = name
 
-  //def streetList = streets
+  def streetList = streets
 
   /**
    * Simulates every edge in the graph recursively until there are no more
