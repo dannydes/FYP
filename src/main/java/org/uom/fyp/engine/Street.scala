@@ -38,6 +38,10 @@ class Street(streetName: String, sType: StreetType, len: Double, f: Double, lane
    */
   def noOfLanes = lanes
 
+  def speed = {
+    edges.map((edge: Edge) => edge.length).sum / edges.map((edge: Edge) => edge.time).sum
+  }
+
   /**
    * Adds an edge to the list in order to be added to the graph later on.
    * @param otherAttachedAt The point where the attachment takes place.
