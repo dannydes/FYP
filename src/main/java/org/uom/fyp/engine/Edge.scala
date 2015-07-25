@@ -159,6 +159,8 @@ class Edge extends DefaultEdge {
    */
   val departureRate = lambda / (1 - noOfVehicles)
 
+  val serviceTime = 1 / departureRate
+
   val density = vehicles / len
 
   //temporary arrangement
@@ -185,8 +187,9 @@ class Edge extends DefaultEdge {
    * @param pdq PDQ object.
    */
   def simulate(pdq: PDQ) = {
-    pdq.CreateNode(toString, defs.CEN, defs.FCFS)
     pdq.CreateOpen(toString + "load", lambda)
+    pdq.CreateNode(toString, defs.CEN, defs.FCFS)
+    pdq.SetDemand(toString, toString + "load", serviceTime)
     pdq.SetVisits(toString, toString + "load", noOfVehicles, time)
     pdq.SetTUnit("Minutes")
     pdq.SetWUnit("Vehicles")
