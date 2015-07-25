@@ -93,7 +93,7 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>attach primary/secondary road</b> construct, together with its length.
    * @return Parser for lane attachment.
    */
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ^^
+  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ~ "flow" ~ floatingPointNumber ^^
     {
       case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => attachRoadHelper(road, StreetType.PRIMARY, len, flow, pos)
       case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => attachRoadHelper(road, StreetType.SECONDARY, len, flow, pos)
