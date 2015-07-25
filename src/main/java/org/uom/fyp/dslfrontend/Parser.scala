@@ -1,5 +1,6 @@
 package org.uom.fyp.dslfrontend
 
+import org.uom.fyp.engine.StreetType.StreetType
 import org.uom.fyp.engine.{Street, StreetType, RoadNetwork, RoadNetworkUnion}
 
 import scala.util.parsing.combinator.JavaTokenParsers
@@ -31,6 +32,10 @@ object Parser extends JavaTokenParsers {
     })
 
     network
+  }
+
+  private def attachRoadHelper(road: String, streetType: StreetType, len: String, flow: String, pos: String) = {
+    structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, streetType, len.toDouble, flow.toDouble), pos))
   }
 
   /**
@@ -90,8 +95,8 @@ object Parser extends JavaTokenParsers {
    */
   def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ^^
     {
-      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, StreetType.PRIMARY, len.toDouble, flow.toDouble), pos))
-      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, StreetType.SECONDARY, len.toDouble, flow.toDouble), pos))
+      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => attachRoadHelper(road, StreetType.PRIMARY, len, flow, pos)
+      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => attachRoadHelper(road, StreetType.SECONDARY, len, flow, pos)
     }
 
   /**
