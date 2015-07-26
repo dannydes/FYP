@@ -21,10 +21,10 @@ object Parser extends JavaTokenParsers {
     networks = networks ++ List(network)
 
     structuresInCurrentNetwork.foreach((obj: AnyRef) => {
-      if (obj.isInstanceOf[List]) {
-        val street: Street = obj.asInstanceOf[List](0).asInstanceOf[Street]
+      if (obj.isInstanceOf[List[Any]]) {
+        val street: Street = obj.asInstanceOf[List[Any]](0).asInstanceOf[Street]
         network.streetList(0).attachStreet(network, street.name, street.streetType, street.length,
-          obj.asInstanceOf[List](1).asInstanceOf[Double], street.flow)
+          obj.asInstanceOf[List[Any]](1).asInstanceOf[Double], street.flow)
       } else {
         val street: Street = obj.asInstanceOf[Street]
         network.createStreet(street.name, street.streetType, street.length, street.flow, street.noOfLanes)
