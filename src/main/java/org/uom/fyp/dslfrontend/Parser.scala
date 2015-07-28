@@ -34,6 +34,10 @@ object Parser extends JavaTokenParsers {
     network
   }
 
+  private def lookupNetwork(n: String): RoadNetwork = {
+    networks.filter((network: RoadNetwork) => network.networkName == n)(0)
+  }
+
   private def attachRoadHelper(road: String, streetType: StreetType, len: String, flow: String, pos: String) = {
     structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, streetType, len.toDouble, flow.toDouble), pos))
   }
@@ -57,7 +61,7 @@ object Parser extends JavaTokenParsers {
    * @return Parser for joining two networks.
    */
   def joinNetworks = "join" ~ ident ~ "," ~ ident ^^
-    { case "join" ~ n1 ~ "," ~ n2 => new RoadNetworkUnion(null, null) }
+    { case "join" ~ n1 ~ "," ~ n2 => new RoadNetworkUnion(lookupNetwork(n1), lookupNetwork(n2)) }
 
   /**
    * Parses the <b>given</b> construct.
