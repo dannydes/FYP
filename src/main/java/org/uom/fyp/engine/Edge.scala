@@ -159,7 +159,7 @@ class Edge extends DefaultEdge {
    */
   val departureRate = lambda / (1 - noOfVehicles)
 
-  val serviceTime = 1 / departureRate
+  val serviceTime = vehicles / lambda * (1 + vehicles)
 
   val density = vehicles / len
 
@@ -169,7 +169,7 @@ class Edge extends DefaultEdge {
   var speed = flow / density
 
   /**
-   * Returns the time taken for one job (vehicle) to be serviced.
+   * Returns the time taken for one job (vehicle) spends in a road segment (residence time).
    */
   def time: Double = {
     1 / (departureRate - lambda)
@@ -189,8 +189,8 @@ class Edge extends DefaultEdge {
   def simulate(pdq: PDQ) = {
     pdq.CreateOpen(toString + "load", lambda)
     pdq.CreateNode(toString, defs.CEN, defs.FCFS)
-    pdq.SetDemand(toString, toString + "load", serviceTime)
-    pdq.SetVisits(toString, toString + "load", noOfVehicles, time)
+    //pdq.SetDemand(toString, toString + "load", serviceTime)
+    pdq.SetVisits(toString, toString + "load", noOfVehicles, serviceTime)
     pdq.SetTUnit("Minutes")
     pdq.SetWUnit("Vehicles")
     pdqNodeNo = pdq.noNodes - 1
