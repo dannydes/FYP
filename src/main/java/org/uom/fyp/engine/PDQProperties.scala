@@ -29,9 +29,9 @@ object PDQProperties {
    */
   private def pdqNodesToRoadNetworkWorker(pdq: PDQ, network: RoadNetwork, edge: Edge): Unit = {
     //edge.arrivalRate_(pdq.job(0).trans.arrival_rate)
-    edge.flow = pdq.node(edge.pdqNodeIndex).visits(0).asInstanceOf[Int]
+    edge.flow = if (pdq.serviceDemand == 16) pdq.node(edge.pdqNodeIndex).visits(0).asInstanceOf[Int]
 
-    edge.noOfVehicles_(pdq.node(edge.pdqNodeIndex).resit(0).asInstanceOf[Int])
+    //edge.noOfVehicles_(pdq.node(edge.pdqNodeIndex).resit(0).asInstanceOf[Int])
     val outgoing: java.util.Set[Edge] = network.outgoingEdgesOf(edge.getTarget)
     if (outgoing.size > 0) {
       val outgoingIterator = outgoing.iterator
