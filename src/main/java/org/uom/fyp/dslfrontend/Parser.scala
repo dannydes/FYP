@@ -73,7 +73,7 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>run simulation</b> construct.
    * @return Parser to run the simulation.
    */
-  def runSimulation = "run" ~ "simulation"
+  def runSimulation = "run" ~ "simulation" ^^ {}
 
   /**
    * Parses actions related to road network construction, such as <b>create road</b> and
@@ -86,10 +86,10 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>create primary road</b> construct, together with its length.
    * @return Parser for lane creation.
    */
-  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "flow" ~ floatingPointNumber ^^ {
-    case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "flow" ~ flow => {
+  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "vehicles" ~ wholeNumber ^^ {
+    case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "vehicles" ~ vehicles => {
       structuresInCurrentNetwork = List()
-      structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(new Street(road, StreetType.PRIMARY, len.toDouble, flow.toDouble))
+      structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(new Street(road, StreetType.PRIMARY, len.toDouble, vehicles.toInt))
     }
   }
 
@@ -97,10 +97,10 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>attach primary/secondary road</b> construct, together with its length.
    * @return Parser for lane attachment.
    */
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ~ "flow" ~ floatingPointNumber ^^
+  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ~ "vehicles" ~ wholeNumber ^^
     {
-      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => attachRoadHelper(road, StreetType.PRIMARY, len, flow, pos)
-      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "flow" ~ flow => attachRoadHelper(road, StreetType.SECONDARY, len, flow, pos)
+      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "vehicles" ~ vehicles => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, pos)
+      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "vehicles" ~ vehicles => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, pos)
     }
 
   /**
