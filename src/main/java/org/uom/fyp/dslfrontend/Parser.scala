@@ -38,8 +38,8 @@ object Parser extends JavaTokenParsers {
     networks.filter((network: RoadNetwork) => network.networkName == n)(0)
   }
 
-  private def attachRoadHelper(road: String, streetType: StreetType, len: String, flow: String, pos: String) = {
-    structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, streetType, len.toDouble, flow.toDouble), pos))
+  private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehicles: String, pos: String) = {
+    structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, streetType, len.toDouble, vehicles.toInt), pos))
   }
 
   /**
