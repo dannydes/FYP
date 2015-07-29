@@ -118,13 +118,13 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
    * @return The <b>Street</b> object created.
    */
-  override def addStreet(streetName: String, streetType: StreetType, length: Double, flow: Double, lanes: Int = 1): Street = {
+  override def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, lanes: Int = 1): Street = {
     //First, we must check if the street has already been defined.
     val matches: List[Street] = streets.filter((street: Street) => street.name == streetName)
     var street: Street = null
 
     if (matches.size == 0) {
-      street = new Street(streetName, streetType, length, flow, lanes)
+      street = new Street(streetName, streetType, length, vehicles, lanes)
       streets = streets ++ List(street)
     } else {
       street = matches(0)

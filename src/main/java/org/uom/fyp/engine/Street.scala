@@ -31,7 +31,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    */
   def length = len
 
-  def flow = f
+  def noOfVehicles = vehicles
 
   /**
    * Returns the number of lanes the street has.
