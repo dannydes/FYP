@@ -30,7 +30,7 @@ object PDQProperties {
       pdqParametersIndex = p.indexOf("Utilization", pdqParametersIndex) + 3
 
 
-      pdqParametersIndex = p.indexOf("Queue Length", pdqParametersIndex) + 3
+      //pdqParametersIndex = p.indexOf("Queue Length", pdqParametersIndex) + 3
 
 
       pdqParametersIndex = p.indexOf("Residence Time", pdqParametersIndex) + 3

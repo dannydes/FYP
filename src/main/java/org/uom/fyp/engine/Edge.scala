@@ -53,6 +53,8 @@ class Edge extends DefaultEdge {
 
   private var pdqNodeNo: Int = _
 
+  var residenceTime: Double = _
+
   /**
    * Returns the name of the street.
    */
