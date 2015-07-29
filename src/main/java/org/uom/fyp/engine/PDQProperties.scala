@@ -17,10 +17,10 @@ object PDQProperties {
    */
   def pdqNodesToRoadNetwork(pdq: PDQ, network: RoadNetwork) = {
     val p: util.Vector[_] = pdq.p.toVector
-    var pdqParametersIndex: Int = _
+    var pdqParametersIndex: Int = 0
 
     val edges: Array[Edge] = network.edgeSet().toArray.asInstanceOf[Array[Edge]]
-    var index: Int = _
+    var index: Int = 0
 
     for (index <- 0 to edges.length) {
       val edge: Edge = edges.filter((e: Edge) => e.pdqNodeIndex == index)(0)
