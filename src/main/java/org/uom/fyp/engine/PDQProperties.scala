@@ -16,31 +16,24 @@ object PDQProperties {
    * @param network Road network.
    */
   def pdqNodesToRoadNetwork(pdq: PDQ, network: RoadNetwork) = {
-    //val edges = network.streetList.map((street: Street) => street.edges).flatten
-
-    val edges = network.edgeSet().toArray
-    pdqNodesToRoadNetworkWorker(pdq, network, edges(0).asInstanceOf[Edge])
-  }
-
-  /**
-   *
-   * @param pdq PDQ object.
-   * @param network Road network.
-   * @param edge The edge to have its properties set.
-   */
-  private def pdqNodesToRoadNetworkWorker(pdq: PDQ, network: RoadNetwork, edge: Edge): Unit = {
     val p: util.Vector[_] = pdq.p.toVector
+    var pdqParametersIndex: Int = _
 
-    //edge.arrivalRate_(pdq.job(0).trans.arrival_rate)
-    edge.flow = if (pdq.serviceDemand == 16) pdq.node(edge.pdqNodeIndex).visits(0).asInstanceOf[Int]
+    val edges: Array[Edge] = network.edgeSet().toArray.asInstanceOf[Array[Edge]]
+    var index: Int = _
 
-    //edge.noOfVehicles_(pdq.node(edge.pdqNodeIndex).resit(0).asInstanceOf[Int])
-    val outgoing: util.Set[Edge] = network.outgoingEdgesOf(edge.getTarget)
-    if (outgoing.size > 0) {
-      val outgoingIterator = outgoing.iterator
-      while (outgoingIterator.hasNext) {
-        pdqNodesToRoadNetworkWorker(pdq, network, outgoingIterator.next)
-      }
+    for (index <- 0 to edges.length) {
+      val edge: Edge = edges.filter((e: Edge) => e.pdqNodeIndex == index)(0)
+      pdqParametersIndex = p.indexOf("Throughput", pdqParametersIndex) + 3
+      edge.flow = p.elementAt(pdqParametersIndex).asInstanceOf[Int]
+
+      pdqParametersIndex = p.indexOf("Utilization", pdqParametersIndex) + 3
+
+
+      pdqParametersIndex = p.indexOf("Queue Length", pdqParametersIndex) + 3
+
+
+      pdqParametersIndex = p.indexOf("Residence Time", pdqParametersIndex) + 3
     }
   }
 
