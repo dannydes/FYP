@@ -94,8 +94,8 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * @return The street that has been created.
    */
   def attachStreet(network: RoadNetwork, streetName: String, streetType: StreetType,
-                 length: Double, point: Double, flow: Double): Street = {
-    val street: Street = network.addStreet(streetName, streetType, length, flow)
+                 length: Double, point: Double, vehicles: Int): Street = {
+    val street: Street = network.addStreet(streetName, streetType, length, vehicles)
 
     var otherAt = 0.0
     if (this.e.length != 0) {

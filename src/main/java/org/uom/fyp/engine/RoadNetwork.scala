@@ -80,10 +80,12 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param streetType The type of the street to which the lane belongs. Can be <b>StreetType.PRIMARY</b>
    *                   or <b>StreetType.SECONDARY</b>.
    * @param length The lane's length.
+   * @param vehicles
+   * @param lanes
    * @return Reference to the lane object just created.
    */
-  override def createStreet(streetName: String, streetType: StreetType, length: Double, flow: Double, lanes: Int = 1): Street = {
-    addStreet(streetName, streetType, length, flow, lanes)
+  override def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, lanes: Int = 1): Street = {
+    addStreet(streetName, streetType, length, vehicles, lanes)
   }
 
   /**
