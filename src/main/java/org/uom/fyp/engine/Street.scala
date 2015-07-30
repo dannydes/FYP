@@ -7,6 +7,7 @@ import org.uom.fyp.engine.StreetType.StreetType
  * @param streetName The name of the street.
  * @param sType The type of the street.
  * @param len The length of the street.
+ * @param vehicles The number of vehicles in the street.
  * @param lanes The number of lanes the street has.
  */
 class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, lanes: Int = 1) {
@@ -91,6 +92,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * @param length The length the street to be attached.
    * @param point The point where the street is to be attached with respect to
    *              the starting point of the other.
+   * @param vehicles The number of vehicles in the new street.
    * @return The street that has been created.
    */
   def attachStreet(network: RoadNetwork, streetName: String, streetType: StreetType,
