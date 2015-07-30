@@ -79,7 +79,7 @@ object Parser extends JavaTokenParsers {
    * @return Parser to run the simulation.
    */
   def runSimulation = "run" ~ "simulation" ^^ {
-    networks.foreach((n: RoadNetwork) => n.initSimulation())
+    case _ => networks.foreach((n: RoadNetwork) => n.initSimulation(0))
   }
 
   /**
