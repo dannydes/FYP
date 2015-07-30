@@ -16,6 +16,8 @@ object Parser extends JavaTokenParsers {
 
   private var structuresInCurrentNetwork: List[AnyRef] = List()
 
+  private var networksToConsider: List[RoadNetwork] = List()
+
   private def createNetwork(n: String): RoadNetwork = {
     val network: RoadNetwork = new RoadNetwork(n)
     networks = networks ++ List(network)
@@ -30,6 +32,9 @@ object Parser extends JavaTokenParsers {
         network.createStreet(street.name, street.streetType, street.length, street.noOfVehicles, street.noOfLanes)
       }
     })
+
+    network.completeEdgeList()
+    network.buildGraph()
 
     network
   }
@@ -73,7 +78,9 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>run simulation</b> construct.
    * @return Parser to run the simulation.
    */
-  def runSimulation = "run" ~ "simulation" ^^ {}
+  def runSimulation = "run" ~ "simulation" ^^ {
+    networks.foreach((n: RoadNetwork) => n.initSimulation())
+  }
 
   /**
    * Parses actions related to road network construction, such as <b>create road</b> and
