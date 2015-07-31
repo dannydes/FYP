@@ -19,7 +19,8 @@ object PDQProperties {
     val p: util.Vector[_] = pdq.p.toVector
     var pdqParametersIndex: Int = 0
 
-    val edges: Array[Edge] = network.edgeSet().toArray.asInstanceOf[Array[Edge]]
+    var edges: Array[Edge] = Array()
+    edges = network.edgeSet().toArray(edges)
     var index: Int = 0
 
     for (index <- 0 to edges.length) {
