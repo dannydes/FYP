@@ -47,9 +47,9 @@ object Parser extends JavaTokenParsers {
     structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, streetType, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)), (parseDouble(pos).toList)(0)))
   }
 
-  private def parseDouble(s: String) = try { Some(s.toDouble) } catch { case _ => None }
+  private def parseDouble(s: String) = try { Some(s.toDouble) } catch { case _: Throwable => None }
 
-  private def parseInt(s: String) = try { Some(s.toInt) } catch { case _ => None }
+  private def parseInt(s: String) = try { Some(s.toInt) } catch { case _: Throwable => None }
 
   /**
    * Parses a whole statement.
