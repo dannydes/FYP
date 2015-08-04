@@ -29,18 +29,18 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * outgoing edges.
    * @param vehicles Number of vehicles in system.
    * @param arrivalRate The arrival rate of the current edge.
-   * @param lane The current edge.
+   * @param edge The current edge.
    * @param pdq PDQ object.
    */
-  private def simulate(vehicles: Int, arrivalRate: Double, lane: Edge, pdq: PDQ): Unit = {
-    lane.noOfVehicles_(vehicles)
-    lane.arrivalRate_(arrivalRate)
-    processNode(lane.getTarget)
-    lane.simulate(pdq)
+  private def simulate(vehicles: Int, arrivalRate: Double, edge: Edge, pdq: PDQ): Unit = {
+    edge.noOfVehicles_(vehicles)
+    edge.arrivalRate_(arrivalRate)
+    processNode(edge.getTarget)
+    edge.simulate(pdq)
 
-    val outgoingLanes: util.Set[Edge] = outgoingEdgesOf(lane.getTarget)
+    val outgoingLanes: util.Set[Edge] = outgoingEdgesOf(edge.getTarget)
     if (outgoingLanes.size > 0) {
-      val newArrivalRate = lane.departureRate / outgoingLanes.size
+      val newArrivalRate = edge.departureRate / outgoingLanes.size
       val newNoOfVehicles = vehicles / outgoingLanes.size
       val outgoingLanesIterator = outgoingLanes.iterator
 
