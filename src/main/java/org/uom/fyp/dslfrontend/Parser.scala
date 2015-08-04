@@ -34,8 +34,8 @@ object Parser extends JavaTokenParsers {
     network.buildGraph()
   }
 
-  private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehicles: String, pos: String) = {
-    structuresInNetwork = structuresInNetwork ++ List(List(new Street(road.toString, streetType, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)), (parseDouble(pos).toList)(0)))
+  private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehicles: String, pos: String, lanes: String) = {
+    structuresInNetwork = structuresInNetwork ++ List(List(new Street(road.toString, streetType, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0), (parseInt(lanes).toList)(0)), (parseDouble(pos).toList)(0)))
   }
 
   private def parseDouble(s: String) = try { Some(s.toDouble) } catch { case _: Throwable => None }
@@ -75,11 +75,11 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>create primary road</b> construct, together with its length.
    * @return Parser for lane creation.
    */
-  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "vehicles" ~ wholeNumber ~
-    ("lanes" ~ wholeNumber).? ^^ {
-    case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "vehicles" ~ vehicles => {
+  def createRoad = ("create" ~> "primary") ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("vehicles" ~> wholeNumber) ~
+    ("lanes" ~> wholeNumber).? ^^ {
+    case "primary" ~ road ~  len ~ vehicles ~ lanes => {
       structuresInNetwork = List()
-      structuresInNetwork = structuresInNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)))
+      structuresInNetwork = structuresInNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0), (parseInt(lanes).toList)(0)))
     }
   }
 
@@ -87,11 +87,11 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>attach primary/secondary road</b> construct, together with its length.
    * @return Parser for lane attachment.
    */
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~
-    floatingPointNumber ~ "vehicles" ~ wholeNumber ~ ("lanes" ~ wholeNumber).? ^^
+  def attachRoad = ("attach" ~> ("primary" | "secondary")) ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("at" ~>
+    floatingPointNumber) ~ ("vehicles" ~> wholeNumber) ~ ("lanes" ~> wholeNumber).? ^^
     {
-      case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "vehicles" ~ vehicles => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, pos)
-      case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "vehicles" ~ vehicles => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, pos)
+      case "primary" ~ road ~ len ~ pos ~ vehicles ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, pos, lanes)
+      case "secondary" ~ road ~ len ~ pos ~ vehicles ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, pos, lanes)
     }
 
   /**
