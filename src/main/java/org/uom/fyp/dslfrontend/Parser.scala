@@ -75,7 +75,8 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>create primary road</b> construct, together with its length.
    * @return Parser for lane creation.
    */
-  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "vehicles" ~ wholeNumber ^^ {
+  def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "vehicles" ~ wholeNumber ~
+    ("lanes" ~ wholeNumber).? ^^ {
     case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "vehicles" ~ vehicles => {
       structuresInNetwork = List()
       structuresInNetwork = structuresInNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)))
@@ -86,7 +87,8 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>attach primary/secondary road</b> construct, together with its length.
    * @return Parser for lane attachment.
    */
-  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~ floatingPointNumber ~ "vehicles" ~ wholeNumber ^^
+  def attachRoad = "attach" ~ ("primary" | "secondary") ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "at" ~
+    floatingPointNumber ~ "vehicles" ~ wholeNumber ~ ("lanes" ~ wholeNumber).? ^^
     {
       case "attach" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "vehicles" ~ vehicles => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, pos)
       case "attach" ~ "secondary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "at" ~ pos ~ "vehicles" ~ vehicles => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, pos)
