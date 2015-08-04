@@ -12,17 +12,14 @@ import scala.io.Source
  */
 object Parser extends JavaTokenParsers {
 
-  private var networks: List[RoadNetwork] = List()
+  private var network: RoadNetwork = _
 
-  private var structuresInCurrentNetwork: List[AnyRef] = List()
+  private var structuresInNetwork: List[AnyRef] = List()
 
-  private var networksToConsider: List[RoadNetwork] = List()
+  private def createNetwork(n: String) = {
+    network = new RoadNetwork(n)
 
-  private def createNetwork(n: String): RoadNetwork = {
-    val network: RoadNetwork = new RoadNetwork(n)
-    networks = networks ++ List(network)
-
-    structuresInCurrentNetwork.foreach((obj: AnyRef) => {
+    structuresInNetwork.foreach((obj: AnyRef) => {
       if (obj.isInstanceOf[List[Any]]) {
         val street: Street = obj.asInstanceOf[List[Any]](0).asInstanceOf[Street]
         network.streetList(0).attachStreet(network, street.name, street.streetType, street.length,
@@ -35,16 +32,10 @@ object Parser extends JavaTokenParsers {
 
     network.completeEdgeList()
     network.buildGraph()
-
-    network
-  }
-
-  private def lookupNetwork(n: String): RoadNetwork = {
-    networks.filter((network: RoadNetwork) => network.networkName == n)(0)
   }
 
   private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehicles: String, pos: String) = {
-    structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(List(new Street(road.toString, streetType, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)), (parseDouble(pos).toList)(0)))
+    structuresInNetwork = structuresInNetwork ++ List(List(new Street(road.toString, streetType, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)), (parseDouble(pos).toList)(0)))
   }
 
   private def parseDouble(s: String) = try { Some(s.toDouble) } catch { case _: Throwable => None }
@@ -70,7 +61,7 @@ object Parser extends JavaTokenParsers {
    * @return Parser to run the simulation.
    */
   def runSimulation = "run" ~ "simulation" ^^ {
-    case _ => networks.foreach((n: RoadNetwork) => n.initSimulation(0))
+    case _ => network.initSimulation(0)
   }
 
   /**
@@ -86,8 +77,8 @@ object Parser extends JavaTokenParsers {
    */
   def createRoad = "create" ~ "primary" ~ "road" ~ ident ~ "with" ~ "length" ~ floatingPointNumber ~ "vehicles" ~ wholeNumber ^^ {
     case "create" ~ "primary" ~ "road" ~ road ~ "with" ~ "length" ~ len ~ "vehicles" ~ vehicles => {
-      structuresInCurrentNetwork = List()
-      structuresInCurrentNetwork = structuresInCurrentNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)))
+      structuresInNetwork = List()
+      structuresInNetwork = structuresInNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0)))
     }
   }
 
