@@ -98,13 +98,6 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
   }
 
   /**
-   * Returns the union of this road network to the one passed as a parameter.
-   * @param other The road network to join to this network.
-   * @return The union of the two road networks.
-   */
-  def join(other: RoadNetwork) = new RoadNetworkUnion(this, other)
-
-  /**
    * Returns the propagation velocity of a shock wave.
    * @param qb Flow before change in conditions.
    * @param qa Flow after change in conditions.
