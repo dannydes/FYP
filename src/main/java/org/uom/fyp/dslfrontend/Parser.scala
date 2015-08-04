@@ -73,12 +73,6 @@ object Parser extends JavaTokenParsers {
     { case "join" ~ n1 ~ "," ~ n2 => new RoadNetworkUnion(lookupNetwork(n1), lookupNetwork(n2)) }
 
   /**
-   * Parses the <b>given</b> construct.
-   * @return Parser for the "given" construct.
-   */
-  def given = "given" ~ ident ~ ("," ~ ident).*
-
-  /**
    * Parses the <b>run simulation</b> construct.
    * @return Parser to run the simulation.
    */
