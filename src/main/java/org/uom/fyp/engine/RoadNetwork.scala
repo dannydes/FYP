@@ -35,6 +35,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
   private def simulate(vehicles: Int, arrivalRate: Double, lane: Edge, pdq: PDQ): Unit = {
     lane.noOfVehicles_(vehicles)
     lane.arrivalRate_(arrivalRate)
+    processNode(lane.getTarget)
     lane.simulate(pdq)
 
     val outgoingLanes: util.Set[Edge] = outgoingEdgesOf(lane.getTarget)
@@ -189,6 +190,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
   override def processNode(node: Node) = node match {
     //case PedestrianCrossing(t) => _
     case TJunction(p, c1, c2) => p.speed = c1.speed + c2.speed
+    case _ => None
   }
 
 }

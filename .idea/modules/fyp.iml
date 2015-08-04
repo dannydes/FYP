@@ -28,7 +28,7 @@
     <orderEntry type="library" name="SBT: jgraph:jgraph:5.13.0.0:jar" level="project" />
     <orderEntry type="library" name="SBT: org.jgrapht:jgrapht-ext:0.9.0:jar" level="project" />
     <orderEntry type="library" name="SBT: org.tinyjee.jgraphx:jgraphx:2.0.0.1:jar" level="project" />
-    <orderEntry type="library" name="pdq" level="project" />
     <orderEntry type="library" name="hb16" level="project" />
+    <orderEntry type="library" name="pdq" level="project" />
   </component>
 </module>
