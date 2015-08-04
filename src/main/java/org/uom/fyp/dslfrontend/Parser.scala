@@ -55,7 +55,7 @@ object Parser extends JavaTokenParsers {
    * Parses a whole statement.
    * @return Parser for statement.
    */
-  def statement = constructNetwork.+ ~ joinNetworks.? ~ given ~ runSimulation
+  def statement = constructNetwork.+ ~ runSimulation
 
   /**
    * Parses the <b>construct network</b> construct, as well as starts creating
@@ -64,13 +64,6 @@ object Parser extends JavaTokenParsers {
    */
   def constructNetwork = "construct" ~ "network" ~ ident ~ "(" ~ definitions ~ ")" ^^
     { case "construct" ~ "network" ~ network ~ "(" ~ _ ~ ")" => createNetwork(network) }
-
-  /**
-   * Parses the <b>join</b> construct, taking the names of two road networks.
-   * @return Parser for joining two networks.
-   */
-  def joinNetworks = "join" ~ ident ~ "," ~ ident ^^
-    { case "join" ~ n1 ~ "," ~ n2 => new RoadNetworkUnion(lookupNetwork(n1), lookupNetwork(n2)) }
 
   /**
    * Parses the <b>run simulation</b> construct.
