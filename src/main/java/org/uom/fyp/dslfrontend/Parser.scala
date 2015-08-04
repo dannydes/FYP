@@ -1,7 +1,7 @@
 package org.uom.fyp.dslfrontend
 
 import org.uom.fyp.engine.StreetType.StreetType
-import org.uom.fyp.engine.{Street, StreetType, RoadNetwork, RoadNetworkUnion}
+import org.uom.fyp.engine.{Street, StreetType, RoadNetwork}
 
 import scala.util.parsing.combinator.JavaTokenParsers
 import scala.io.Source
