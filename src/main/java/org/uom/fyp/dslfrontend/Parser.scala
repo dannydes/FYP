@@ -94,6 +94,8 @@ object Parser extends JavaTokenParsers {
       case "secondary" ~ road ~ len ~ pos ~ vehicles ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, pos, lanes.getOrElse("1"))
     }
 
+  def intersection = ("interection" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("with" ~> ident) ~ ("at" ~ floatingPointNumber)
+
   /**
    * Parses the <b>block</b> construct.
    * @return Parser for blocking.
