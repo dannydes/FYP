@@ -106,10 +106,12 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
       prev.edgeT_(RoadStructure.TJunction)
     }
 
-    val edge: Edge = addEdge(otherAt, point)
-    edge.streetAtTarget_(street)
-    edge.otherIntersectionPoint_(0)
-    edge.edgeT_(RoadStructure.TJunction)
+    if (point != 0) {
+      val edge: Edge = addEdge(otherAt, point)
+      edge.streetAtTarget_(street)
+      edge.otherIntersectionPoint_(0)
+      edge.edgeT_(RoadStructure.TJunction)
+    }
 
     street
   }
