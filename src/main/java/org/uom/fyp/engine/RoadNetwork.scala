@@ -70,7 +70,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param streetName Street name.
    * @return Lane found in the given street.
    */
-  def getLane(streetName: String): Street = {
+  def getStreet(streetName: String): Street = {
     val street: Street = streets.find((street: Street) => street.name == streetName).asInstanceOf[Street]
     street
   }
@@ -94,7 +94,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param streetName Street name.
    */
   override def blockStreet(streetName: String) = {
-    val lane = getLane(streetName)
+    val lane = getStreet(streetName)
     lane.block(this)
   }
 
