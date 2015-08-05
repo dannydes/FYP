@@ -93,8 +93,10 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param streetName Street name.
    */
   override def blockStreet(streetName: String) = {
-    val lane = getStreet(streetName)
-    lane.block(this)
+    val street = getStreet(streetName)
+    println(street.edges.size)
+    street.block(this)
+    println(street.edges.size)
   }
 
   /**
