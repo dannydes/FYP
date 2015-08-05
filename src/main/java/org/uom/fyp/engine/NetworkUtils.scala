@@ -33,13 +33,4 @@ object NetworkUtils {
     lane
   }
 
-  /**def find(list: List[_], compare: AnyRef => Boolean) = {
-    val res = list.find(compare)
-    if (res == None) {
-      null
-    } else {
-      res
-    }
-  }*/
-
 }
