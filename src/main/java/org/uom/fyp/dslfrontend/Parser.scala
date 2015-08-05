@@ -14,28 +14,8 @@ object Parser extends JavaTokenParsers {
 
   private var network: RoadNetwork = _
 
-  private var structuresInNetwork: List[AnyRef] = List()
-
-  private def createNetwork(n: String) = {
-    network = new RoadNetwork(n)
-
-    structuresInNetwork.foreach((obj: AnyRef) => {
-      if (obj.isInstanceOf[List[Any]]) {
-        val street: Street = obj.asInstanceOf[List[Any]](0).asInstanceOf[Street]
-        network.streetList(0).attachStreet(network, street.name, street.streetType, street.length,
-          obj.asInstanceOf[List[Any]](1).asInstanceOf[Double], street.noOfVehicles)
-      } else {
-        val street: Street = obj.asInstanceOf[Street]
-        network.createStreet(street.name, street.streetType, street.length, street.noOfVehicles, street.noOfLanes)
-      }
-    })
-
-    network.completeEdgeList()
-    network.buildGraph()
-  }
-
   private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehicles: String, pos: String, lanes: String) = {
-    structuresInNetwork = structuresInNetwork ++ List(List(new Street(road.toString, streetType, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0), (parseInt(lanes).toList)(0)), (parseDouble(pos).toList)(0)))
+    network.streetList(0).attachStreet(network, road, streetType, parseDouble(len).toList(0), parseDouble(pos).toList(0), parseInt(vehicles).toList(0), parseInt(lanes).toList(0))
   }
 
   private def parseDouble(s: String) = try { Some(s.toDouble) } catch { case _: Throwable => None }
@@ -46,15 +26,15 @@ object Parser extends JavaTokenParsers {
    * Parses a whole statement.
    * @return Parser for statement.
    */
-  def statement = constructNetwork.+ ~ runSimulation
+  def statement = constructNetwork ~ definitions ~ runSimulation
 
   /**
    * Parses the <b>construct network</b> construct, as well as starts creating
    * the network.
    * @return Parser for network construction.
    */
-  def constructNetwork = "construct" ~ "network" ~ ident ~ "(" ~ definitions ~ ")" ^^
-    { case "construct" ~ "network" ~ network ~ "(" ~ _ ~ ")" => createNetwork(network) }
+  def constructNetwork = ("construct" ~> "network" ~> ident ~> "(") ^^
+    { case n => network = new RoadNetwork(n) }
 
   /**
    * Parses the <b>run simulation</b> construct.
@@ -69,7 +49,12 @@ object Parser extends JavaTokenParsers {
    * <b>block road</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def definitions = createRoad ~ (attachRoad | blockRoad | intersection).*
+  def definitions = createRoad ~ (attachRoad | blockRoad | intersection).* ~ ")" ^^ {
+    case _ => {
+      network.completeEdgeList()
+      network.buildGraph()
+    }
+  }
 
   /**
    * Parses the <b>create primary road</b> construct, together with its length.
@@ -78,8 +63,7 @@ object Parser extends JavaTokenParsers {
   def createRoad = ("create" ~> "primary") ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("vehicles" ~> wholeNumber) ~
     ("lanes" ~> wholeNumber).? ^^ {
     case "primary" ~ road ~  len ~ vehicles ~ lanes => {
-      structuresInNetwork = List()
-      structuresInNetwork = structuresInNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0), (parseInt(lanes.getOrElse("1")).toList)(0)))
+      network.createStreet(road, StreetType.PRIMARY, parseDouble(len).toList(0), parseInt(vehicles).toList(0), parseInt(lanes.getOrElse("1")).toList(0))
     }
   }
 
