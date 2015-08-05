@@ -26,7 +26,7 @@ object Parser extends JavaTokenParsers {
    * Parses a whole statement.
    * @return Parser for statement.
    */
-  def statement = constructNetwork ~ definitions ~ runSimulation
+  def statement = constructNetwork ~ definitions ~ blockRoad.* ~ runSimulation
 
   /**
    * Parses the <b>construct network</b> construct, as well as starts creating
@@ -45,11 +45,10 @@ object Parser extends JavaTokenParsers {
   }
 
   /**
-   * Parses actions related to road network construction, such as <b>create road</b> and
-   * <b>block road</b>.
+   * Parses actions related to road network construction, such as <b>create road</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def definitions = createRoad ~ (attachRoad | blockRoad | intersection).* ~ ")" ^^ {
+  def definitions = createRoad ~ (attachRoad | intersection).* ~ ")" ^^ {
     case _ => {
       network.completeEdgeList()
       network.buildGraph()
