@@ -84,7 +84,7 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>block</b> construct.
    * @return Parser for blocking.
    */
-  def blockRoad = "block" ~ ident
+  def blockRoad = ("block" ~> ident) ^^ { case road => network.blockStreet(road) }
 
   /**
    * Initializes the parsing process for some source file with the given

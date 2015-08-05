@@ -71,8 +71,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @return Lane found in the given street.
    */
   def getStreet(streetName: String): Street = {
-    val street: Street = streets.find((street: Street) => street.name == streetName).asInstanceOf[Street]
-    street
+    streets.filter((street: Street) => street.name == streetName)(0)
   }
 
   /**
