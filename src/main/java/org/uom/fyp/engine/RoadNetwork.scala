@@ -158,6 +158,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
     for (i <- countStart until street.edges.size) {
       val laneSlice: Edge = street.edges(i)
       val edge: Edge = NetworkUtils.createLaneSlice(this, s)
+      street.edges(i) = edge
       s = edge.getTarget
 
       if (laneSlice.streetAtTarget != null) {
