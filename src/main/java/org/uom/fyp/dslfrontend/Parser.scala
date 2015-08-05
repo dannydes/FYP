@@ -69,7 +69,7 @@ object Parser extends JavaTokenParsers {
    * <b>block road</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def definitions = createRoad ~ (createRoad | attachRoad | blockRoad).*
+  def definitions = createRoad ~ (attachRoad | blockRoad | intersection).*
 
   /**
    * Parses the <b>create primary road</b> construct, together with its length.
