@@ -79,7 +79,7 @@ object Parser extends JavaTokenParsers {
     ("lanes" ~> wholeNumber).? ^^ {
     case "primary" ~ road ~  len ~ vehicles ~ lanes => {
       structuresInNetwork = List()
-      structuresInNetwork = structuresInNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0), (parseInt(lanes).toList)(0)))
+      structuresInNetwork = structuresInNetwork ++ List(new Street(road, StreetType.PRIMARY, (parseDouble(len).toList)(0), (parseInt(vehicles).toList)(0), (parseInt(lanes.getOrElse("1")).toList)(0)))
     }
   }
 
@@ -90,8 +90,8 @@ object Parser extends JavaTokenParsers {
   def attachRoad = ("attach" ~> ("primary" | "secondary")) ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("at" ~>
     floatingPointNumber) ~ ("vehicles" ~> wholeNumber) ~ ("lanes" ~> wholeNumber).? ^^
     {
-      case "primary" ~ road ~ len ~ pos ~ vehicles ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, pos, lanes)
-      case "secondary" ~ road ~ len ~ pos ~ vehicles ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, pos, lanes)
+      case "primary" ~ road ~ len ~ pos ~ vehicles ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, pos, lanes.getOrElse("1"))
+      case "secondary" ~ road ~ len ~ pos ~ vehicles ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, pos, lanes.getOrElse("1"))
     }
 
   /**
