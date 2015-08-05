@@ -15,7 +15,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
   /**
    * Stores a list of streets/roads within the network.
    */
-  private var streets: List[Street] = List()
+  private var streets: Array[Street] = Array()
 
   /**
    * Returns the name of the network.
@@ -115,7 +115,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    */
   override def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, lanes: Int = 1): Street = {
     //First, we must check if the street has already been defined.
-    val matches: List[Street] = streets.filter((street: Street) => street.name == streetName)
+    val matches: Array[Street] = streets.filter((street: Street) => street.name == streetName)
     var street: Street = null
 
     if (matches.size == 0) {
