@@ -189,14 +189,15 @@ class Edge extends DefaultEdge {
    * @param pdq PDQ object.
    */
   def simulate(pdq: PDQ) = {
+    pdqNodeNo = pdq.noNodes
     pdq.CreateOpen(toString + "load", lambda)
     pdq.CreateNode(toString, defs.CEN, defs.FCFS)
     //pdq.SetDemand(toString, toString + "load", serviceTime)
     pdq.SetVisits(toString, toString + "load", noOfVehicles, serviceTime)
     pdq.SetTUnit("Minutes")
     pdq.SetWUnit("Vehicles")
-    pdqNodeNo = pdq.noNodes - 1
-    //pdq.Solve(defs.CANON)
+
+    pdq.Solve(defs.CANON)
   }
 
   /**
@@ -218,6 +219,6 @@ class Edge extends DefaultEdge {
     super.getTarget.asInstanceOf[Node]
   }
 
-  //override def toString = sName
+  override def toString = sName + pdqNodeNo
 
 }
