@@ -54,7 +54,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * Initialises simulation upon the road network.
    * @param vehicles Number of vehicles in system.
    */
-  override def initSimulation(vehicles: Int) = {
+  override def initSimulation(vehicles: Int, minutes: Double) = {
     val edges = edgeSet().toArray
     val pdq: PDQ = new PDQ
     pdq.Init(name)

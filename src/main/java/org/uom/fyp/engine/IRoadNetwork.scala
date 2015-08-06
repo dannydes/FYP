@@ -12,7 +12,7 @@ trait IRoadNetwork {
    * point to another.
    * @param vehicles Number of vehicles in system.
    */
-  def initSimulation(vehicles: Int): Unit
+  def initSimulation(vehicles: Int, minutes: Double): Unit
 
   /**
    * Returns the propagation velocity of a shock wave.

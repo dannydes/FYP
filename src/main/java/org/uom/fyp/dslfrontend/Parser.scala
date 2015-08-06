@@ -40,8 +40,8 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>run simulation</b> construct.
    * @return Parser to run the simulation.
    */
-  def runSimulation = "run" ~ "simulation" ^^ {
-    case _ => network.initSimulation(0)
+  def runSimulation = ("run" ~> "simulation" ~> "for" ~> "minutes" ~> floatingPointNumber) ^^ {
+    case minutes => network.initSimulation(0, parseDouble(minutes).toList(0))
   }
 
   /**
