@@ -17,15 +17,15 @@ object NetworkUtils {
    */
   def createLaneSlice(network: RoadNetwork, start: Node = null, edgeType: RoadStructure.EnumVal): Edge = {
     var vertexFactory: ClassBasedVertexFactory[Node] = null
-    if (edgeType == RoadStructure.TJunction) {
+    /*if (edgeType == RoadStructure.TJunction) {
       vertexFactory = new ClassBasedVertexFactory(classOf[TJunction])
     } else if (edgeType == RoadStructure.Roadabout) {
       vertexFactory = new ClassBasedVertexFactory(classOf[Roundabout])
     } else if (edgeType == RoadStructure.Crossroads) {
       vertexFactory = new ClassBasedVertexFactory(classOf[Crossroads])
-    } else {
+    } else {*/
       vertexFactory = new ClassBasedVertexFactory(classOf[Node])
-    }
+    //}
 
     var v1: Node = null
     if (start == null) {
