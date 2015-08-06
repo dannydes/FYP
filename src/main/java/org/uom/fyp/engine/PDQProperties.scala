@@ -15,7 +15,7 @@ object PDQProperties {
    * @param pdq PDQ object.
    * @param network Road network.
    */
-  def pdqNodesToRoadNetwork(pdq: PDQ, network: RoadNetwork) = {
+  /*def pdqNodesToRoadNetwork(pdq: PDQ, network: RoadNetwork) = {
     val p: util.Vector[_] = pdq.p.toVector
     var pdqParametersIndex: Int = 0
 
@@ -36,6 +36,6 @@ object PDQProperties {
 
       pdqParametersIndex = p.indexOf("Residence Time", pdqParametersIndex) + 3
     }
-  }
+  }*/
 
 }

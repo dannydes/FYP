@@ -55,6 +55,8 @@ class Edge extends DefaultEdge {
 
   var residenceTime: Double = _
 
+  private var minSim: Double = _
+
   /**
    * Returns the name of the street.
    */
@@ -165,8 +167,13 @@ class Edge extends DefaultEdge {
 
   def density = vehicles / len
 
-  //temporary arrangement
-  var flow = vehicles
+  def minutesForSimulation = minSim
+
+  def minutesForSimulation_(minSim: Double) = {
+    this.minSim = minSim
+  }
+
+  def flow = vehicles / minSim
 
   var speed = flow / density
 
