@@ -159,11 +159,11 @@ class Edge extends DefaultEdge {
   /**
    * Returns the street's departure rate.
    */
-  val departureRate = lambda / (1 - noOfVehicles)
+  def departureRate = lambda / (1 - noOfVehicles)
 
-  val serviceTime = vehicles / lambda * (1 + vehicles)
+  def serviceTime = vehicles / lambda * (1 + vehicles)
 
-  val density = vehicles / len
+  def density = vehicles / len
 
   //temporary arrangement
   var flow = vehicles
