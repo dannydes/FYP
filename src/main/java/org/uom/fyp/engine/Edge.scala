@@ -57,6 +57,8 @@ class Edge extends DefaultEdge {
 
   private var minSim: Double = _
 
+  private var sLanes: Int = _
+
   /**
    * Returns the name of the street.
    */
@@ -190,21 +192,30 @@ class Edge extends DefaultEdge {
     this.edgeType = edgeType
   }
 
+  def streetLanes = sLanes
+
+  def streetLanes_(sLanes: Int) = {
+    this.sLanes = sLanes
+  }
+
   /**
    * Simulates traffic going from the starting point to the ending point of the
    * particular edge.
    * @param pdq PDQ object.
    */
   def simulate(pdq: PDQ) = {
-    pdqNodeNo = pdq.noNodes
-    pdq.CreateOpen(toString + "load", lambda)
-    pdq.CreateNode(toString, defs.CEN, defs.FCFS)
-    //pdq.SetDemand(toString, toString + "load", serviceTime)
-    pdq.SetVisits(toString, toString + "load", noOfVehicles, serviceTime)
-    pdq.SetTUnit("Minutes")
-    pdq.SetWUnit("Vehicles")
+    var l: Int = 0
+    for (l <- 0 until sLanes) {
+      pdqNodeNo = pdq.noNodes
+      pdq.CreateOpen(toString + "load", lambda)
+      pdq.CreateNode(toString, defs.CEN, defs.FCFS)
+      //pdq.SetDemand(toString, toString + "load", serviceTime)
+      pdq.SetVisits(toString, toString + "load", noOfVehicles, serviceTime)
+      pdq.SetTUnit("Minutes")
+      pdq.SetWUnit("Vehicles")
 
-    pdq.Solve(defs.CANON)
+      pdq.Solve(defs.CANON)
+    }
   }
 
   /**
