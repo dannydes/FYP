@@ -190,7 +190,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
 
   override def processNode(node: Node) = node match {
     //case PedestrianCrossing(t) => _
-    case TJunction() => node.asInstanceOf[TJunction].priority.speed = node.asInstanceOf[TJunction].converging1.speed + node.asInstanceOf[TJunction].converging2.speed
+    //case TJunction() => node.asInstanceOf[TJunction].priority.speed = node.asInstanceOf[TJunction].converging1.speed + node.asInstanceOf[TJunction].converging2.speed
     case _ => None
   }
 
