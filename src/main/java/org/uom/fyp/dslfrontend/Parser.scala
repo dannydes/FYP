@@ -33,7 +33,7 @@ object Parser extends JavaTokenParsers {
    * the network.
    * @return Parser for network construction.
    */
-  def constructNetwork = ("construct" ~> "network" ~> ident ~> "(") ^^
+  def constructNetwork = ("construct" ~> "network" ~> ident <~ "(") ^^
     { case n => network = new RoadNetwork(n) }
 
   /**
