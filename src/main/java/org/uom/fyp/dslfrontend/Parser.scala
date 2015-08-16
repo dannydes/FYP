@@ -14,6 +14,8 @@ object Parser extends JavaTokenParsers {
 
   private var network: RoadNetwork = _
 
+  def networkGraph = network
+
   private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehicles: String, pos: String, lanes: String) = {
     network.streetList(0).attachStreet(network, road, streetType, parseDouble(len).toList(0), parseDouble(pos).toList(0), parseInt(vehicles).toList(0), parseInt(lanes).toList(0))
   }
@@ -92,7 +94,7 @@ object Parser extends JavaTokenParsers {
    */
   def parse(filename: String) = {
     parseAll(statement, Source.fromFile(filename).mkString) match {
-      case Success(query, _) => println("Yeah!")
+      case Success(query, _) => println("Model execution complete!")
       case Failure(msg, _) => println(msg)
       case Error(msg, _) => println(msg)
     }

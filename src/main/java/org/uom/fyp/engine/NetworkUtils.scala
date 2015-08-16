@@ -16,16 +16,7 @@ object NetworkUtils {
    * @return The lane that has been created.
    */
   def createLaneSlice(network: RoadNetwork, start: Node = null, edgeType: RoadStructure.EnumVal): Edge = {
-    var vertexFactory: ClassBasedVertexFactory[Node] = null
-    if (edgeType == RoadStructure.TJunction) {
-      vertexFactory = new ClassBasedVertexFactory(classOf[TJunction])
-    } else if (edgeType == RoadStructure.Roadabout) {
-      vertexFactory = new ClassBasedVertexFactory(classOf[Roundabout])
-    } else if (edgeType == RoadStructure.Crossroads) {
-      vertexFactory = new ClassBasedVertexFactory(classOf[Crossroads])
-    } else {
-      vertexFactory = new ClassBasedVertexFactory(classOf[Node])
-    }
+    var vertexFactory: ClassBasedVertexFactory[Node] = new ClassBasedVertexFactory(classOf[Node])
 
     var v1: Node = null
     if (start == null) {
@@ -33,6 +24,15 @@ object NetworkUtils {
     } else {
       v1 = start
     }
+
+    if (edgeType == RoadStructure.TJunction) {
+      vertexFactory = new ClassBasedVertexFactory(classOf[TJunction])
+    } else if (edgeType == RoadStructure.Roadabout) {
+      vertexFactory = new ClassBasedVertexFactory(classOf[Roundabout])
+    } else if (edgeType == RoadStructure.Crossroads) {
+      vertexFactory = new ClassBasedVertexFactory(classOf[Crossroads])
+    }
+
     val v2: Node = vertexFactory.createVertex()
     network.addVertex(v1)
     network.addVertex(v2)

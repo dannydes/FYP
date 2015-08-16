@@ -3,8 +3,8 @@ package org.uom.fyp.graphvisual
 import javax.swing.{JScrollPane, JFrame}
 
 import org.jgraph.JGraph
-import org.uom.fyp.engine.{StreetType, RoadNetwork}
 import org.jgrapht.ext.JGraphModelAdapter
+import org.uom.fyp.dslfrontend.Parser
 
 /**
  * Created by Daniel on 6/12/2015.
@@ -12,17 +12,9 @@ import org.jgrapht.ext.JGraphModelAdapter
 object RoadNetworkVisualiser {
 
   def main(args: Array[String]): Unit = {
-    val zabbarPrimaries: RoadNetwork = new RoadNetwork("zabbarPrimaries")
-    val parishStreet = zabbarPrimaries.createStreet("Santwarju", StreetType.PRIMARY, 10, 400)
+    Parser.parse("C:\\Users\\Daniel\\OneDrive\\Documents\\zabbar_primaries.rdl")
 
-    parishStreet.attachStreet(zabbarPrimaries, "", StreetType.PRIMARY, 200, 3, 100)
-    parishStreet.attachStreet(zabbarPrimaries, "", StreetType.PRIMARY, 200, 2, 250)
-    parishStreet.attachStreet(zabbarPrimaries, "", StreetType.PRIMARY, 200, 2, 320)
-
-    zabbarPrimaries.completeEdgeList()
-    zabbarPrimaries.buildGraph()
-
-    val graph: JGraph = new JGraph(new JGraphModelAdapter(zabbarPrimaries))
+    val graph: JGraph = new JGraph(new JGraphModelAdapter(Parser.networkGraph))
 
     val frame: JFrame = new JFrame
     frame.getContentPane.add(new JScrollPane(graph))

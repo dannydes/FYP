@@ -1,7 +1,7 @@
 package org.uom.fyp.engine
 
 import com.perfdynamics.pdq.{defs, PDQ}
-import org.jgrapht.graph.DefaultDirectedGraph
+import org.jgrapht.graph.{SimpleDirectedGraph, DefaultDirectedGraph}
 import java.util
 
 import org.uom.fyp.engine.StreetType.StreetType
@@ -10,7 +10,7 @@ import org.uom.fyp.engine.StreetType.StreetType
  * Organises and simulates road networks.
  * @param name The name given to the network.
  */
-class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf[Edge]) with IRoadNetwork {
+class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[Edge]) with IRoadNetwork {
 
   /**
    * Stores a list of streets/roads within the network.
@@ -157,8 +157,16 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
       val laneSlice: Edge = street.edges(i)
       val edge: Edge = NetworkUtils.createLaneSlice(this, s, laneSlice.edgeT)
       edge.streetName_(laneSlice.streetName)
+      edge.streetLanes_(street.noOfLanes)
+      edge.streetEdgeNo_(i)
+      edge.length_(laneSlice.length)
       street.edges(i) = edge
       s = edge.getTarget
+
+      if (laneSlice.streetAtSource != null) {
+        val cStart = street.edges.indexOf(street.getEdge(laneSlice.otherIntersectionPoint))
+        buildGraph(laneSlice.streetAtSource, cStart, edge.getSource)
+      }
 
       if (laneSlice.streetAtTarget != null) {
         val cStart = street.edges.indexOf(street.getEdge(laneSlice.otherIntersectionPoint))

@@ -57,9 +57,10 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
     }
 
     val edge: Edge = new Edge
-    edge.length_(nextOtherAttachedAt - otherAttachedAt)
+    edge.intersectionPoint_(nextOtherAttachedAt)
+    edge.length_((nextOtherAttachedAt - otherAttachedAt).abs)
     edge.streetName_(streetName)
-    e = e ++ List(edge)
+    e = e ++ Array(edge)
 
     edge
   }
@@ -100,13 +101,24 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
     val street: Street = network.addStreet(streetName, streetType, length, vehicles, lanes)
 
     var otherAt = 0.0
-    if (this.e.length != 0) {
-      val prev: Edge = this.e(this.e.length - 1)
-      otherAt = prev.intersectionPoint + prev.length
-      prev.edgeT_(RoadStructure.TJunction)
+    val prev: Edge = getEdge(point)
+    if (prev != null) {
+      otherAt = if (prev.intersectionPoint < len) prev.intersectionPoint + prev.length else 0
+      prev.length_((point - prev.intersectionPoint).abs)
     }
 
-    if (point != 0) {
+    if (point == len && this.e.length != 0) {
+      val edge: Edge = addEdge(otherAt)
+      edge.streetAtTarget_(street)
+    } else if (point == len) {
+      val edge: Edge = addEdge(0)
+      edge.streetAtTarget_(street)
+    } else if (point == 0 && prev != null) {
+      prev.streetAtSource_(street)
+    } else if (point == 0) {
+      val edge: Edge = addEdge(0)
+      edge.streetAtSource_(street)
+    } else if (point > 0 && point < len) {
       val edge: Edge = addEdge(otherAt, point)
       edge.streetAtTarget_(street)
       edge.otherIntersectionPoint_(0)
@@ -124,13 +136,15 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * would be created.
    */
   def createLastEdge() = {
+    //Sort edges in order of intersection point.
+    e = e.sortWith((e1: Edge, e2: Edge) => e1.intersectionPoint < e2.intersectionPoint)
+
     if (e.length == 0) {
       addEdge(0, length)
     } else {
-      val lastEdge: Edge = e(e.length - 1)
-      val point = lastEdge.intersectionPoint + lastEdge.length
-      if (point < length) {
-        val edge: Edge = addEdge(point, length)
+      val maxEdgeIntersectionPt = e.maxBy((edge: Edge) => edge.intersectionPoint)
+      if (maxEdgeIntersectionPt.intersectionPoint < length) {
+        val edge: Edge = addEdge(maxEdgeIntersectionPt.intersectionPoint, length)
       }
     }
   }
@@ -140,7 +154,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * @param point A point along the road.
    */
   def getEdge(point: Double): Edge = {
-    e.filter((edge: Edge) => edge.intersectionPoint <= point && edge.intersectionPoint + edge.length >= point)(0)
+    if (e.size > 0) e.minBy((e: Edge) => (point - e.intersectionPoint).abs) else null
   }
 
   /**
@@ -152,7 +166,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
   }
 
   /**
-   * Prepares for he creation of a roundabout node.
+   * Prepares for the creation of a roundabout node.
    * @param at Position in the street where to place the roundabout.
    */
   def createRoundabout(at: Double) = {

@@ -49,6 +49,8 @@ class Edge extends DefaultEdge {
    */
   private var sat: Street = null
 
+  private var sas: Street = _
+
   private var edgeType: RoadStructure.EnumVal = RoadStructure.Default
 
   private var pdqNodeNo: Int = _
@@ -58,6 +60,8 @@ class Edge extends DefaultEdge {
   private var minSim: Double = _
 
   private var sLanes: Int = _
+
+  private var sEdgeNo: Int = _
 
   /**
    * Returns the name of the street.
@@ -70,6 +74,12 @@ class Edge extends DefaultEdge {
    */
   def streetName_(sName: String) = {
     this.sName = sName
+  }
+
+  def streetEdgeNo = sEdgeNo
+
+  def streetEdgeNo_(sEdgeNo: Int) = {
+    this.sEdgeNo = sEdgeNo
   }
 
   /**
@@ -132,6 +142,12 @@ class Edge extends DefaultEdge {
    */
   def streetAtTarget_(sat: Street) = {
     this.sat = sat
+  }
+
+  def streetAtSource = sas
+
+  def streetAtSource_(sas: Street) = {
+    this.sas = sas
   }
 
   /**
@@ -205,8 +221,9 @@ class Edge extends DefaultEdge {
    */
   def simulate(pdq: PDQ) = {
     var l: Int = 0
-    for (l <- 0 until sLanes) {
-      pdqNodeNo = pdq.noNodes
+    pdqNodeNo = pdq.noNodes
+    //for (l <- 0 until sLanes) {
+
       pdq.CreateOpen(toString + "load", lambda)
       pdq.CreateNode(toString, defs.CEN, defs.FCFS)
       //pdq.SetDemand(toString, toString + "load", serviceTime)
@@ -214,8 +231,8 @@ class Edge extends DefaultEdge {
       pdq.SetTUnit("Minutes")
       pdq.SetWUnit("Vehicles")
 
-      pdq.Solve(defs.CANON)
-    }
+      //pdq.Solve(defs.CANON)
+    //}
   }
 
   /**
@@ -237,6 +254,6 @@ class Edge extends DefaultEdge {
     super.getTarget.asInstanceOf[Node]
   }
 
-  override def toString = sName + pdqNodeNo
+  override def toString = sName + " " + sEdgeNo + " " + len
 
 }
