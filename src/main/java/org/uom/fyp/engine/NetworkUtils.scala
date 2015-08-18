@@ -8,14 +8,14 @@ import org.jgrapht.graph.{ClassBasedEdgeFactory, ClassBasedVertexFactory}
 object NetworkUtils {
 
   /**
-   * Returns a lane that is created and attached to the node given to the parameter,
+   * Returns an edge that is created and attached to the node given to the parameter,
    * if provided.
-   * @param start The starting node to which to attach the created lane is to be
+   * @param start The starting node to which to attach the created edge is to be
    *              attached. When it is not provided, a new starting node is created
    *              and used in the creation of the new node instead.
-   * @return The lane that has been created.
+   * @return The edge that has been created.
    */
-  def createLaneSlice(network: RoadNetwork, start: Node = null, edgeType: RoadStructure.EnumVal): Edge = {
+  def createEdge(network: RoadNetwork, start: Node = null, edgeType: RoadStructure.EnumVal): Edge = {
     var vertexFactory: ClassBasedVertexFactory[Node] = new ClassBasedVertexFactory(classOf[Node])
 
     var v1: Node = null

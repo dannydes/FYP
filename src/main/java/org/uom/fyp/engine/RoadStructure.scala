@@ -1,7 +1,7 @@
 package org.uom.fyp.engine
 
 /**
- * Created by Daniel on 6/29/2015.
+ * RoadStructure enum.
  */
 object RoadStructure {
 

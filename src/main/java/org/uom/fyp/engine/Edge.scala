@@ -222,17 +222,16 @@ class Edge extends DefaultEdge {
   def simulate(pdq: PDQ) = {
     var l: Int = 0
     pdqNodeNo = pdq.noNodes
-    //for (l <- 0 until sLanes) {
+    for (l <- 0 until sLanes) {
 
-      pdq.CreateOpen(toString + "load", lambda)
-      pdq.CreateNode(toString, defs.CEN, defs.FCFS)
+      pdq.CreateOpen(toString + "l" + l + "w", lambda)
+      pdq.CreateNode(toString + "l" + l, defs.CEN, defs.FCFS)
       //pdq.SetDemand(toString, toString + "load", serviceTime)
-      pdq.SetVisits(toString, toString + "load", noOfVehicles, serviceTime)
+      pdq.SetVisits(toString + "l" + l, toString + "l" + l + "w", vehicles / sLanes, serviceTime)
       pdq.SetTUnit("Minutes")
       pdq.SetWUnit("Vehicles")
 
-      //pdq.Solve(defs.CANON)
-    //}
+    }
   }
 
   /**

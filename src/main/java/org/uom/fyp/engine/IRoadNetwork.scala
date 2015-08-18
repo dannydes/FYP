@@ -8,11 +8,10 @@ import org.uom.fyp.engine.StreetType.StreetType
 trait IRoadNetwork {
 
   /**
-   * Returns the time expected to be taken for a vehicle to go from one
-   * point to another.
-   * @param vehicles Number of vehicles in system.
+   * Simulates the road network's operation according to the specified parameters.
+   * @param minutes The time in minutes for which the simulation will be allowed to run.
    */
-  def initSimulation(vehicles: Int, minutes: Double): Unit
+  def simulate(minutes: Double): Unit
 
   /**
    * Returns the propagation velocity of a shock wave.
@@ -24,15 +23,19 @@ trait IRoadNetwork {
   def shockwave(qb : Double, qa : Double, kb : Double, ka : Double): Double
 
   /**
-   * Creates a lane.
-   * @param streetName
-   * @param streetType
-   * @param length
+   * Creates a lane and returns a reference to the object created.
+   * @param streetName The name of the street to which the lane belongs.
+   * @param streetType The type of the street to which the lane belongs. Can be <b>StreetType.PRIMARY</b>
+   *                   or <b>StreetType.SECONDARY</b>.
+   * @param length The lane's length.
+   * @param vehicles
+   * @param lanes
+   * @return Reference to the lane object just created.
    */
-  def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, lanes: Int = 1): Street
+  def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street
 
   /**
-   * Block lane found in the street with the given name.
+   * Block the street with the given name.
    * @param streetName Street name.
    */
   def blockStreet(streetName: String)
@@ -44,7 +47,7 @@ trait IRoadNetwork {
    * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
    * @return The <b>Street</b> object created.
    */
-  def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, lanes: Int = 1): Street
+  def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street
 
   /**
    * Builds the graph declared in the model by recursively going through the ficticious
@@ -62,11 +65,9 @@ trait IRoadNetwork {
   def buildGraph(street: Street, countStart: Int, source: Node): Unit
 
   /**
-   * Provides nodes within the graph with their respective markers, depending on the
-   * markers assigned to their incoming edges.
+   * Reacts to the type of the given node.
+   * @param node Node to be processed.
    */
-  def markGraphNodes(): Unit
-
   def processNode(node: Node): Unit
 
 }

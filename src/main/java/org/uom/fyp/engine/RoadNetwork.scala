@@ -22,43 +22,27 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    */
   def networkName = name
 
+  /**
+   * Returns an array of streets within the network.
+   */
   def streetList = streets
 
   /**
-   * Simulates every edge in the graph recursively until there are no more
-   * outgoing edges.
-   * @param vehicles Number of vehicles in system.
-   * @param arrivalRate The arrival rate of the current edge.
-   * @param edge The current edge.
-   * @param pdq PDQ object.
+   * Simulates the road network's operation according to the specified parameters.
+   * @param minutes The time in minutes for which the simulation will be allowed to run.
    */
-  private def simulate(vehicles: Int, arrivalRate: Double, edge: Edge, pdq: PDQ): Unit = {
-    edge.noOfVehicles_(vehicles)
-    edge.arrivalRate_(arrivalRate)
-    processNode(edge.getTarget)
-    edge.simulate(pdq)
-
-    val outgoingLanes: util.Set[Edge] = outgoingEdgesOf(edge.getTarget)
-    if (outgoingLanes.size > 0) {
-      val newArrivalRate = edge.departureRate / outgoingLanes.size
-      val newNoOfVehicles = vehicles / outgoingLanes.size
-      val outgoingLanesIterator = outgoingLanes.iterator
-
-      while (outgoingLanesIterator.hasNext) {
-        simulate(newNoOfVehicles, newArrivalRate, outgoingLanesIterator.next, pdq)
-      }
-    }
-  }
-
-  /**
-   * Initialises simulation upon the road network.
-   * @param vehicles Number of vehicles in system.
-   */
-  override def initSimulation(vehicles: Int, minutes: Double) = {
+  override def simulate(minutes: Double) = {
     val edges = edgeSet().toArray
     val pdq: PDQ = new PDQ
     pdq.Init(name)
-    simulate(vehicles, vehicles, edges(0).asInstanceOf[Edge], pdq)
+
+    streets.foreach((street: Street) => {
+      street.initialize()
+      street.edges.foreach((edge: Edge) => {
+        edge.simulate(pdq)
+      })
+    })
+
     pdq.Solve(defs.CANON)
     pdq.Report()
     //PDQProperties.pdqNodesToRoadNetwork(pdq, this)
@@ -84,12 +68,12 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    * @param lanes
    * @return Reference to the lane object just created.
    */
-  override def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, lanes: Int = 1): Street = {
-    addStreet(streetName, streetType, length, vehicles, lanes)
+  override def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street = {
+    addStreet(streetName, streetType, length, vehicles, arrivalRate, lanes)
   }
 
   /**
-   * Block lane found in the street with the given name.
+   * Block the street with the given name.
    * @param streetName Street name.
    */
   override def blockStreet(streetName: String) = {
@@ -113,13 +97,13 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
    * @return The <b>Street</b> object created.
    */
-  override def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, lanes: Int = 1): Street = {
+  override def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street = {
     //First, we must check if the street has already been defined.
     val matches: Array[Street] = streets.filter((street: Street) => street.name == streetName)
     var street: Street = null
 
     if (matches.size == 0) {
-      street = new Street(streetName, streetType, length, vehicles, lanes)
+      street = new Street(streetName, streetType, length, vehicles, arrivalRate, lanes)
       streets = streets ++ List(street)
     } else {
       street = matches(0)
@@ -154,48 +138,31 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
   override def buildGraph(street: Street = streets(0), countStart: Int = 0, source: Node = null): Unit = {
     var s: Node = source
     for (i <- countStart until street.edges.size) {
-      val laneSlice: Edge = street.edges(i)
-      val edge: Edge = NetworkUtils.createLaneSlice(this, s, laneSlice.edgeT)
-      edge.streetName_(laneSlice.streetName)
+      val actualEdge: Edge = street.edges(i)
+      val edge: Edge = NetworkUtils.createEdge(this, s, actualEdge.edgeT)
+      edge.streetName_(actualEdge.streetName)
       edge.streetLanes_(street.noOfLanes)
       edge.streetEdgeNo_(i)
-      edge.length_(laneSlice.length)
+      edge.length_(actualEdge.length)
       street.edges(i) = edge
       s = edge.getTarget
 
-      if (laneSlice.streetAtSource != null) {
-        val cStart = street.edges.indexOf(street.getEdge(laneSlice.otherIntersectionPoint))
-        buildGraph(laneSlice.streetAtSource, cStart, edge.getSource)
+      if (actualEdge.streetAtSource != null) {
+        val cStart = street.edges.indexOf(street.getEdge(actualEdge.otherIntersectionPoint))
+        buildGraph(actualEdge.streetAtSource, cStart, edge.getSource)
       }
 
-      if (laneSlice.streetAtTarget != null) {
-        val cStart = street.edges.indexOf(street.getEdge(laneSlice.otherIntersectionPoint))
-        buildGraph(laneSlice.streetAtTarget, cStart, s)
+      if (actualEdge.streetAtTarget != null) {
+        val cStart = street.edges.indexOf(street.getEdge(actualEdge.otherIntersectionPoint))
+        buildGraph(actualEdge.streetAtTarget, cStart, s)
       }
     }
   }
 
   /**
-   * Provides nodes within the graph with their respective markers, depending on the
-   * markers assigned to their incoming edges.
+   * Reacts to the type of the given node.
+   * @param node Node to be processed.
    */
-  override def markGraphNodes() = {
-    val nodeIterator = vertexSet.iterator
-    while (nodeIterator.hasNext) {
-      val node: Node = nodeIterator.next
-      val edges: util.Set[Edge] = incomingEdgesOf(node)
-      val edgeIterator = edges.iterator
-      var edgeType = false
-      while (edgeIterator.hasNext && ! edgeType) {
-        val edge: Edge = edgeIterator.next
-        if (edge.edgeT != RoadStructure.Default) {
-          node.nodeType_(edge.edgeT)
-          edgeType = true
-        }
-      }
-    }
-  }
-
   override def processNode(node: Node) = node match {
     //case PedestrianCrossing(t) => _
     //case TJunction() => node.asInstanceOf[TJunction].priority.speed = node.asInstanceOf[TJunction].converging1.speed + node.asInstanceOf[TJunction].converging2.speed
