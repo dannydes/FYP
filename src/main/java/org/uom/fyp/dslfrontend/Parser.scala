@@ -50,7 +50,7 @@ object Parser extends JavaTokenParsers {
    * Parses actions related to road network construction, such as <b>create road</b>.
    * @return Parser for the actions related to road network construction.
    */
-  def definitions = createRoad ~ (attachRoad | crossroad | createRoad).* ~ ")" ^^ {
+  def definitions = createRoad ~ (attachRoad | crossroad | roundabout | createRoad).* ~ ")" ^^ {
     case _ => {
       network.completeEdgeList()
       network.buildGraph()
@@ -80,6 +80,8 @@ object Parser extends JavaTokenParsers {
     }
 
   def crossroad = ("crossroad" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("with" ~> ident) ~ ("at" ~ floatingPointNumber)
+
+  def roundabout = ("roundabout" ~> "on" ~> ident) ~ ("at" ~> floatingPointNumber)
 
   /**
    * Parses the <b>block</b> construct.
