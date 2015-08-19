@@ -32,6 +32,9 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    */
   def length = len
 
+  /**
+   * Returns the number of vehicles in the street.
+   */
   def noOfVehicles = vehicles
 
   /**
