@@ -126,8 +126,7 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    * all the other processes have took place.<br/>
    * For the algorithm to work as it should, all arguments should be omitted so as to pass
    * their respective default values.
-   * @param street The current street. Starts from the first occurring edge in the first occurring
-   *               street if omitted.
+   * @param street The current street. Starts from the first occurring street if omitted.
    * @param countStart The index at which the intersecting edge is found in the list. Is
    *                   assigned 0 if omitted.
    * @param source The source where to attach the next edge in the graph. Starts as null if
