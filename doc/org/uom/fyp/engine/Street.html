@@ -80,7 +80,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.uom.fyp.engine.Street#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(streetName:String,sType:org.uom.fyp.engine.StreetType.StreetType,len:Double,vehicles:Int,lanes:Int):org.uom.fyp.engine.Street"></a>
+      <a id="&lt;init&gt;(streetName:String,sType:org.uom.fyp.engine.StreetType.StreetType,len:Double,vehicles:Int,arrivalRate:Double,lanes:Int):org.uom.fyp.engine.Street"></a>
       <a id="&lt;init&gt;:Street"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -88,7 +88,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Street</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="sType">sType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="len">len: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span>
+        <span class="name">Street</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="sType">sType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="len">len: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span>
       </span>
       </h4>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>The name of the street.</p></dd><dt class="param">sType</dt><dd class="cmt"><p>The type of the street.</p></dd><dt class="param">len</dt><dd class="cmt"><p>The length of the street.</p></dd><dt class="param">vehicles</dt><dd class="cmt"><p>The number of vehicles in the street.</p></dd><dt class="param">lanes</dt><dd class="cmt"><p>The number of lanes the street has.
@@ -197,15 +197,15 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="org.uom.fyp.engine.Street#attachStreet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="attachStreet(network:org.uom.fyp.engine.RoadNetwork,streetName:String,streetType:org.uom.fyp.engine.StreetType.StreetType,length:Double,point:Double,vehicles:Int):org.uom.fyp.engine.Street"></a>
-      <a id="attachStreet(RoadNetwork,String,StreetType.StreetType,Double,Double,Int):Street"></a>
+      <a id="attachStreet(network:org.uom.fyp.engine.RoadNetwork,streetName:String,streetType:org.uom.fyp.engine.StreetType.StreetType,length:Double,point:Double,vehicles:Int,arrivalRate:Double,lanes:Int):org.uom.fyp.engine.Street"></a>
+      <a id="attachStreet(RoadNetwork,String,StreetType.StreetType,Double,Double,Int,Double,Int):Street"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">attachStreet</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="point">point: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <a href="" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
+        <span class="name">attachStreet</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="point">point: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Creates and attaches an outgoing street to the context street.</p><div class="fullcomment"><div class="comment cmt"><p>Creates and attaches an outgoing street to the context street.</p></div><dl class="paramcmts block"><dt class="param">network</dt><dd class="cmt"><p>The network where the street will be attached.</p></dd><dt class="param">streetName</dt><dd class="cmt"><p>The name of the street to be attached.</p></dd><dt class="param">streetType</dt><dd class="cmt"><p>The type of the street to be attached.</p></dd><dt class="param">length</dt><dd class="cmt"><p>The length the street to be attached.</p></dd><dt class="param">point</dt><dd class="cmt"><p>The point where the street is to be attached with respect to
@@ -244,6 +244,22 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="org.uom.fyp.engine.Street#createCrossroads" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createCrossroads(thisAt:Double,that:org.uom.fyp.engine.Street,thatAt:Double):Unit"></a>
+      <a id="createCrossroads(Double,Street,Double):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createCrossroads</span><span class="params">(<span name="thisAt">thisAt: <span class="extype" name="scala.Double">Double</span></span>, <span name="that">that: <a href="" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>, <span name="thatAt">thatAt: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Prepares for the creation of a crossroad with the specified street, at the specified points of
+intersection.</p><div class="fullcomment"><div class="comment cmt"><p>Prepares for the creation of a crossroad with the specified street, at the specified points of
+intersection.</p></div><dl class="paramcmts block"><dt class="param">thisAt</dt><dd class="cmt"><p>Point on the context street where the intersection occurs.</p></dd><dt class="param">that</dt><dd class="cmt"><p>The other street object to be involved in this crossroads intersection.</p></dd><dt class="param">thatAt</dt><dd class="cmt"><p>Point on the other street where the intersection occurs.
+</p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.Street#createLastEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="createLastEdge():Any"></a>
       <a id="createLastEdge():Any"></a>
@@ -275,18 +291,18 @@ would be created.
         <span class="name">createRoundabout</span><span class="params">(<span name="at">at: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Prepares for he creation of a roundabout node.</p><div class="fullcomment"><div class="comment cmt"><p>Prepares for he creation of a roundabout node.</p></div><dl class="paramcmts block"><dt class="param">at</dt><dd class="cmt"><p>Position in the street where to place the roundabout.
+      <p class="shortcomment cmt">Prepares for the creation of a roundabout node.</p><div class="fullcomment"><div class="comment cmt"><p>Prepares for the creation of a roundabout node.</p></div><dl class="paramcmts block"><dt class="param">at</dt><dd class="cmt"><p>Position in the street where to place the roundabout.
 </p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.Street#edges" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="edges:List[org.uom.fyp.engine.Edge]"></a>
-      <a id="edges:List[Edge]"></a>
+      <a id="edges:Array[org.uom.fyp.engine.Edge]"></a>
+      <a id="edges:Array[Edge]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">edges</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a>]</span>
+        <span class="name">edges</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a>]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns a list containing the edges in this street (generated due to
@@ -376,20 +392,19 @@ intersections).</p>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.uom.fyp.engine.Street#initialize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="initialize(vehicles:Int,arrivalRate:Double):Unit"></a>
-      <a id="initialize(Int,Double):Unit"></a>
+    </li><li name="org.uom.fyp.engine.Street#initialize" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="initialize():Unit"></a>
+      <a id="initialize():Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">initialize</span><span class="params">(<span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">initialize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Initializes values to be used during simulation.</p><div class="fullcomment"><div class="comment cmt"><p>Initializes values to be used during simulation.</p></div><dl class="paramcmts block"><dt class="param">vehicles</dt><dd class="cmt"><p>The number of vehicles fed into the street.</p></dd><dt class="param">arrivalRate</dt><dd class="cmt"><p>The street's arrival rate.
-</p></dd></dl></div>
+      <p class="shortcomment cmt">Initializes values to be used during simulation.</p>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -506,7 +521,7 @@ intersections).</p>
         <span class="name">speed</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns the average speed in this street.</p>
     </li><li name="org.uom.fyp.engine.Street#streetType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="streetType:org.uom.fyp.engine.StreetType.StreetType"></a>
       <a id="streetType:StreetType.StreetType"></a>

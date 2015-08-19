@@ -183,23 +183,23 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="org.uom.fyp.engine.NetworkUtils#createLaneSlice" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createLaneSlice(network:org.uom.fyp.engine.RoadNetwork,start:org.uom.fyp.engine.Node):org.uom.fyp.engine.Edge"></a>
-      <a id="createLaneSlice(RoadNetwork,Node):Edge"></a>
+    </li><li name="org.uom.fyp.engine.NetworkUtils#createEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createEdge(network:org.uom.fyp.engine.RoadNetwork,start:org.uom.fyp.engine.Node,edgeType:org.uom.fyp.engine.RoadStructure.EnumVal):org.uom.fyp.engine.Edge"></a>
+      <a id="createEdge(RoadNetwork,Node,EnumVal):Edge"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createLaneSlice</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="start">start: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>
+        <span class="name">createEdge</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="start">start: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a> = <span class="symbol">null</span></span>, <span name="edgeType">edgeType: <a href="RoadStructure$$EnumVal.html" class="extype" name="org.uom.fyp.engine.RoadStructure.EnumVal">EnumVal</a></span>)</span><span class="result">: <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Returns a lane that is created and attached to the node given to the parameter,
-if provided.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a lane that is created and attached to the node given to the parameter,
-if provided.</p></div><dl class="paramcmts block"><dt class="param">start</dt><dd class="cmt"><p>The starting node to which to attach the created lane is to be
+      <p class="shortcomment cmt">Returns an edge that is created and attached to the node given to the parameter,
+if provided.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an edge that is created and attached to the node given to the parameter,
+if provided.</p></div><dl class="paramcmts block"><dt class="param">start</dt><dd class="cmt"><p>The starting node to which to attach the created edge is to be
              attached. When it is not provided, a new starting node is created
-             and used in the creation of the new node instead.</p></dd><dt>returns</dt><dd class="cmt"><p>The lane that has been created.
+             and used in the creation of the new node instead.</p></dd><dt>returns</dt><dd class="cmt"><p>The edge that has been created.
 </p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>

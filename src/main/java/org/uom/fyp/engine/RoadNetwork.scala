@@ -49,24 +49,22 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
   }
 
   /**
-   * Returns the lane found in a street with the given name and the given
-   * lane number.
+   * Returns the street with the given name.
    * @param streetName Street name.
-   * @return Lane found in the given street.
    */
   def getStreet(streetName: String): Street = {
     streets.filter((street: Street) => street.name == streetName)(0)
   }
 
   /**
-   * Creates a lane and returns a reference to the object created.
-   * @param streetName The name of the street to which the lane belongs.
-   * @param streetType The type of the street to which the lane belongs. Can be <b>StreetType.PRIMARY</b>
+   * Creates a street and returns a reference to the object created.
+   * @param streetName The name of the street.
+   * @param streetType The type of the street. Can be <b>StreetType.PRIMARY</b>
    *                   or <b>StreetType.SECONDARY</b>.
-   * @param length The lane's length.
+   * @param length The street's length.
    * @param vehicles
    * @param lanes
-   * @return Reference to the lane object just created.
+   * @return Reference to the street object just created.
    */
   override def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street = {
     addStreet(streetName, streetType, length, vehicles, arrivalRate, lanes)
@@ -128,7 +126,7 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    * all the other processes have took place.<br/>
    * For the algorithm to work as it should, all arguments should be omitted so as to pass
    * their respective default values.
-   * @param street The current lane. Starts from the first occurring lane in the first occurring
+   * @param street The current street. Starts from the first occurring edge in the first occurring
    *               street if omitted.
    * @param countStart The index at which the intersecting edge is found in the list. Is
    *                   assigned 0 if omitted.

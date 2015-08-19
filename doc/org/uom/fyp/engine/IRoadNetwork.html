@@ -88,15 +88,15 @@
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
               <ol><li name="org.uom.fyp.engine.IRoadNetwork#addStreet" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="addStreet(streetName:String,streetType:org.uom.fyp.engine.StreetType.StreetType,length:Double,vehicles:Int,lanes:Int):org.uom.fyp.engine.Street"></a>
-      <a id="addStreet(String,StreetType.StreetType,Double,Int,Int):Street"></a>
+      <a id="addStreet(streetName:String,streetType:org.uom.fyp.engine.StreetType.StreetType,length:Double,vehicles:Int,arrivalRate:Double,lanes:Int):org.uom.fyp.engine.Street"></a>
+      <a id="addStreet(String,StreetType.StreetType,Double,Int,Double,Int):Street"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">addStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
+        <span class="name">addStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Creates a <b>Street</b> object, appends it to the <b>streets</b> list and
@@ -115,7 +115,7 @@ returns it.</p></div><dl class="paramcmts block"><dt class="param">streetName</d
         <span class="name">blockStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Block lane found in the street with the given name.</p><div class="fullcomment"><div class="comment cmt"><p>Block lane found in the street with the given name.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Street name.
+      <p class="shortcomment cmt">Block the street with the given name.</p><div class="fullcomment"><div class="comment cmt"><p>Block the street with the given name.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>Street name.
 </p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.IRoadNetwork#buildGraph" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="buildGraph(street:org.uom.fyp.engine.Street,countStart:Int,source:org.uom.fyp.engine.Node):Unit"></a>
@@ -140,50 +140,21 @@ their respective default values.</p></div><dl class="paramcmts block"><dt class=
               omitted.
 </p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.IRoadNetwork#createStreet" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="createStreet(streetName:String,streetType:org.uom.fyp.engine.StreetType.StreetType,length:Double,vehicles:Int,lanes:Int):org.uom.fyp.engine.Street"></a>
-      <a id="createStreet(String,StreetType.StreetType,Double,Int,Int):Street"></a>
+      <a id="createStreet(streetName:String,streetType:org.uom.fyp.engine.StreetType.StreetType,length:Double,vehicles:Int,arrivalRate:Double,lanes:Int):org.uom.fyp.engine.Street"></a>
+      <a id="createStreet(String,StreetType.StreetType,Double,Int,Double,Int):Street"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
+        <span class="name">createStreet</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Creates a lane.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a lane.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"></dd><dt class="param">streetType</dt><dd class="cmt"></dd><dt class="param">length</dt><dd class="cmt"><p>
+      <p class="shortcomment cmt">Creates a lane and returns a reference to the object created.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a lane and returns a reference to the object created.</p></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>The name of the street to which the lane belongs.</p></dd><dt class="param">streetType</dt><dd class="cmt"><p>The type of the street to which the lane belongs. Can be <b>StreetType.PRIMARY</b>
+                  or <b>StreetType.SECONDARY</b>.</p></dd><dt class="param">length</dt><dd class="cmt"><p>The lane's length.</p></dd><dt class="param">vehicles</dt><dd class="cmt"></dd><dt class="param">lanes</dt><dd class="cmt"></dd><dt>returns</dt><dd class="cmt"><p>Reference to the lane object just created.
 </p></dd></dl></div>
-    </li><li name="org.uom.fyp.engine.IRoadNetwork#initSimulation" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="initSimulation(vehicles:Int):Unit"></a>
-      <a id="initSimulation(Int):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">initSimulation</span><span class="params">(<span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Returns the time expected to be taken for a vehicle to go from one
-point to another.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the time expected to be taken for a vehicle to go from one
-point to another.</p></div><dl class="paramcmts block"><dt class="param">vehicles</dt><dd class="cmt"><p>Number of vehicles in system.
-</p></dd></dl></div>
-    </li><li name="org.uom.fyp.engine.IRoadNetwork#markGraphNodes" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="markGraphNodes():Unit"></a>
-      <a id="markGraphNodes():Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">markGraphNodes</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Provides nodes within the graph with their respective markers, depending on the
-markers assigned to their incoming edges.</p>
-    </li><li name="org.uom.fyp.engine.IRoadNetwork#processNode" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+    </li><li name="org.uom.fyp.engine.IRoadNetwork#processNode" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="processNode(node:org.uom.fyp.engine.Node):Unit"></a>
       <a id="processNode(Node):Unit"></a>
       <h4 class="signature">
@@ -195,7 +166,8 @@ markers assigned to their incoming edges.</p>
         <span class="name">processNode</span><span class="params">(<span name="node">node: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Reacts to the type of the given node.</p><div class="fullcomment"><div class="comment cmt"><p>Reacts to the type of the given node.</p></div><dl class="paramcmts block"><dt class="param">node</dt><dd class="cmt"><p>Node to be processed.
+</p></dd></dl></div>
     </li><li name="org.uom.fyp.engine.IRoadNetwork#shockwave" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="shockwave(qb:Double,qa:Double,kb:Double,ka:Double):Double"></a>
       <a id="shockwave(Double,Double,Double,Double):Double"></a>
@@ -209,6 +181,20 @@ markers assigned to their incoming edges.</p>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the propagation velocity of a shock wave.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the propagation velocity of a shock wave.</p></div><dl class="paramcmts block"><dt class="param">qb</dt><dd class="cmt"><p>Flow before change in conditions.</p></dd><dt class="param">qa</dt><dd class="cmt"><p>Flow after change in conditions.</p></dd><dt class="param">kb</dt><dd class="cmt"><p>Traffic density before change in conditions.</p></dd><dt class="param">ka</dt><dd class="cmt"><p>Traffic density after change in conditions.
+</p></dd></dl></div>
+    </li><li name="org.uom.fyp.engine.IRoadNetwork#simulate" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="simulate(minutes:Double):Unit"></a>
+      <a id="simulate(Double):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">simulate</span><span class="params">(<span name="minutes">minutes: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Simulates the road network's operation according to the specified parameters.</p><div class="fullcomment"><div class="comment cmt"><p>Simulates the road network's operation according to the specified parameters.</p></div><dl class="paramcmts block"><dt class="param">minutes</dt><dd class="cmt"><p>The time in minutes for which the simulation will be allowed to run.
 </p></dd></dl></div>
     </li></ol>
             </div>
