@@ -414,7 +414,7 @@ parsed.
         <span class="name">attachRoad</span><span class="result">: <a href="#Parser[+T]extendsParsers.this.Input=&gt;Parsers.this.ParseResult[T]" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.Parser">Parser</a>[<a href="../engine/Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Parses the <b>attach primary/secondary road</b> construct, together with its length.</b></p><div class="fullcomment"><div class="comment cmt"><p>Parses the <b>attach primary/secondary road</b> construct, together with its length.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Parser for lane attachment.
+      <p class="shortcomment cmt">Parses the <b>attach primary/secondary road</b> construct, together with its length.</b></p><div class="fullcomment"><div class="comment cmt"><p>Parses the <b>attach primary/secondary road</b> construct, together with its length.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Parser for road attachment.
 </p></dd></dl></div>
     </li><li name="org.uom.fyp.dslfrontend.Parser#blockRoad" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="blockRoad:org.uom.fyp.dslfrontend.Parser.Parser[Unit]"></a>
@@ -529,9 +529,9 @@ the network.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt
         <span class="name">createRoad</span><span class="result">: <a href="#Parser[+T]extendsParsers.this.Input=&gt;Parsers.this.ParseResult[T]" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.Parser">Parser</a>[<a href="../engine/Street.html" class="extype" name="org.uom.fyp.engine.Street">Street</a>]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Parses the <b>create primary road</b> construct, together with its length.</b></p><div class="fullcomment"><div class="comment cmt"><p>Parses the <b>create primary road</b> construct, together with its length.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Parser for lane creation.
+      <p class="shortcomment cmt">Parses the <b>create primary road</b> construct, together with its length.</b></p><div class="fullcomment"><div class="comment cmt"><p>Parses the <b>create primary road</b> construct, together with its length.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Parser for road creation.
 </p></dd></dl></div>
-    </li><li name="org.uom.fyp.dslfrontend.Parser#crossroad" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="org.uom.fyp.dslfrontend.Parser#crossroad" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="crossroad:org.uom.fyp.dslfrontend.Parser.Parser[org.uom.fyp.dslfrontend.Parser.~[org.uom.fyp.dslfrontend.Parser.~[org.uom.fyp.dslfrontend.Parser.~[String,String],String],org.uom.fyp.dslfrontend.Parser.~[String,String]]]"></a>
       <a id="crossroad:Parser[~[~[~[String,String],String],~[String,String]]]"></a>
       <h4 class="signature">
@@ -543,7 +543,8 @@ the network.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt
         <span class="name">crossroad</span><span class="result">: <a href="#Parser[+T]extendsParsers.this.Input=&gt;Parsers.this.ParseResult[T]" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.Parser">Parser</a>[<a href="#~[+a,+b]extendsProductwithSerializable" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.~">~</a>[<a href="#~[+a,+b]extendsProductwithSerializable" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.~">~</a>[<a href="#~[+a,+b]extendsProductwithSerializable" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.~">~</a>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>], <span class="extype" name="scala.Predef.String">String</span>], <a href="#~[+a,+b]extendsProductwithSerializable" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.~">~</a>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]]]</span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Parses the <b>crossroad</b> statement.</b></p><div class="fullcomment"><div class="comment cmt"><p>Parses the <b>crossroad</b> statement.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Parser for the crossroad statement.
+</p></dd></dl></div>
     </li><li name="scala.util.parsing.combinator.JavaTokenParsers#decimalNumber" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="decimalNumber:JavaTokenParsers.this.Parser[String]"></a>
       <a id="decimalNumber:Parser[String]"></a>
@@ -823,7 +824,8 @@ the network.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt
         <span class="name">networkGraph</span><span class="result">: <a href="../engine/RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns a pointer to the graph generated by the parser representing the network
+described by the given model.</p>
     </li><li name="scala.util.parsing.combinator.Parsers#not" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="not[T&lt;:&lt;?&gt;](p:&lt;?&gt;):Parsers.this.Parser[Unit]"></a>
       <a id="not[T](⇒Parser[T]):Parser[Unit]"></a>
@@ -1090,6 +1092,20 @@ filename.</p></div><dl class="paramcmts block"><dt class="param">filename</dt><d
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Parsers</dd></dl></div>
+    </li><li name="org.uom.fyp.dslfrontend.Parser#roundabout" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="roundabout:org.uom.fyp.dslfrontend.Parser.Parser[Unit]"></a>
+      <a id="roundabout:Parser[Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">roundabout</span><span class="result">: <a href="#Parser[+T]extendsParsers.this.Input=&gt;Parsers.this.ParseResult[T]" class="extmbr" name="org.uom.fyp.dslfrontend.Parser.Parser">Parser</a>[<span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Parses the <b>roundabout</b> statement.</b></p><div class="fullcomment"><div class="comment cmt"><p>Parses the <b>roundabout</b> statement.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Parser for the roundabout statement.
+</p></dd></dl></div>
     </li><li name="org.uom.fyp.dslfrontend.Parser#runSimulation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="runSimulation:org.uom.fyp.dslfrontend.Parser.Parser[Unit]"></a>
       <a id="runSimulation:Parser[Unit]"></a>
