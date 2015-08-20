@@ -46,7 +46,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * Returns the average speed in this street.
    */
   def speed = {
-    edges.map((edge: Edge) => edge.length).sum / edges.map((edge: Edge) => edge.time).sum
+    edges.map((edge: Edge) => edge.length).sum / edges.map((edge: Edge) => edge.residenceTime).sum
   }
 
   /**
