@@ -184,7 +184,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * Prepares for the creation of a roundabout node.
    * @param at Position in the street where to place the roundabout.
    */
-  def createRoundabout(at: Double) = {
+  def createRoundabout(at: Double, exitRate: Double) = {
     val edge: Edge = getEdge(at)
     val oldLength = edge.length
     edge.length_(oldLength - edge.intersectionPoint - at)

@@ -93,7 +93,8 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>roundabout</b> statement.
    * @return Parser for the roundabout statement.
    */
-  def roundabout = ("roundabout" ~> "on" ~> ident) ~ ("at" ~> floatingPointNumber)
+  def roundabout = ("roundabout" ~> "on" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("exit" ~> "rate" ~> floatingPointNumber) ^^
+    { case road ~ pos ~ exitRate => network.getStreet(road).createRoundabout(parseDouble(pos).toList(0), parseDouble(exitRate).toList(0)) }
 
   /**
    * Parses the <b>block</b> construct.
