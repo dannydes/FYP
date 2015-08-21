@@ -29,10 +29,10 @@ object Parser extends JavaTokenParsers {
   private def parseInt(s: String) = try { Some(s.toInt) } catch { case _: Throwable => None }
 
   /**
-   * Parses a whole statement.
-   * @return Parser for statement.
+   * Parses a whole model.
+   * @return Parser for model.
    */
-  def statement = constructNetwork ~ definitions ~ blockRoad.* ~ runSimulation
+  def model = constructNetwork ~ definitions ~ blockRoad.* ~ runSimulation
 
   /**
    * Parses the <b>construct network</b> construct, as well as starts creating
@@ -62,7 +62,7 @@ object Parser extends JavaTokenParsers {
   }
 
   /**
-   * Parses the <b>create primary road</b> construct, together with its length.
+   * Parses the <b>create primary road</b> construct, together with its properties.
    * @return Parser for road creation.
    */
   def createRoad = ("create" ~> "primary") ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("vehicles" ~> wholeNumber) ~
@@ -73,7 +73,7 @@ object Parser extends JavaTokenParsers {
   }
 
   /**
-   * Parses the <b>attach primary/secondary road</b> construct, together with its length.
+   * Parses the <b>attach primary/secondary road</b> construct, together with its properties.
    * @return Parser for road attachment.
    */
   def attachRoad = ("attach" ~> ("primary" | "secondary")) ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("at" ~>
@@ -108,7 +108,7 @@ object Parser extends JavaTokenParsers {
    * @param filename The filename of the file to be parsed.
    */
   def parse(filename: String) = {
-    parseAll(statement, Source.fromFile(filename).mkString) match {
+    parseAll(model, Source.fromFile(filename).mkString) match {
       case Success(query, _) => println("Model execution complete!")
       case Failure(msg, _) => println(msg)
       case Error(msg, _) => println(msg)
