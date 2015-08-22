@@ -44,6 +44,7 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
     })
 
     pdq.Solve(defs.CANON)
+    pdq.SetDebug(true)
     pdq.Report()
     //PDQProperties.pdqNodesToRoadNetwork(pdq, this)
   }
