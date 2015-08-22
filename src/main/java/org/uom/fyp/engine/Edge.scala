@@ -269,7 +269,7 @@ class Edge extends DefaultEdge {
     for (l <- 0 until sLanes) {
       val node = toString + "l" + l
       val workload = node + "w"
-      pdq.CreateClosed(workload, Job.TERM, vehicles / l, )
+      pdq.CreateClosed(workload, Job.TERM, vehicles / sLanes, 1 / lambda)
       pdq.CreateNode(node, defs.CEN, defs.FCFS)
       pdq.SetDemand(node, workload, serviceTime)
       pdq.SetTUnit("Minutes")
