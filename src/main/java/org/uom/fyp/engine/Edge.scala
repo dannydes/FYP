@@ -23,41 +23,43 @@ class Edge extends DefaultEdge {
   /**
    * Stores edge length.
    */
-  private var len = 0.0
+  private var len: Double = _
 
   /**
    * Stores the arrival rate for this edge.
    */
-  private var lambda = 0.0
+  private var lambda: Double = _
 
   /**
    * Stores the point in which the edge exists, in relation to the
    * street in which it is found. Depends on the point of interaction of
    * the two streets.
    */
-  private var point = 0.0
+  private var point: Double = _
 
   /**
    * Stores the position where the intersection occurs upon the other road.
    */
-  private var otherPoint = 0.0
+  private var otherPoint: Double = _
 
   /**
    * Stores a reference to the <b>Street</b> object representing the physical
    * street that intersects with the street on which the edge is found. Used in
    * the graph building process.
    */
-  private var sat: Street = null
+  private var sat: Street = _
 
   private var sas: Street = _
 
-  private var edgeType: RoadStructure.EnumVal = RoadStructure.Default
+  private var edgeType: RoadStructure.RoadStructure = RoadStructure.Default
 
   private var minSim: Double = _
 
   private var sLanes: Int = _
 
   private var sEdgeNo: Int = _
+
+  private var eSpeed: Double = _
 
   /**
    * Returns the name of the street.
@@ -226,7 +228,11 @@ class Edge extends DefaultEdge {
   /**
    * Returns the traffic speed within the edge.
    */
-  def speed = flow / density
+  def speed = if (eSpeed == 0) flow / density else eSpeed
+
+  def speed_(eSpeed: Double) = {
+    this.eSpeed = eSpeed
+  }
 
   /**
    * Returns the time taken for one job (vehicle) spends in a road segment.
@@ -242,7 +248,7 @@ class Edge extends DefaultEdge {
    * Sets the type of the edge's target node to-be.
    * @param edgeType The type of the edge's target node to-be.
    */
-  def edgeT_(edgeType: RoadStructure.EnumVal) = {
+  def edgeT_(edgeType: RoadStructure.RoadStructure) = {
     this.edgeType = edgeType
   }
 
@@ -269,7 +275,7 @@ class Edge extends DefaultEdge {
     for (l <- 0 until sLanes) {
       val node = toString + "l" + l
       val workload = node + "w"
-      pdq.CreateClosed(workload, Job.TERM, vehicles / sLanes, 1 / lambda)
+      pdq.CreateClosed(workload, Job.TERM, vehicles / sLanes, 1 / (lambda / sLanes))
       pdq.CreateNode(node, defs.CEN, defs.FCFS)
       pdq.SetDemand(node, workload, serviceTime)
       pdq.SetTUnit("Minutes")

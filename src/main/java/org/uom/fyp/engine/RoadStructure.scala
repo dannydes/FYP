@@ -5,10 +5,13 @@ package org.uom.fyp.engine
  */
 object RoadStructure {
 
-  sealed trait EnumVal
-  case object Default extends EnumVal
-  case object TJunction extends EnumVal
-  case object Roadabout extends EnumVal
-  case object Crossroads extends EnumVal
+  sealed trait RoadStructure
+  case object Default extends RoadStructure
+  case object TJunction extends RoadStructure
+  case object Roadabout extends RoadStructure {
+    var exitRates = List()
+  }
+  case object Crossroads extends RoadStructure
+  case object PedestrianCrossing extends RoadStructure
 
 }

@@ -15,7 +15,7 @@ object NetworkUtils {
    *              and used in the creation of the new node instead.
    * @return The edge that has been created.
    */
-  def createEdge(network: RoadNetwork, start: Node = null, edgeType: RoadStructure.EnumVal): Edge = {
+  def createEdge(network: RoadNetwork, start: Node = null, edgeType: RoadStructure.RoadStructure): Edge = {
     var vertexFactory: ClassBasedVertexFactory[Node] = new ClassBasedVertexFactory(classOf[Node])
 
     var v1: Node = null

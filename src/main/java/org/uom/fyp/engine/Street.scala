@@ -42,6 +42,10 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    */
   def noOfLanes = lanes
 
+  def noOfLanes_(lanes: Int): Unit = {
+    e.foreach((edge: Edge) => edge.streetLanes_(lanes))
+  }
+
   /**
    * Returns the average speed in this street.
    */
@@ -58,7 +62,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * @return The edge that has been created and added to the graph.
    */
   def addEdge(otherAttachedAt: Double, nextOtherAttachedAt: Double = len): Edge = {
-    if (nextOtherAttachedAt > len) {
+    if (nextOtherAttachedAt < 0 || nextOtherAttachedAt > len) {
       throw new StreetLengthExceededException(nextOtherAttachedAt)
     }
 
@@ -97,7 +101,39 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * @param thatAt Point on the other street where the intersection occurs.
    */
   def createCrossroads(thisAt: Double, that: Street, thatAt: Double) = {
+    if (thisAt == 0 || thisAt == len || thatAt == 0 || thatAt == that.length) {
+      throw new NotCrossroadsException
+    }
 
+    val thisPrev = getEdge(thisAt)
+    if (thisPrev != null) {
+      thisPrev.length_(thisAt - thisPrev.intersectionPoint)
+      val thisEdge = addEdge(thisPrev.intersectionPoint, thisAt)
+      thisEdge.intersectionPoint_(thisAt)
+      thisEdge.otherIntersectionPoint_(thatAt)
+      thisPrev.edgeT_(RoadStructure.Crossroads)
+      thisPrev.streetAtTarget_(that)
+    } else {
+      val thisEdge = that.addEdge(0, thisAt)
+      thisEdge.intersectionPoint_(thisAt)
+      thisEdge.otherIntersectionPoint_(thatAt)
+      thisEdge.edgeT_(RoadStructure.Crossroads)
+      thisEdge.streetAtTarget_(that)
+    }
+
+    val thatPrev = getEdge(thatAt)
+    if (thatPrev != null) {
+      thatPrev.length_(thatAt - thatPrev.intersectionPoint)
+      val thatEdge = that.addEdge(thatPrev.intersectionPoint, thatAt)
+      thatEdge.intersectionPoint_(thatAt)
+      thatEdge.otherIntersectionPoint_(thisAt)
+      thatPrev.edgeT_(RoadStructure.Crossroads)
+    } else {
+      val thatEdge = that.addEdge(0, thatAt)
+      thatEdge.intersectionPoint_(thatAt)
+      thatEdge.otherIntersectionPoint_(thisAt)
+      thatEdge.edgeT_(RoadStructure.Crossroads)
+    }
   }
 
   /**
@@ -136,7 +172,6 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
     } else if (point > 0 && point < len) {
       val edge: Edge = addEdge(otherAt, point)
       edge.streetAtTarget_(street)
-      edge.otherIntersectionPoint_(0)
       edge.edgeT_(RoadStructure.TJunction)
     }
 

@@ -31,10 +31,12 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    * Simulates the road network's operation according to the specified parameters.
    * @param minutes The time in minutes for which the simulation will be allowed to run.
    */
-  override def simulate(minutes: Double) = {
+  override def simulate(minutes: Double = streets(0).edges(0).minutesForSimulation) = {
     val edges = edgeSet().toArray
     val pdq: PDQ = new PDQ
     pdq.Init(name)
+
+    streets.foreach((s: Street) => s.edges.foreach((e: Edge) => e.minutesForSimulation_(minutes)))
 
     streets.foreach((street: Street) => {
       street.initialize()
@@ -162,8 +164,14 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    * @param node Node to be processed.
    */
   override def processNode(node: Node) = node match {
-    //case PedestrianCrossing(t) => _
-    //case TJunction() => node.asInstanceOf[TJunction].priority.speed = node.asInstanceOf[TJunction].converging1.speed + node.asInstanceOf[TJunction].converging2.speed
+    //case PedestrianCrossing() => None
+    case TJunction() => {
+      val junction = node.asInstanceOf[TJunction]
+      junction.findEdges(this)
+      junction.priority.speed_(junction.converging1.speed + junction.converging2.speed)
+    }
+    case Crossroads() => None
+    case Roundabout() => if (node.asInstanceOf[Roundabout].exitRate < node.arrivalRate) node.isCongested_()
     case _ => None
   }
 

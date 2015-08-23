@@ -12,7 +12,8 @@ import org.uom.fyp.dslfrontend.Parser
 object RoadNetworkVisualiser {
 
   def main(args: Array[String]): Unit = {
-    Parser.parse("C:\\Users\\Daniel\\OneDrive\\Documents\\zabbar_primaries.rdl")
+    Parser.parse("C:\\Users\\Daniel\\OneDrive\\Documents\\crossroads_test.rpl")
+    println(Parser.networkGraph.streetList.size)
 
     val graph: JGraph = new JGraph(new JGraphModelAdapter(Parser.networkGraph))
 

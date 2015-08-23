@@ -32,7 +32,7 @@ object Parser extends JavaTokenParsers {
    * Parses a whole model.
    * @return Parser for model.
    */
-  def model = constructNetwork ~ definitions ~ blockRoad.* ~ runSimulation
+  def model = constructNetwork ~ definitions ~ runSimulation ~ comparison.?
 
   /**
    * Parses the <b>construct network</b> construct, as well as starts creating
@@ -87,7 +87,8 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>crossroad</b> statement.
    * @return Parser for the crossroad statement.
    */
-  def crossroad = ("crossroad" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("with" ~> ident) ~ ("at" ~ floatingPointNumber)
+  def crossroad = ("crossroad" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("with" ~> ident) ~ ("at" ~> floatingPointNumber) ^^
+    { case road ~ pos ~ otherRoad ~ otherPos => network.getStreet(road).createCrossroads(parseDouble(pos).toList(0), network.getStreet(otherRoad), parseDouble(otherPos).toList(0)) }
 
   /**
    * Parses the <b>roundabout</b> statement.
@@ -101,6 +102,11 @@ object Parser extends JavaTokenParsers {
    * @return Parser for blocking.
    */
   def blockRoad = ("block" ~> ident) ^^ { case road => network.blockStreet(road) }
+
+  def change = ("change" ~> ident) ~ ("lanes" ~> floatingPointNumber) ^^
+    { case road ~ lanes => network.getStreet(road).noOfLanes_(parseInt(lanes).toList(0)) }
+
+  def comparison = (blockRoad | change | roundabout).+ ~ "rerun" ^^ { case _ => network.simulate() }
 
   /**
    * Initializes the parsing process for some source file with the given
