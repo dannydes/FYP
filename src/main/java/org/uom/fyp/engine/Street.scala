@@ -114,14 +114,13 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
       thisPrev.edgeT_(RoadStructure.Crossroads)
       thisPrev.streetAtTarget_(that)
     } else {
-      val thisEdge = that.addEdge(0, thisAt)
-      thisEdge.intersectionPoint_(thisAt)
+      val thisEdge = addEdge(0, thisAt)
       thisEdge.otherIntersectionPoint_(thatAt)
       thisEdge.edgeT_(RoadStructure.Crossroads)
       thisEdge.streetAtTarget_(that)
     }
 
-    val thatPrev = getEdge(thatAt)
+    val thatPrev = that.getEdge(thatAt)
     if (thatPrev != null) {
       thatPrev.length_(thatAt - thatPrev.intersectionPoint)
       val thatEdge = that.addEdge(thatPrev.intersectionPoint, thatAt)
@@ -130,7 +129,6 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
       thatPrev.edgeT_(RoadStructure.Crossroads)
     } else {
       val thatEdge = that.addEdge(0, thatAt)
-      thatEdge.intersectionPoint_(thatAt)
       thatEdge.otherIntersectionPoint_(thisAt)
       thatEdge.edgeT_(RoadStructure.Crossroads)
     }

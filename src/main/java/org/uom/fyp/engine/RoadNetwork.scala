@@ -136,14 +136,25 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
    *               omitted.
    */
   override def buildGraph(street: Street = streets(0), countStart: Int = 0, source: Node = null): Unit = {
-    var s: Node = source
+    var s: Node = null
+
+    for (i <- 0 until countStart) {
+      val actualEdge = street.edges(i)
+      val edge = NetworkUtils.createEdge(this, actualEdge.edgeT, s, if (i == countStart - 1) source else null)
+      NetworkUtils.initEdgeProperties(actualEdge, edge, street.noOfLanes, i)
+      street.edges(i) = edge
+      s = edge.getTarget
+    }
+
+    s = source
     for (i <- countStart until street.edges.size) {
       val actualEdge: Edge = street.edges(i)
-      val edge: Edge = NetworkUtils.createEdge(this, s, actualEdge.edgeT)
-      edge.streetName_(actualEdge.streetName)
+      val edge: Edge = NetworkUtils.createEdge(this, actualEdge.edgeT, s)
+      NetworkUtils.initEdgeProperties(actualEdge, edge, street.noOfLanes, i)
+      /*edge.streetName_(actualEdge.streetName)
       edge.streetLanes_(street.noOfLanes)
       edge.streetEdgeNo_(i)
-      edge.length_(actualEdge.length)
+      edge.length_(actualEdge.length)*/
       street.edges(i) = edge
       s = edge.getTarget
 
