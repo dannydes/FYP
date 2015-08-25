@@ -10,7 +10,7 @@ import org.uom.fyp.engine.StreetType.StreetType
  * Organises and simulates road networks.
  * @param name The name given to the network.
  */
-class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[Edge]) with IRoadNetwork {
+class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf[Edge]) with IRoadNetwork {
 
   /**
    * Stores a list of streets/roads within the network.
@@ -40,15 +40,12 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
 
     streets.foreach((street: Street) => {
       street.initialize()
-      street.edges.foreach((edge: Edge) => {
-        edge.simulate(pdq)
-      })
+      street.edges.foreach((edge: Edge) => edge.simulate(pdq))
     })
 
     pdq.Solve(defs.CANON)
     pdq.SetDebug(true)
     pdq.Report()
-    //PDQProperties.pdqNodesToRoadNetwork(pdq, this)
   }
 
   /**
@@ -148,23 +145,19 @@ class RoadNetwork(name: String) extends SimpleDirectedGraph[Node, Edge](classOf[
 
     s = source
     for (i <- countStart until street.edges.size) {
-      val actualEdge: Edge = street.edges(i)
-      val edge: Edge = NetworkUtils.createEdge(this, actualEdge.edgeT, s)
+      val actualEdge = street.edges(i)
+      val edge = NetworkUtils.createEdge(this, actualEdge.edgeT, s)
       NetworkUtils.initEdgeProperties(actualEdge, edge, street.noOfLanes, i)
-      /*edge.streetName_(actualEdge.streetName)
-      edge.streetLanes_(street.noOfLanes)
-      edge.streetEdgeNo_(i)
-      edge.length_(actualEdge.length)*/
       street.edges(i) = edge
       s = edge.getTarget
 
+      val cStart = street.edges.indexOf(street.getEdge(actualEdge.otherIntersectionPoint))
+
       if (actualEdge.streetAtSource != null) {
-        val cStart = street.edges.indexOf(street.getEdge(actualEdge.otherIntersectionPoint))
         buildGraph(actualEdge.streetAtSource, cStart, edge.getSource)
       }
 
       if (actualEdge.streetAtTarget != null) {
-        val cStart = street.edges.indexOf(street.getEdge(actualEdge.otherIntersectionPoint))
         buildGraph(actualEdge.streetAtTarget, cStart, s)
       }
     }
