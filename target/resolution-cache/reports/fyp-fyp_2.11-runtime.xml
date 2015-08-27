@@ -7,7 +7,7 @@
 		revision="1.0"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150818145602"/>
+		date="20150827173844"/>
 	<dependencies>
 		<module organisation="org.jgrapht" name="jgrapht-ext">
 			<revision name="0.9.0" status="release" pubdate="20131215193654" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="3">

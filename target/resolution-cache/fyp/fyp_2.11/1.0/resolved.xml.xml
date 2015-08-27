@@ -4,7 +4,7 @@
 		module="fyp_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20150818145602"
+		publication="20150827173843"
 	>
 		<description>
 		FYP
@@ -33,7 +33,6 @@
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.5" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.11.5" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="org.jgrapht" name="jgrapht-core" rev="0.9.0" conf="compile->default(compile)"/>
-		<dependency org="org.scalatest" name="scalatest_2.11" rev="2.2.4" conf="test->default(compile)"/>
 		<dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11" rev="1.0.3" conf="compile->default(compile)"/>
 		<dependency org="org.jgrapht" name="jgrapht-ext" rev="0.9.0" conf="compile->default(compile)"/>
 		<dependency org="jgraph" name="jgraph" rev="5.13.0.0" conf="compile->default(compile)"/>

@@ -32,7 +32,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param minutes The time in minutes for which the simulation will be allowed to run.
    */
   override def simulate(minutes: Double = streets(0).edges(0).minutesForSimulation) = {
-    val edges = edgeSet().toArray
+    //val edges = edgeSet().toArray
     val pdq: PDQ = new PDQ
     pdq.Init(name)
 
@@ -43,8 +43,10 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
       street.edges.foreach((edge: Edge) => edge.simulate(pdq))
     })
 
-    pdq.Solve(defs.CANON)
-    pdq.SetDebug(true)
+    vertexSet.toArray(Array(new Node)).foreach(processNode)
+
+    pdq.Solve(defs.APPROX)
+    //pdq.SetDebug(true)
     pdq.Report()
   }
 
@@ -102,7 +104,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
 
     if (matches.size == 0) {
       street = new Street(streetName, streetType, length, vehicles, arrivalRate, lanes)
-      streets = streets ++ List(street)
+      streets = streets ++ Array(street)
     } else {
       street = matches(0)
     }
@@ -139,6 +141,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
       val actualEdge = street.edges(i)
       val edge = NetworkUtils.createEdge(this, actualEdge.edgeT, s, if (i == countStart - 1) source else null)
       NetworkUtils.initEdgeProperties(actualEdge, edge, street.noOfLanes, i)
+      NetworkUtils.initSpecialTargetProperties(this, edge)
       street.edges(i) = edge
       s = edge.getTarget
     }
@@ -148,6 +151,7 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
       val actualEdge = street.edges(i)
       val edge = NetworkUtils.createEdge(this, actualEdge.edgeT, s)
       NetworkUtils.initEdgeProperties(actualEdge, edge, street.noOfLanes, i)
+      NetworkUtils.initSpecialTargetProperties(this, edge)
       street.edges(i) = edge
       s = edge.getTarget
 

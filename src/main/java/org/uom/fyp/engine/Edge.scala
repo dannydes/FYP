@@ -13,7 +13,7 @@ class Edge extends DefaultEdge {
   /**
    * Stores the name of the street to which the edge belongs.
    */
-  private var sName = ""
+  private var sName: String = _
 
   /**
    * Stores the number of vehicles in edge.

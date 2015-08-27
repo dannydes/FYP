@@ -114,7 +114,7 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
       thisEdge.edgeT_(RoadStructure.Crossroads)
       thisEdge.streetAtTarget_(that)
     } else {
-      val thisEdge = addEdge(0, thisAt)
+      val thisEdge = addEdge(thisAt, 0)
       thisEdge.otherIntersectionPoint_(thatAt)
       thisEdge.edgeT_(RoadStructure.Crossroads)
       thisEdge.streetAtTarget_(that)
@@ -217,11 +217,11 @@ class Street(streetName: String, sType: StreetType, len: Double, vehicles: Int, 
    * Prepares for the creation of a roundabout node.
    * @param at Position in the street where to place the roundabout.
    */
-  def createRoundabout(at: Double, exitRate: Double) = {
+  def createRoundabout(at: Double) = {
     val edge: Edge = getEdge(at)
     val oldLength = edge.length
     edge.length_(oldLength - edge.intersectionPoint - at)
-    edge.edgeT_(RoadStructure.Roadabout)
+    edge.edgeT_(RoadStructure.Roundabout)
     val newEdge: Edge = addEdge(at, oldLength - edge.length)
   }
 

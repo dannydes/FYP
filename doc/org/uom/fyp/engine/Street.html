@@ -88,7 +88,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Street</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="sType">sType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType</a></span>, <span name="len">len: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span>
+        <span class="name">Street</span><span class="params">(<span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="sType">sType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="len">len: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span>
       </span>
       </h4>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">streetName</dt><dd class="cmt"><p>The name of the street.</p></dd><dt class="param">sType</dt><dd class="cmt"><p>The type of the street.</p></dd><dt class="param">len</dt><dd class="cmt"><p>The length of the street.</p></dd><dt class="param">vehicles</dt><dd class="cmt"><p>The number of vehicles in the street.</p></dd><dt class="param">lanes</dt><dd class="cmt"><p>The number of lanes the street has.
@@ -198,14 +198,14 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
     </li><li name="org.uom.fyp.engine.Street#attachStreet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="attachStreet(network:org.uom.fyp.engine.RoadNetwork,streetName:String,streetType:org.uom.fyp.engine.StreetType.StreetType,length:Double,point:Double,vehicles:Int,arrivalRate:Double,lanes:Int):org.uom.fyp.engine.Street"></a>
-      <a id="attachStreet(RoadNetwork,String,StreetType,Double,Double,Int,Double,Int):Street"></a>
+      <a id="attachStreet(RoadNetwork,String,StreetType.StreetType,Double,Double,Int,Double,Int):Street"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">attachStreet</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="point">point: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
+        <span class="name">attachStreet</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="streetName">streetName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="streetType">streetType: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>, <span name="length">length: <span class="extype" name="scala.Double">Double</span></span>, <span name="point">point: <span class="extype" name="scala.Double">Double</span></span>, <span name="vehicles">vehicles: <span class="extype" name="scala.Int">Int</span></span>, <span name="arrivalRate">arrivalRate: <span class="extype" name="scala.Double">Double</span></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="" class="extype" name="org.uom.fyp.engine.Street">Street</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Creates and attaches an outgoing street to the context street.</p><div class="fullcomment"><div class="comment cmt"><p>Creates and attaches an outgoing street to the context street.</p></div><dl class="paramcmts block"><dt class="param">network</dt><dd class="cmt"><p>The network where the street will be attached.</p></dd><dt class="param">streetName</dt><dd class="cmt"><p>The name of the street to be attached.</p></dd><dt class="param">streetType</dt><dd class="cmt"><p>The type of the street to be attached.</p></dd><dt class="param">length</dt><dd class="cmt"><p>The length the street to be attached.</p></dd><dt class="param">point</dt><dd class="cmt"><p>The point where the street is to be attached with respect to
@@ -470,6 +470,19 @@ intersections).</p>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the number of lanes the street has.</p>
+    </li><li name="org.uom.fyp.engine.Street#noOfLanes_" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="noOfLanes_(lanes:Int):Unit"></a>
+      <a id="noOfLanes_(Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">noOfLanes_</span><span class="params">(<span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
     </li><li name="org.uom.fyp.engine.Street#noOfVehicles" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="noOfVehicles:Int"></a>
       <a id="noOfVehicles:Int"></a>
@@ -524,14 +537,14 @@ intersections).</p>
       <p class="shortcomment cmt">Returns the average speed in this street.</p>
     </li><li name="org.uom.fyp.engine.Street#streetType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="streetType:org.uom.fyp.engine.StreetType.StreetType"></a>
-      <a id="streetType:StreetType"></a>
+      <a id="streetType:StreetType.StreetType"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">streetType</span><span class="result">: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType</a></span>
+        <span class="name">streetType</span><span class="result">: <a href="StreetType$.html#StreetType=org.uom.fyp.engine.StreetType.Value" class="extmbr" name="org.uom.fyp.engine.StreetType.StreetType">StreetType.StreetType</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns the type of the street.</p>

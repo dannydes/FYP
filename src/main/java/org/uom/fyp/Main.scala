@@ -12,7 +12,10 @@ object Main {
     try {
       Parser.parse("C:\\Users\\Daniel\\OneDrive\\Documents\\zabbar_primaries.rpl")
     } catch {
-      case e: Exception => println(e.getMessage + "\n" + e.getStackTrace)
+      case e: Exception => {
+        println(e.getMessage)
+        e.printStackTrace()
+      }
     }
   }
 

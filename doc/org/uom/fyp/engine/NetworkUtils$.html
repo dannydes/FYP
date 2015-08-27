@@ -184,22 +184,22 @@
               
         </dd></dl></div>
     </li><li name="org.uom.fyp.engine.NetworkUtils#createEdge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="createEdge(network:org.uom.fyp.engine.RoadNetwork,start:org.uom.fyp.engine.Node,edgeType:org.uom.fyp.engine.RoadStructure.EnumVal):org.uom.fyp.engine.Edge"></a>
-      <a id="createEdge(RoadNetwork,Node,EnumVal):Edge"></a>
+      <a id="createEdge(network:org.uom.fyp.engine.RoadNetwork,edgeType:org.uom.fyp.engine.RoadStructure.RoadStructure,start:org.uom.fyp.engine.Node,end:org.uom.fyp.engine.Node):org.uom.fyp.engine.Edge"></a>
+      <a id="createEdge(RoadNetwork,RoadStructure.RoadStructure,Node,Node):Edge"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createEdge</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="start">start: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a> = <span class="symbol">null</span></span>, <span name="edgeType">edgeType: <a href="RoadStructure$$EnumVal.html" class="extype" name="org.uom.fyp.engine.RoadStructure.EnumVal">EnumVal</a></span>)</span><span class="result">: <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>
+        <span class="name">createEdge</span><span class="params">(<span name="network">network: <a href="RoadNetwork.html" class="extype" name="org.uom.fyp.engine.RoadNetwork">RoadNetwork</a></span>, <span name="edgeType">edgeType: <a href="RoadStructure$$RoadStructure.html" class="extype" name="org.uom.fyp.engine.RoadStructure.RoadStructure">RoadStructure.RoadStructure</a></span>, <span name="start">start: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a></span>, <span name="end">end: <a href="Node.html" class="extype" name="org.uom.fyp.engine.Node">Node</a> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Returns an edge that is created and attached to the node given to the parameter,
 if provided.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an edge that is created and attached to the node given to the parameter,
-if provided.</p></div><dl class="paramcmts block"><dt class="param">start</dt><dd class="cmt"><p>The starting node to which to attach the created edge is to be
+if provided.</p></div><dl class="paramcmts block"><dt class="param">network</dt><dd class="cmt"><p>The road network where the edge is to be created.</p></dd><dt class="param">edgeType</dt><dd class="cmt"><p>The type to be reflected on the edge's target.</p></dd><dt class="param">start</dt><dd class="cmt"><p>The starting node to which to attach the created edge is to be
              attached. When it is not provided, a new starting node is created
-             and used in the creation of the new node instead.</p></dd><dt>returns</dt><dd class="cmt"><p>The edge that has been created.
+             and used in the creation of the new node instead.</p></dd><dt class="param">end</dt><dd class="cmt"><p>The target node, to be provided in case of a crossroad.</p></dd><dt>returns</dt><dd class="cmt"><p>The edge that has been created.
 </p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
@@ -272,6 +272,20 @@ if provided.</p></div><dl class="paramcmts block"><dt class="param">start</dt><d
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.uom.fyp.engine.NetworkUtils#initEdgeProperties" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="initEdgeProperties(e1:org.uom.fyp.engine.Edge,e2:org.uom.fyp.engine.Edge,lanes:Int,edgeNo:Int):Unit"></a>
+      <a id="initEdgeProperties(Edge,Edge,Int,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">initEdgeProperties</span><span class="params">(<span name="e1">e1: <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>, <span name="e2">e2: <a href="Edge.html" class="extype" name="org.uom.fyp.engine.Edge">Edge</a></span>, <span name="lanes">lanes: <span class="extype" name="scala.Int">Int</span></span>, <span name="edgeNo">edgeNo: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Intialises the new edge's properties.</p><div class="fullcomment"><div class="comment cmt"><p>Intialises the new edge's properties.</p></div><dl class="paramcmts block"><dt class="param">e1</dt><dd class="cmt"><p>The actaul edge from the array.</p></dd><dt class="param">e2</dt><dd class="cmt"><p>The new edge.</p></dd><dt class="param">lanes</dt><dd class="cmt"><p>The number of lanes of a street.</p></dd><dt class="param">edgeNo</dt><dd class="cmt"><p>The number that the edge is to be assigned.
+</p></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>

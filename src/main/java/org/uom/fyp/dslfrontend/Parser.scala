@@ -1,7 +1,7 @@
 package org.uom.fyp.dslfrontend
 
 import org.uom.fyp.engine.StreetType.StreetType
-import org.uom.fyp.engine.{Street, StreetType, RoadNetwork}
+import org.uom.fyp.engine.{RoadStructure, Street, StreetType, RoadNetwork}
 
 import scala.util.parsing.combinator.JavaTokenParsers
 import scala.io.Source
@@ -65,9 +65,10 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>create primary road</b> construct, together with its properties.
    * @return Parser for road creation.
    */
-  def createRoad = ("create" ~> "primary") ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("vehicles" ~> wholeNumber) ~
-    ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^ {
-    case "primary" ~ road ~  len ~ vehicles ~ arrivalRate ~ lanes => {
+  def createRoad = ("create" ~> "primary") ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~
+    ("start" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
+    ("end" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^ {
+    case "primary" ~ road ~  len ~ vehicles ~ arrivalRate ~ vehiclesEnd ~ arrivalRateEnd ~ lanes => {
       network.createStreet(road, StreetType.PRIMARY, parseDouble(len).toList(0), parseInt(vehicles).toList(0), parseDouble(arrivalRate).toList(0), parseInt(lanes.getOrElse("1")).toList(0))
     }
   }
@@ -77,25 +78,36 @@ object Parser extends JavaTokenParsers {
    * @return Parser for road attachment.
    */
   def attachRoad = ("attach" ~> ("primary" | "secondary")) ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("at" ~>
-    floatingPointNumber) ~ ("vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^
+    floatingPointNumber) ~ ("start" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
+    ("end" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^
     {
-      case "primary" ~ road ~ len ~ pos ~ vehicles ~ arrivalRate ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, arrivalRate, pos, lanes.getOrElse("1"))
-      case "secondary" ~ road ~ len ~ pos ~ vehicles ~ arrivalRate ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, arrivalRate, pos, lanes.getOrElse("1"))
+      case "primary" ~ road ~ len ~ pos ~ vehicles ~ arrivalRate ~ vehiclesEnd ~ arrivalRateEnd ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, arrivalRate, pos, lanes.getOrElse("1"))
+      case "secondary" ~ road ~ len ~ pos ~ vehicles ~ arrivalRate ~ vehiclesEnd ~ arrivalRateEnd ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, arrivalRate, pos, lanes.getOrElse("1"))
     }
 
   /**
    * Parses the <b>crossroad</b> statement.
    * @return Parser for the crossroad statement.
    */
-  def crossroad = ("crossroad" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("with" ~> ident) ~ ("at" ~> floatingPointNumber) ^^
-    { case road ~ pos ~ otherRoad ~ otherPos => network.getStreet(road).createCrossroads(parseDouble(pos).toList(0), network.getStreet(otherRoad), parseDouble(otherPos).toList(0)) }
+  def crossroad = ("crossroad" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("wait" ~> floatingPointNumber) ~ ("with" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("wait" ~> floatingPointNumber) ^^
+    {
+      case road ~ pos ~ timing ~ otherRoad ~ otherPos ~ otherTiming => {
+        RoadStructure.Crossroads.addTimingPair(road, otherRoad, parseDouble(timing).toList(0), parseDouble(otherTiming).toList(0))
+        network.getStreet(road).createCrossroads(parseDouble(pos).toList(0), network.getStreet(otherRoad), parseDouble(otherPos).toList(0))
+      }
+    }
 
   /**
    * Parses the <b>roundabout</b> statement.
    * @return Parser for the roundabout statement.
    */
   def roundabout = ("roundabout" ~> "on" ~> ident) ~ ("at" ~> floatingPointNumber) ~ ("exit" ~> "rate" ~> floatingPointNumber) ^^
-    { case road ~ pos ~ exitRate => network.getStreet(road).createRoundabout(parseDouble(pos).toList(0), parseDouble(exitRate).toList(0)) }
+    {
+      case road ~ pos ~ exitRate => {
+        RoadStructure.Roundabout.addExitRate(road, parseDouble(pos).toList(0), parseDouble(exitRate).toList(0))
+        network.getStreet(road).createRoundabout(parseDouble(pos).toList(0))
+      }
+    }
 
   /**
    * Parses the <b>block</b> construct.

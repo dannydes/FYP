@@ -25,7 +25,7 @@ object NetworkUtils {
 
     vertexFactory = if (edgeType == RoadStructure.TJunction) {
       new ClassBasedVertexFactory(classOf[TJunction])
-    } else if (edgeType == RoadStructure.Roadabout) {
+    } else if (edgeType == RoadStructure.Roundabout) {
       new ClassBasedVertexFactory(classOf[Roundabout])
     } else if (edgeType == RoadStructure.Crossroads) {
       new ClassBasedVertexFactory(classOf[Crossroads])
@@ -34,6 +34,7 @@ object NetworkUtils {
     }
 
     val v2: Node = if (end == null) vertexFactory.createVertex() else end
+
     network.addVertex(v1)
     network.addVertex(v2)
     val edgeFactor: ClassBasedEdgeFactory[Node, Edge] = new ClassBasedEdgeFactory(classOf[Edge])
@@ -41,6 +42,18 @@ object NetworkUtils {
     network.addEdge(v1, v2, edge)
 
     edge
+  }
+
+  def initSpecialTargetProperties(n: RoadNetwork, e: Edge) = {
+    if (e.edgeT == RoadStructure.Crossroads) {
+      val e2 = n.incomingEdgesOf(e.getTarget).toArray(Array(new Edge)).filter((edge: Edge) => edge != e)(0)
+      val timings = RoadStructure.Crossroads.lookupTimingPair(e.streetName, e2.streetName)
+      e.getTarget.asInstanceOf[Crossroads].timingStreet1_(timings._3)
+      e.getTarget.asInstanceOf[Crossroads].timingStreet2_(timings._4)
+    } else if (e.edgeT == RoadStructure.Roundabout) {
+      val exitRate = RoadStructure.Roundabout.lookupExitRate(e.streetName, e.intersectionPoint + e.length)
+      e.getTarget.asInstanceOf[Roundabout].exitRate_(exitRate)
+    }
   }
 
   /**
@@ -53,6 +66,7 @@ object NetworkUtils {
   def initEdgeProperties(e1: Edge, e2: Edge, lanes: Int, edgeNo: Int) = {
     e2.streetName_(e1.streetName)
     e2.length_(e1.length)
+    e2.intersectionPoint_(e1.intersectionPoint)
     e2.streetLanes_(lanes)
     e2.streetEdgeNo_(edgeNo)
   }
