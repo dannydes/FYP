@@ -7,6 +7,6 @@ package org.uom.fyp.engine
 class OneWayEdge(len: Double, lambda: Double) extends Edge {
 
   super.length_(len)
-  super.arrivalRate_(lambda)
+  super.arrivalRateL_(lambda)
 
 }

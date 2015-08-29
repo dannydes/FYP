@@ -20,8 +20,8 @@ object Parser extends JavaTokenParsers {
    */
   def networkGraph = network
 
-  private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehicles: String, arrivalRate: String, pos: String, lanes: String) = {
-    network.streetList(0).attachStreet(network, road, streetType, parseDouble(len).toList(0), parseDouble(pos).toList(0), parseInt(vehicles).toList(0), parseDouble(arrivalRate).toList(0), parseInt(lanes).toList(0))
+  private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehiclesL: String, arrivalRateL: String, vehiclesR: String, arrivalRateR: String, pos: String, lanes: String, to: String) = {
+    (if (to == "") network.streetList(0) else network.getStreet(to)).attachStreet(network, road, streetType, parseDouble(len).toList(0), parseDouble(pos).toList(0), parseInt(vehiclesL).toList(0), parseDouble(arrivalRateL).toList(0), parseInt(vehiclesR).toList(0), parseDouble(arrivalRateR).toList(0), parseInt(lanes).toList(0))
   }
 
   private def parseDouble(s: String) = try { Some(s.toDouble) } catch { case _: Throwable => None }
@@ -32,7 +32,7 @@ object Parser extends JavaTokenParsers {
    * Parses a whole model.
    * @return Parser for model.
    */
-  def model = constructNetwork ~ definitions ~ runSimulation ~ comparison.?
+  def model = constructNetwork ~ definitions ~ runSimulation ~ modifications.?
 
   /**
    * Parses the <b>construct network</b> construct, as well as starts creating
@@ -66,10 +66,10 @@ object Parser extends JavaTokenParsers {
    * @return Parser for road creation.
    */
   def createRoad = ("create" ~> "primary") ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~
-    ("start" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
-    ("end" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^ {
-    case "primary" ~ road ~  len ~ vehicles ~ arrivalRate ~ vehiclesEnd ~ arrivalRateEnd ~ lanes => {
-      network.createStreet(road, StreetType.PRIMARY, parseDouble(len).toList(0), parseInt(vehicles).toList(0), parseDouble(arrivalRate).toList(0), parseInt(lanes.getOrElse("1")).toList(0))
+    ("left" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
+    ("right" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^ {
+    case "primary" ~ road ~  len ~ vehiclesL ~ arrivalRateL ~ vehiclesR ~ arrivalRateR ~ lanes => {
+      network.createStreet(road, StreetType.PRIMARY, parseDouble(len).toList(0), parseInt(vehiclesL).toList(0), parseDouble(arrivalRateL).toList(0), parseInt(vehiclesR).toList(0), parseDouble(arrivalRateR).toList(0), parseInt(lanes.getOrElse("1")).toList(0))
     }
   }
 
@@ -77,12 +77,12 @@ object Parser extends JavaTokenParsers {
    * Parses the <b>attach primary/secondary road</b> construct, together with its properties.
    * @return Parser for road attachment.
    */
-  def attachRoad = ("attach" ~> ("primary" | "secondary")) ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("at" ~>
-    floatingPointNumber) ~ ("start" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
-    ("end" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^
+  def attachRoad = ("attach" ~> ("primary" | "secondary")) ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("to" ~> ident).? ~
+    ("at" ~> floatingPointNumber) ~ ("left" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
+    ("right" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^
     {
-      case "primary" ~ road ~ len ~ pos ~ vehicles ~ arrivalRate ~ vehiclesEnd ~ arrivalRateEnd ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehicles, arrivalRate, pos, lanes.getOrElse("1"))
-      case "secondary" ~ road ~ len ~ pos ~ vehicles ~ arrivalRate ~ vehiclesEnd ~ arrivalRateEnd ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehicles, arrivalRate, pos, lanes.getOrElse("1"))
+      case "primary" ~ road ~ len ~ to ~ pos ~ vehiclesL ~ arrivalRateL ~ vehiclesR ~ arrivalRateR ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, pos, lanes.getOrElse("1"), to.getOrElse(""))
+      case "secondary" ~ road ~ len ~ to ~ pos ~ vehiclesL ~ arrivalRateL ~ vehiclesR ~ arrivalRateR ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, pos, lanes.getOrElse("1"), to.getOrElse(""))
     }
 
   /**
@@ -115,10 +115,18 @@ object Parser extends JavaTokenParsers {
    */
   def blockRoad = ("block" ~> ident) ^^ { case road => network.blockStreet(road) }
 
+  /**
+   * Parses the <b>change</b> construct.
+   * @return Parser for changes to road definitions.
+   */
   def change = ("change" ~> ident) ~ ("lanes" ~> floatingPointNumber) ^^
     { case road ~ lanes => network.getStreet(road).noOfLanes_(parseInt(lanes).toList(0)) }
 
-  def comparison = (blockRoad | change | roundabout).+ ~ "rerun" ^^ { case _ => network.simulate() }
+  /**
+   * Parses the modifications defined and the <b>rerun</b> statement.
+   * @return Parser for modifications.
+   */
+  def modifications = (blockRoad | change | roundabout).+ ~ "rerun" ^^ { case _ => network.simulate() }
 
   /**
    * Initializes the parsing process for some source file with the given

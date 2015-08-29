@@ -43,6 +43,9 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
       street.edges.foreach((edge: Edge) => edge.simulate(pdq))
     })
 
+    pdq.SetTUnit("Minutes")
+    pdq.SetWUnit("Vehicles")
+
     vertexSet.toArray(Array(new Node)).foreach(processNode)
 
     pdq.Solve(defs.APPROX)
@@ -68,8 +71,8 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param lanes
    * @return Reference to the street object just created.
    */
-  override def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street = {
-    addStreet(streetName, streetType, length, vehicles, arrivalRate, lanes)
+  override def createStreet(streetName: String, streetType: StreetType, length: Double, vehiclesL: Int, arrivalRateL: Double, vehiclesR: Int, arrivalRateR: Double, lanes: Int = 1): Street = {
+    addStreet(streetName, streetType, length, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, lanes)
   }
 
   /**
@@ -97,13 +100,13 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
    * @return The <b>Street</b> object created.
    */
-  override def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street = {
+  override def addStreet(streetName: String, streetType: StreetType, length: Double, vehiclesL: Int, arrivalRateL: Double, vehiclesR: Int, arrivalRateR: Double, lanes: Int = 1): Street = {
     //First, we must check if the street has already been defined.
     val matches: Array[Street] = streets.filter((street: Street) => street.name == streetName)
     var street: Street = null
 
     if (matches.size == 0) {
-      street = new Street(streetName, streetType, length, vehicles, arrivalRate, lanes)
+      street = new Street(streetName, streetType, length, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, lanes)
       streets = streets ++ Array(street)
     } else {
       street = matches(0)
@@ -176,10 +179,10 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
     case TJunction() => {
       val junction = node.asInstanceOf[TJunction]
       junction.findEdges(this)
-      junction.priority.speed_(junction.converging1.speed + junction.converging2.speed)
+      junction.priority.speedR_(junction.converging1.speedR + junction.converging2.speedL)
     }
     case Crossroads() => None
-    case Roundabout() => if (node.asInstanceOf[Roundabout].exitRate < node.arrivalRate) node.isCongested_()
+    case Roundabout() => if (node.asInstanceOf[Roundabout].exitRate < incomingEdgesOf(node).toArray(Array(new Edge))(0).departureRateL) node.isCongested_()
     case _ => None
   }
 

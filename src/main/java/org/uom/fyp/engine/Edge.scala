@@ -10,43 +10,22 @@ import org.jgrapht.graph.DefaultEdge
  */
 class Edge extends DefaultEdge {
 
-  /**
-   * Stores the name of the street to which the edge belongs.
-   */
   private var sName: String = _
 
-  /**
-   * Stores the number of vehicles in edge.
-   */
-  private var vehicles: Int = 0
+  private var vehiclePopL: Int = _
 
-  /**
-   * Stores edge length.
-   */
+  private var vehiclePopR: Int = _
+
   private var len: Double = _
 
-  /**
-   * Stores the arrival rate for this edge.
-   */
-  private var lambda: Double = _
+  private var lambdaL: Double = _
 
-  /**
-   * Stores the point in which the edge exists, in relation to the
-   * street in which it is found. Depends on the point of interaction of
-   * the two streets.
-   */
+  private var lambdaR: Double = _
+
   private var point: Double = _
 
-  /**
-   * Stores the position where the intersection occurs upon the other road.
-   */
   private var otherPoint: Double = _
 
-  /**
-   * Stores a reference to the <b>Street</b> object representing the physical
-   * street that intersects with the street on which the edge is found. Used in
-   * the graph building process.
-   */
   private var sat: Street = _
 
   private var sas: Street = _
@@ -59,7 +38,9 @@ class Edge extends DefaultEdge {
 
   private var sEdgeNo: Int = _
 
-  private var eSpeed: Double = _
+  private var segmentSpeedL: Double = _
+
+  private var segmentSpeedR: Double = _
 
   /**
    * Returns the name of the street.
@@ -167,45 +148,86 @@ class Edge extends DefaultEdge {
   }
 
   /**
-   * Returns the number of vehicles in the edge.
+   * Returns the number of vehicles in the edge coming from the left.
    */
-  def noOfVehicles = vehicles
+  def vehiclesL = vehiclePopL
 
   /**
-   * Sets the number of vehicles in the edge.
-   * @param vehicles The number of vehicles in the edge.
+   * Sets the number of vehicles in the edge coming from the left.
+   * @param vehiclePop The number of vehicles in the edge coming from the left.
    */
-  def noOfVehicles_(vehicles: Int) = {
-    this.vehicles = vehicles
+  def vehiclesL_(vehiclePop: Int) = {
+    vehiclePopL = vehiclePop
   }
 
   /**
-   * Returns the edge's arrival rate.
+   * Returns the number of vehicles in the edge coming from the right.
    */
-  def arrivalRate = lambda
+  def vehiclesR = vehiclePopR
 
   /**
-   * Sets the edges's arrival rate.
-   * @param lambda The edge's arrival rate.
+   * Sets the number of vehicles in the edge coming from the right.
+   * @param vehiclePop The number of vehicles in the edge coming from the right.
    */
-  def arrivalRate_(lambda: Double) = {
-    this.lambda = lambda
+  def vehiclesR_(vehiclePop: Int) = {
+    vehiclePopR = vehiclePop
   }
 
   /**
-   * Returns the edge's departure rate.
+   * Returns the edge's arrival rate from the left.
    */
-  def departureRate = lambda / (1 - noOfVehicles)
+  def arrivalRateL = lambdaL
 
   /**
-   * Returns the edge's servicing time.
+   * Sets the edge's arrival rate from the left.
+   * @param lambda The edge's arrival rate from the left.
    */
-  def serviceTime = vehicles / lambda * (1 + vehicles)
+  def arrivalRateL_(lambda: Double) = {
+    lambdaL = lambda
+  }
 
   /**
-   * Returns the density within the edge.
+   * Returns the edge's arrival rate from the right.
    */
-  def density = vehicles / len
+  def arrivalRateR = lambdaR
+
+  /**
+   * Sets the edge's arrival rate from the right.
+   * @param lambda The edge's arrival rate from the right.
+   */
+  def arrivalRateR_(lambda: Double) = {
+    lambdaR = lambdaR
+  }
+
+  /**
+   * Returns the edge's departure rate from the left.
+   */
+  def departureRateL = lambdaL / (1 - vehiclePopL)
+
+  /**
+   * Returns the edge's departure rate from the right.
+   */
+  def departureRateR = lambdaR / (1 - vehiclePopR)
+
+  /**
+   * Returns the edge's servicing time for vehicles from the left.
+   */
+  def serviceTimeL = vehiclePopL / lambdaL * (1 + vehiclePopL)
+
+  /**
+   * Returns the edge's servicing time for vehicles from the right.
+   */
+  def serviceTimeR = vehiclePopR / lambdaR * (1 + vehiclePopR)
+
+  /**
+   * Returns the density within the edge for vehicles from the left.
+   */
+  def densityL = vehiclePopL / len
+
+  /**
+   * Returns the density within the edge for vehicles from the right.
+   */
+  def densityR = vehiclePopR / len
 
   /**
    * Returns the time in minutes for the simulation to run.
@@ -221,23 +243,50 @@ class Edge extends DefaultEdge {
   }
 
   /**
-   * Returns the flow within the edge.
+   * Returns the flow within the edge from the left.
    */
-  def flow = vehicles / minSim
+  def flowL = vehiclePopL / minSim
 
   /**
-   * Returns the traffic speed within the edge.
+   * Returns the flow within the edge from the right.
    */
-  def speed = if (eSpeed == 0) flow / density else eSpeed
+  def flowR = vehiclePopR / minSim
 
-  def speed_(eSpeed: Double) = {
-    this.eSpeed = eSpeed
+  /**
+   * Returns the traffic speed within the edge from the left.
+   */
+  def speedL = if (segmentSpeedL == 0) flowL / densityL else segmentSpeedL
+
+  /**
+   * Sets the traffic speed within the edge from the left.
+   * @param segmentSpeed Traffic speed from the left.
+   */
+  def speedL_(segmentSpeed: Double) = {
+    segmentSpeedL = segmentSpeed
   }
 
   /**
-   * Returns the time taken for one job (vehicle) spends in a road segment.
+   * Returns the traffic speed within the edge from the right.
    */
-  def residenceTime = 1 / (departureRate - lambda)
+  def speedR = if (segmentSpeedR == 0) flowR / densityR else segmentSpeedR
+
+  /**
+   * Sets the traffic speed within the edge from the right.
+   * @param segmentSpeed Traffic speed from the right.
+   */
+  def speedR_(segmentSpeed: Double) = {
+    segmentSpeedR = segmentSpeed
+  }
+
+  /**
+   * Returns the time taken for one job (vehicle) from the left spends in a road segment.
+   */
+  def residenceTimeL = 1 / (departureRateL - lambdaL)
+
+  /**
+   * Returns the time taken for one job (vehicle) from the right spends in a road segment.
+   */
+  def residenceTimeR = 1 / (departureRateR - lambdaR)
 
   /**
    * Returns the type of the edge's target node to-be.
@@ -275,11 +324,14 @@ class Edge extends DefaultEdge {
     for (l <- 0 until sLanes) {
       val node = toString + "l" + l
       val workload = node + "w"
-      pdq.CreateClosed(workload, Job.TERM, vehicles / sLanes, 1 / (lambda / sLanes))
-      pdq.CreateNode(node, defs.CEN, defs.FCFS)
-      pdq.SetDemand(node, workload, serviceTime)
-      pdq.SetTUnit("Minutes")
-      pdq.SetWUnit("Vehicles")
+
+      pdq.CreateClosed(workload + "left", Job.TERM, vehiclePopL / sLanes, 1 / (lambdaL / sLanes))
+      pdq.CreateNode(node + "left", defs.CEN, defs.FCFS)
+      pdq.SetDemand(node + "left", workload + "left", serviceTimeL)
+
+      pdq.CreateClosed(workload + "right", Job.TERM, vehiclePopR / sLanes, 1 / (lambdaR / sLanes))
+      pdq.CreateNode(node + "right", defs.CEN, defs.FCFS)
+      pdq.SetDemand(node + "right", workload + "right", serviceTimeR)
     }
   }
 

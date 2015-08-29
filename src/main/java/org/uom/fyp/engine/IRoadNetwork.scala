@@ -32,7 +32,7 @@ trait IRoadNetwork {
    * @param lanes
    * @return Reference to the lane object just created.
    */
-  def createStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street
+  def createStreet(streetName: String, streetType: StreetType, length: Double, vehiclesL: Int, arrivalRateL: Double, vehiclesR: Int, arrivalRateR: Double, lanes: Int = 1): Street
 
   /**
    * Block the street with the given name.
@@ -47,7 +47,7 @@ trait IRoadNetwork {
    * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
    * @return The <b>Street</b> object created.
    */
-  def addStreet(streetName: String, streetType: StreetType, length: Double, vehicles: Int, arrivalRate: Double, lanes: Int = 1): Street
+  def addStreet(streetName: String, streetType: StreetType, length: Double, vehiclesL: Int, arrivalRateL: Double, vehiclesR: Int, arrivalRateR: Double, lanes: Int = 1): Street
 
   /**
    * Builds the graph declared in the model by recursively going through the ficticious

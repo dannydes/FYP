@@ -5,24 +5,19 @@ package org.uom.fyp.engine
  */
 class Node {
 
-  private var lambda: Double = _
-
   private var congested: Boolean = _
 
-  def arrivalRate_(lambda: Double) = {
-    this.lambda = lambda
-  }
-
-  def arrivalRate = lambda
-
-  def departureRate = ???
-
-  def speed = ???
-
+  /**
+   * Sets whether the node is congested.
+   * @param congested Flag showing whether node is congested.
+   */
   def isCongested_(congested: Boolean = true) = {
     this.congested = congested
   }
 
+  /**
+   * Returns whether the node is congested.
+   */
   def isCongested = congested
 
 }
