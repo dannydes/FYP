@@ -44,6 +44,11 @@ object NetworkUtils {
     edge
   }
 
+  /**
+   * Initialises a non-generic node that is the target of the given edge.
+   * @param n The <b>RoadNetwork</b> object where the edge is found.
+   * @param e Edge whose target node is to be initialised if not .
+   */
   def initSpecialTargetProperties(n: RoadNetwork, e: Edge) = {
     if (e.edgeT == RoadStructure.Crossroads) {
       val e2 = n.incomingEdgesOf(e.getTarget).toArray(Array(new Edge)).filter((edge: Edge) => edge != e)(0)

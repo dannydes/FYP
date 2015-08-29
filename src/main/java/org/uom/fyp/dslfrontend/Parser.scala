@@ -69,7 +69,7 @@ object Parser extends JavaTokenParsers {
     ("left" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
     ("right" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^ {
     case "primary" ~ road ~  len ~ vehiclesL ~ arrivalRateL ~ vehiclesR ~ arrivalRateR ~ lanes => {
-      network.createStreet(road, StreetType.PRIMARY, parseDouble(len).toList(0), parseInt(vehiclesL).toList(0), parseDouble(arrivalRateL).toList(0), parseInt(vehiclesR).toList(0), parseDouble(arrivalRateR).toList(0), parseInt(lanes.getOrElse("1")).toList(0))
+      network.createStreet(road, parseDouble(len).toList(0), parseInt(vehiclesL).toList(0), parseDouble(arrivalRateL).toList(0), parseInt(vehiclesR).toList(0), parseDouble(arrivalRateR).toList(0), parseInt(lanes.getOrElse("1")).toList(0))
     }
   }
 

@@ -1,17 +1,17 @@
 package org.uom.fyp.engine
 
 /**
- * StreetType enum
+ * StreetType enum.
  */
 object StreetType extends Enumeration {
 
   /**
-   * StreetType type
+   * StreetType type.
    */
   type StreetType = Value
 
   /**
-   * StreetType values
+   * StreetType values.
    */
   val PRIMARY, SECONDARY = Value
 

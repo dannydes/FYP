@@ -12,9 +12,6 @@ import org.uom.fyp.engine.StreetType.StreetType
  */
 class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf[Edge]) with IRoadNetwork {
 
-  /**
-   * Stores a list of streets/roads within the network.
-   */
   private var streets: Array[Street] = Array()
 
   /**
@@ -64,15 +61,16 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
   /**
    * Creates a street and returns a reference to the object created.
    * @param streetName The name of the street.
-   * @param streetType The type of the street. Can be <b>StreetType.PRIMARY</b>
-   *                   or <b>StreetType.SECONDARY</b>.
    * @param length The street's length.
-   * @param vehicles
-   * @param lanes
+   * @param vehiclesL The number of vehicles in the new street coming from the left.
+   * @param arrivalRateL The new street's arrival rate from the left.
+   * @param vehiclesR The number of vehicles in the new street coming from the right.
+   * @param arrivalRateR The new street's arrival rate from the right.
+   * @param lanes The number of lanes in the new street.
    * @return Reference to the street object just created.
    */
-  override def createStreet(streetName: String, streetType: StreetType, length: Double, vehiclesL: Int, arrivalRateL: Double, vehiclesR: Int, arrivalRateR: Double, lanes: Int = 1): Street = {
-    addStreet(streetName, streetType, length, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, lanes)
+  override def createStreet(streetName: String, length: Double, vehiclesL: Int, arrivalRateL: Double, vehiclesR: Int, arrivalRateR: Double, lanes: Int = 1): Street = {
+    addStreet(streetName, StreetType.PRIMARY, length, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, lanes)
   }
 
   /**
@@ -98,6 +96,12 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * returns it.
    * @param streetName Name of the street.
    * @param streetType Type of the street (i.e. <b>StreetType.PRIMARY</b> or <b>StreetType.SECONDARY</b>).
+   * @param length The street's length.
+   * @param vehiclesL The number of vehicles in the new street coming from the left.
+   * @param arrivalRateL The new street's arrival rate from the left.
+   * @param vehiclesR The number of vehicles in the new street coming from the right.
+   * @param arrivalRateR The new street's arrival rate from the right.
+   * @param lanes The number of lanes in the new street.
    * @return The <b>Street</b> object created.
    */
   override def addStreet(streetName: String, streetType: StreetType, length: Double, vehiclesL: Int, arrivalRateL: Double, vehiclesR: Int, arrivalRateR: Double, lanes: Int = 1): Street = {

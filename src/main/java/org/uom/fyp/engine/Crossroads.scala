@@ -1,7 +1,7 @@
 package org.uom.fyp.engine
 
 /**
- * Represents a crossroad node.
+ * Represents a crossroad intersection.
  */
 case class Crossroads() extends Node {
 

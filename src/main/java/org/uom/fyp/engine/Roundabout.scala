@@ -1,14 +1,21 @@
 package org.uom.fyp.engine
 
 /**
- * Created by Daniel on 7/14/2015.
+ * Represents a roundabout.
  */
 case class Roundabout() extends Node {
 
   private var exitR: Double = _
 
+  /**
+   * Returns the roundabout's exit rate.
+   */
   def exitRate = exitR
 
+  /**
+   * Sets the roundabout's exit rate.
+   * @param exitR Exit rate.
+   */
   def exitRate_(exitR: Double) = {
     this.exitR = exitR
   }

@@ -39,10 +39,9 @@ object RoadStructure {
     }
 
     /**
-     *
+     * Returns the exit rate of the roundabout in the given road and the given relative position.
      * @param road The name of the road.
      * @param pos The relative position of the roundabout within the road.
-     * @return
      */
     def lookupExitRate(road: String, pos: Double) = {
       exitRates.filter((el: (String, Double, Double)) => el._1 == road && el._2 == pos)(0)._3
@@ -51,7 +50,7 @@ object RoadStructure {
   }
 
   /**
-   * Value for a cross road.
+   * Value for a crossroads intersection.
    */
   case object Crossroads extends RoadStructure {
 
@@ -70,10 +69,10 @@ object RoadStructure {
     }
 
     /**
-     *
+     * Returns the tuple from where the access the waiting times for the roads meeting at the
+     * crossroads intersection for the names of the later roads.
      * @param r1 The name of the first road.
      * @param r2 The name of the second road.
-     * @return
      */
     def lookupTimingPair(r1: String, r2: String) = {
       timings.filter((el: (String, String, Double, Double)) => el._1 == r1 && el._2 == r2)(0)

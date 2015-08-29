@@ -316,7 +316,7 @@ class Edge extends DefaultEdge {
 
   /**
    * Simulates traffic going from the starting point to the ending point of the
-   * particular edge.
+   * particular edge and the other way round.
    * @param pdq PDQ object.
    */
   def simulate(pdq: PDQ) = {
