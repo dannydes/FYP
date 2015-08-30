@@ -21,12 +21,21 @@ object Parser extends JavaTokenParsers {
   def networkGraph = network
 
   private def attachRoadHelper(road: String, streetType: StreetType, len: String, vehiclesL: String, arrivalRateL: String, vehiclesR: String, arrivalRateR: String, pos: String, lanes: String, to: String) = {
-    (if (to == "") network.streetList(0) else network.getStreet(to)).attachStreet(network, road, streetType, parseDouble(len).toList(0), parseDouble(pos).toList(0), parseInt(vehiclesL).toList(0), parseDouble(arrivalRateL).toList(0), parseInt(vehiclesR).toList(0), parseDouble(arrivalRateR).toList(0), parseInt(lanes).toList(0))
+    val vL = parseInt(if (vehiclesL == "?") inputValue("number of vehicles coming from the left of " + road) else vehiclesL).toList(0)
+    val arL = parseDouble(if (arrivalRateL == "?") inputValue("arrival rate from the left of " + road) else arrivalRateL).toList(0)
+    val vR = parseInt(if (vehiclesR == "?") inputValue("number of vehicles coming from the right of " + road) else vehiclesR).toList(0)
+    val arR = parseDouble(if (arrivalRateR == "?") inputValue("arrival rate from the right of " + road) else arrivalRateR).toList(0)
+    (if (to == "") network.streetList(0) else network.getStreet(to)).attachStreet(network, road, streetType, parseDouble(len).toList(0), parseDouble(pos).toList(0), vL, arR, vR, arR, parseInt(lanes).toList(0))
   }
 
   private def parseDouble(s: String) = try { Some(s.toDouble) } catch { case _: Throwable => None }
 
   private def parseInt(s: String) = try { Some(s.toInt) } catch { case _: Throwable => None }
+
+  private def inputValue(value: String) = {
+    print("Please enter " + value + ": ")
+    scala.io.StdIn.readLine
+  }
 
   /**
    * Parses a whole model.
@@ -66,10 +75,14 @@ object Parser extends JavaTokenParsers {
    * @return Parser for road creation.
    */
   def createRoad = ("create" ~> "primary") ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~
-    ("left" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
-    ("right" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^ {
+    ("left" ~> "has" ~> "vehicles" ~> (wholeNumber | "?")) ~ ("arrival" ~> "rate" ~> (floatingPointNumber | "?")) ~
+    ("right" ~> "has" ~> "vehicles" ~> (wholeNumber | "?")) ~ ("arrival" ~> "rate" ~> (floatingPointNumber | "?")) ~ ("lanes" ~> wholeNumber).? ^^ {
     case "primary" ~ road ~  len ~ vehiclesL ~ arrivalRateL ~ vehiclesR ~ arrivalRateR ~ lanes => {
-      network.createStreet(road, parseDouble(len).toList(0), parseInt(vehiclesL).toList(0), parseDouble(arrivalRateL).toList(0), parseInt(vehiclesR).toList(0), parseDouble(arrivalRateR).toList(0), parseInt(lanes.getOrElse("1")).toList(0))
+      val vL = parseInt(if (vehiclesL == "?") inputValue("number of vehicles coming from the left of " + road) else vehiclesL).toList(0)
+      val arL = parseDouble(if (arrivalRateL == "?") inputValue("arrival rate from the left of " + road) else arrivalRateL).toList(0)
+      val vR = parseInt(if (vehiclesR == "?") inputValue("number of vehicles coming from the right of " + road) else vehiclesR).toList(0)
+      val arR = parseDouble(if (arrivalRateR == "?") inputValue("arrival rate from the right of " + road) else arrivalRateR).toList(0)
+      network.createStreet(road, parseDouble(len).toList(0), vL, arL, vR, arR, parseInt(lanes.getOrElse("1")).toList(0))
     }
   }
 
@@ -78,8 +91,8 @@ object Parser extends JavaTokenParsers {
    * @return Parser for road attachment.
    */
   def attachRoad = ("attach" ~> ("primary" | "secondary")) ~ ("road" ~> ident) ~ ("with" ~> "length" ~> floatingPointNumber) ~ ("to" ~> ident).? ~
-    ("at" ~> floatingPointNumber) ~ ("left" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~
-    ("right" ~> "has" ~> "vehicles" ~> wholeNumber) ~ ("arrival" ~> "rate" ~> floatingPointNumber) ~ ("lanes" ~> wholeNumber).? ^^
+    ("at" ~> floatingPointNumber) ~ ("left" ~> "has" ~> "vehicles" ~> (wholeNumber | "?")) ~ ("arrival" ~> "rate" ~> (floatingPointNumber | "?")) ~
+    ("right" ~> "has" ~> "vehicles" ~> (wholeNumber | "?")) ~ ("arrival" ~> "rate" ~> (floatingPointNumber | "?")) ~ ("lanes" ~> wholeNumber).? ^^
     {
       case "primary" ~ road ~ len ~ to ~ pos ~ vehiclesL ~ arrivalRateL ~ vehiclesR ~ arrivalRateR ~ lanes => attachRoadHelper(road, StreetType.PRIMARY, len, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, pos, lanes.getOrElse("1"), to.getOrElse(""))
       case "secondary" ~ road ~ len ~ to ~ pos ~ vehiclesL ~ arrivalRateL ~ vehiclesR ~ arrivalRateR ~ lanes => attachRoadHelper(road, StreetType.SECONDARY, len, vehiclesL, arrivalRateL, vehiclesR, arrivalRateR, pos, lanes.getOrElse("1"), to.getOrElse(""))

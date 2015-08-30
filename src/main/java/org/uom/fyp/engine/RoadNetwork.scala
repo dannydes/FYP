@@ -29,14 +29,13 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param minutes The time in minutes for which the simulation will be allowed to run.
    */
   override def simulate(minutes: Double = streets(0).edges(0).minutesForSimulation) = {
-    //val edges = edgeSet().toArray
     val pdq: PDQ = new PDQ
     pdq.Init(name)
 
     streets.foreach((s: Street) => s.edges.foreach((e: Edge) => e.minutesForSimulation_(minutes)))
 
     streets.foreach((street: Street) => {
-      street.initialize()
+      street.initialise()
       street.edges.foreach((edge: Edge) => edge.simulate(pdq))
     })
 
@@ -179,13 +178,12 @@ class RoadNetwork(name: String) extends DefaultDirectedGraph[Node, Edge](classOf
    * @param node Node to be processed.
    */
   override def processNode(node: Node) = node match {
-    //case PedestrianCrossing() => None
     case TJunction() => {
       val junction = node.asInstanceOf[TJunction]
       junction.findEdges(this)
       junction.priority.speedR_(junction.converging1.speedR + junction.converging2.speedL)
     }
-    case Crossroads() => None
+    case Crossroads() => node.asInstanceOf[Crossroads].findPriorityEdges(this)
     case Roundabout() => if (node.asInstanceOf[Roundabout].exitRate < incomingEdgesOf(node).toArray(Array(new Edge))(0).departureRateL) node.isCongested_()
     case _ => None
   }

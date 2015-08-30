@@ -51,10 +51,16 @@ object NetworkUtils {
    */
   def initSpecialTargetProperties(n: RoadNetwork, e: Edge) = {
     if (e.edgeT == RoadStructure.Crossroads) {
-      val e2 = n.incomingEdgesOf(e.getTarget).toArray(Array(new Edge)).filter((edge: Edge) => edge != e)(0)
-      val timings = RoadStructure.Crossroads.lookupTimingPair(e.streetName, e2.streetName)
-      e.getTarget.asInstanceOf[Crossroads].timingStreet1_(timings._3)
-      e.getTarget.asInstanceOf[Crossroads].timingStreet2_(timings._4)
+      val incoming = n.incomingEdgesOf(e.getTarget).toArray(Array(new Edge))
+      if (incoming.size == 2) {
+        val e2 = incoming.filter((edge: Edge) => edge != e)(0)
+        val timings = RoadStructure.Crossroads.lookupTimingPair(e.streetName, e2.streetName)
+        val node = e.getTarget.asInstanceOf[Crossroads]
+        node.road1_(timings._1)
+        node.road2_(timings._2)
+        node.timingStreet1_(timings._3)
+        node.timingStreet2_(timings._4)
+      }
     } else if (e.edgeT == RoadStructure.Roundabout) {
       val exitRate = RoadStructure.Roundabout.lookupExitRate(e.streetName, e.intersectionPoint + e.length)
       e.getTarget.asInstanceOf[Roundabout].exitRate_(exitRate)
@@ -74,6 +80,7 @@ object NetworkUtils {
     e2.intersectionPoint_(e1.intersectionPoint)
     e2.streetLanes_(lanes)
     e2.streetEdgeNo_(edgeNo)
+    e2.edgeT_(e1.edgeT)
   }
 
 }

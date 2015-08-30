@@ -202,12 +202,22 @@ class Edge extends DefaultEdge {
   /**
    * Returns the edge's departure rate from the left.
    */
-  def departureRateL = lambdaL / (1 - vehiclePopL)
+  def departureRateL = lambdaL * (1 + vehiclePopL) / vehiclePopL
 
   /**
    * Returns the edge's departure rate from the right.
    */
-  def departureRateR = lambdaR / (1 - vehiclePopR)
+  def departureRateR = lambdaR * (1 + vehiclePopR) / vehiclePopR
+
+  /**
+   * Returns the edge's utilisation factor from the left.
+   */
+  def utilisationL = lambdaL / departureRateL
+
+  /**
+   * Returns the edge's utilisation factor from the right.
+   */
+  def utilisationR = lambdaR / departureRateR
 
   /**
    * Returns the edge's servicing time for vehicles from the left.

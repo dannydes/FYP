@@ -75,7 +75,7 @@ object RoadStructure {
      * @param r2 The name of the second road.
      */
     def lookupTimingPair(r1: String, r2: String) = {
-      timings.filter((el: (String, String, Double, Double)) => el._1 == r1 && el._2 == r2)(0)
+      timings.filter((el: (String, String, Double, Double)) => (el._1 == r1 || el._1 == r2) && (el._2 == r2 || el._2 == r1))(0)
     }
 
   }
